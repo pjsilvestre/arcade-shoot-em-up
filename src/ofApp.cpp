@@ -3,13 +3,16 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
+  sprite = Sprite("battery.png");
+  actor = Actor(sprite);
+  actor.setPosition(glm::vec3(500, 500, 0));
 }
 
 //--------------------------------------------------------------
-void ofApp::update() {}
+void ofApp::update() { actor.update(); }
 
 //--------------------------------------------------------------
-void ofApp::draw() {}
+void ofApp::draw() { actor.draw(); }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {}

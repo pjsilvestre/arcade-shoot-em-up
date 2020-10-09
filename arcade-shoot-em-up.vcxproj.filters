@@ -37,10 +37,10 @@
     <ClCompile Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
+    <ClCompile Include="src\Actor.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Sprite.cpp">
+    <ClCompile Include="src\Sprite.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,10 +98,10 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
-    <ClInclude Include="Actor.h">
+    <ClInclude Include="src\Actor.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Sprite.h">
+    <ClInclude Include="src\Sprite.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

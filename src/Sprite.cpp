@@ -40,6 +40,11 @@ void Sprite::setTransformationMatrix(glm::mat4 transformationMatrix) {
 void Sprite::draw() {
   ofPushMatrix();
   ofMultMatrix(transformationMatrix);
-  image.draw(0, 0);
+  if (loaded) {
+    image.draw(0, 0);
+  }
+  else {
+    ofDrawRectangle(glm::vec3(0.0f, 0.0f, 0.0f), 128.0f, 128.0f);
+  }
   ofPopMatrix();
 }

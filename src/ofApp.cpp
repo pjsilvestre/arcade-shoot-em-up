@@ -5,7 +5,7 @@ void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
   sprite = Sprite("battery.png");
   actor = Actor(sprite);
-  actor.setPosition(glm::vec3(500.0f, 500.0f, 0.0f));
+  actor.setPosition(glm::vec3(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f, 0.0f));
 }
 
 //--------------------------------------------------------------

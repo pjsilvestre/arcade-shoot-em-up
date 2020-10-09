@@ -12,9 +12,6 @@ Sprite::Sprite() : loaded{false} {}
 Sprite::Sprite(string fileName) {
   if (image.load(fileName)) {
     loaded = true;
-
-    // center image relative to Sprite
-    image.setAnchorPercent(0.5, 0.5);
   } else {
     loaded = false;
     cerr << fileName << " not found" << endl;
@@ -41,6 +38,7 @@ void Sprite::draw() {
   ofPushMatrix();
   ofMultMatrix(transformationMatrix);
   if (loaded) {
+    image.setAnchorPercent(0.5f, 0.5f);
     image.draw(0, 0);
   }
   else {

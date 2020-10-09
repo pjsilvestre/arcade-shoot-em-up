@@ -3,13 +3,14 @@
 /**
  * @brief Create an Actor with no Sprite
  */
-Actor::Actor() {}
+Actor::Actor() : position{glm::vec3(0.0f, 0.0f, 0.0f)} {}
 
 /**
  * @brief Create an Actor with a Sprite
  * @param sprite The desired Sprite
  */
-Actor::Actor(Sprite sprite) { this->sprite = sprite; }
+Actor::Actor(Sprite sprite)
+    : position{glm::vec3(0.0f, 0.0f, 0.0f)}, sprite{sprite} {}
 
 /**
  * @brief Update the Actor's state

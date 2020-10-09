@@ -1,6 +1,8 @@
 #pragma once
-#include "ofMain.h"
+
 #include "Sprite.h"
+
+const float DEFAULT_MOVEMENT_STEP{30.0f};
 
 class Actor {
  public:
@@ -9,6 +11,11 @@ class Actor {
   void update();
   void draw();
   void setPosition(glm::vec3 position);
+  glm::vec3 getPosition();
+  void moveUp();
+  void moveLeft();
+  void moveDown();
+  void moveRight();
 
  private:
   void updateTransformationMatrix();

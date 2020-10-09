@@ -43,6 +43,7 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Command.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -104,6 +105,7 @@
     <ClInclude Include="src\Sprite.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Command.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

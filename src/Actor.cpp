@@ -31,6 +31,39 @@ void Actor::draw() { sprite.draw(); }
  */
 void Actor::setPosition(glm::vec3 position) { this->position = position; }
 
+/**
+ * @brief Get the Actor's position
+ * @return The Actor's position
+ */
+glm::vec3 Actor::getPosition() { return position; }
+
+/**
+ * @brief Move the Actor up
+ */
+void Actor::moveUp() {
+  // y values shrink upwards
+  position.y -= DEFAULT_MOVEMENT_STEP;
+}
+
+/**
+ * @brief Move the Actor left
+ */
+void Actor::moveLeft() { position.x -= DEFAULT_MOVEMENT_STEP; }
+
+/**
+ * @brief Move the Actor down
+ */
+void Actor::moveDown() {
+  // y values grow downwards
+  position.y += DEFAULT_MOVEMENT_STEP;
+}
+
+/**
+ * @brief Move the Actor right
+ */
+void Actor::moveRight() { position.x += DEFAULT_MOVEMENT_STEP; }
+
+// Private Methods
 void Actor::updateTransformationMatrix() {
   transformationMatrix = glm::translate(glm::mat4(1.0f), position);
 }

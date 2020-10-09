@@ -2,6 +2,7 @@
 
 #include "Actor.h"
 #include "Sprite.h"
+#include "Command.h"
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp {

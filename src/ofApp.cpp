@@ -3,23 +3,23 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
-  sprite = Sprite("battery.png");
-  actor = Actor(sprite);
-  actor.setPosition(glm::vec3(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f, 0.0f));
+  playerSprite = Sprite("battery.png");
+  player = Player(playerSprite);
+  player.setPosition(glm::vec3(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f, 0.0f));
 }
 
 //--------------------------------------------------------------
-void ofApp::update() { actor.update(); }
+void ofApp::update() { player.update(); }
 
 //--------------------------------------------------------------
-void ofApp::draw() { actor.draw(); }
+void ofApp::draw() { player.draw(); }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
   Command* command = inputHandler.handleInput(key);
 
   if (command) {
-    command->execute(actor);
+    command->execute(player);
   }
 }
 

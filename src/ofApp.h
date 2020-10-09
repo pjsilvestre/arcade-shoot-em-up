@@ -3,6 +3,7 @@
 #include "Actor.h"
 #include "Command.h"
 #include "InputHandler.h"
+#include "Player.h"
 #include "Sprite.h"
 #include "ofMain.h"
 
@@ -25,6 +26,6 @@ class ofApp : public ofBaseApp {
   void gotMessage(ofMessage msg);
 
   InputHandler inputHandler;
-  Sprite sprite;
-  Actor actor;
+  Sprite playerSprite;
+  Player player;
 };

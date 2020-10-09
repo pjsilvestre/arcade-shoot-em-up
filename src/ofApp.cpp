@@ -15,7 +15,13 @@ void ofApp::update() { actor.update(); }
 void ofApp::draw() { actor.draw(); }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key) {}
+void ofApp::keyPressed(int key) {
+  Command* command = inputHandler.handleInput(key);
+
+  if (command) {
+    command->execute(actor);
+  }
+}
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key) {}

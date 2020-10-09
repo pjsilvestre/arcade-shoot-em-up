@@ -40,8 +40,7 @@ void Sprite::draw() {
   if (loaded) {
     image.setAnchorPercent(0.5f, 0.5f);
     image.draw(0, 0);
-  }
-  else {
+  } else {
     ofDrawRectangle(glm::vec3(0.0f, 0.0f, 0.0f), 128.0f, 128.0f);
   }
   ofPopMatrix();

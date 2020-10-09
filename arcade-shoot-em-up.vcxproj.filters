@@ -43,7 +43,12 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Command.cpp" />
+    <ClCompile Include="src\InputHandler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Command.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -105,7 +110,12 @@
     <ClInclude Include="src\Sprite.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Command.h" />
+    <ClInclude Include="src\InputHandler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Command.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Actor.h"
-#include "Sprite.h"
 #include "Command.h"
+#include "InputHandler.h"
+#include "Sprite.h"
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp {
@@ -23,6 +24,7 @@ class ofApp : public ofBaseApp {
   void dragEvent(ofDragInfo dragInfo);
   void gotMessage(ofMessage msg);
 
+  InputHandler inputHandler;
   Sprite sprite;
   Actor actor;
 };

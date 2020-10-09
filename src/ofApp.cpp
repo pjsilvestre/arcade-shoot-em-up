@@ -1,7 +1,9 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup() {}
+void ofApp::setup() {
+  ofSetBackgroundColor(ofColor::darkGrey);
+}
 
 //--------------------------------------------------------------
 void ofApp::update() {}

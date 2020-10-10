@@ -11,11 +11,7 @@ void ofApp::setup() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
-  if (ofGetWidth() != Constants::DEFAULT_WIDTH ||
-      ofGetHeight() != Constants::DEFAULT_HEIGHT) {
-    ofSetWindowShape(Constants::DEFAULT_WIDTH, Constants::DEFAULT_HEIGHT);
-  }
-
+  preventResize();
   player.update();
 }
 
@@ -60,3 +56,11 @@ void ofApp::gotMessage(ofMessage msg) {}
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo) {}
+
+//--------------------------------------------------------------
+void ofApp::preventResize() {
+  if (ofGetWidth() != Constants::DEFAULT_WIDTH ||
+      ofGetHeight() != Constants::DEFAULT_HEIGHT) {
+    ofSetWindowShape(Constants::DEFAULT_WIDTH, Constants::DEFAULT_HEIGHT);
+  }
+}

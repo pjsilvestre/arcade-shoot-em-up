@@ -21,7 +21,7 @@ Sprite::Sprite(string fileName) {
 /**
  * @brief Sets the Sprite's transformation matrix
  */
-void Sprite::setTransformationMatrix(glm::mat4 transformationMatrix) {
+void Sprite::setTransformationMatrix(const glm::mat4& transformationMatrix) {
   this->transformationMatrix = transformationMatrix;
 }
 

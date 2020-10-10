@@ -7,11 +7,14 @@
 class Actor {
  public:
   Actor();
-  Actor(Sprite sprite);
+  Actor(const Sprite& sprite);
+
   virtual void update();
   void draw();
-  void setPosition(glm::vec3 position);
+
+  void setPosition(const glm::vec3& position);
   glm::vec3 getPosition();
+
   void moveUp();
   void moveLeft();
   void moveDown();
@@ -22,5 +25,6 @@ class Actor {
 
   Sprite sprite;
   glm::vec3 position;
+  glm::vec3 velocity;
   glm::mat4 transformationMatrix;
 };

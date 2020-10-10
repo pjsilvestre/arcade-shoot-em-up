@@ -1,5 +1,8 @@
 #include "Player.h"
 
+/**
+ * @brief Update the Player's state
+*/
 void Player::update() {
   clamp();
   Actor::update();

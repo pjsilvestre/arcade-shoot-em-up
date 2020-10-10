@@ -19,13 +19,6 @@ Sprite::Sprite(string fileName) {
 }
 
 /**
- * @brief Sets the Sprite's transformation matrix
- */
-void Sprite::setTransformationMatrix(const glm::mat4& transformationMatrix) {
-  this->transformationMatrix = transformationMatrix;
-}
-
-/**
  * @brief Draws the Sprite
  */
 void Sprite::draw() {
@@ -41,6 +34,13 @@ void Sprite::draw() {
     drawPlaceholder();
   }
   ofPopMatrix();
+}
+
+/**
+ * @brief Sets the Sprite's transformation matrix
+ */
+void Sprite::setTransformationMatrix(const glm::mat4& transformationMatrix) {
+  this->transformationMatrix = transformationMatrix;
 }
 
 void Sprite::drawPlaceholder() {

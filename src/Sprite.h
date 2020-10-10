@@ -7,8 +7,10 @@ class Sprite {
  public:
   Sprite();
   Sprite(string fileName);
-  void setTransformationMatrix(const glm::mat4& transformationMatrix);
+
   void draw();
+
+  void setTransformationMatrix(const glm::mat4& transformationMatrix);
 
  private:
   void drawPlaceholder();

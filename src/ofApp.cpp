@@ -4,8 +4,7 @@
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
   gameNotStarted = true;
-  playerSprite = Sprite("battery.png");
-  player = Player(playerSprite);
+  player = Player(Sprite("battery.png"));
   player.setPosition(
       glm::vec3(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f, 0.0f));
 }

@@ -32,6 +32,5 @@ class ofApp : public ofBaseApp {
 
   bool gameNotStarted;
   InputHandler inputHandler;
-  Sprite playerSprite;
   Player player;
 };

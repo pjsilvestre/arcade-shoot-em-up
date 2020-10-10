@@ -2,6 +2,7 @@
 
 #include "Actor.h"
 #include "Command.h"
+#include "Constants.h"
 #include "InputHandler.h"
 #include "Player.h"
 #include "Sprite.h"

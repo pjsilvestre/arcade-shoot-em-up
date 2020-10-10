@@ -5,11 +5,19 @@ void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
   playerSprite = Sprite("battery.png");
   player = Player(playerSprite);
-  player.setPosition(glm::vec3(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f, 0.0f));
+  player.setPosition(
+      glm::vec3(ofGetWidth() / 2.0f, ofGetHeight() / 2.0f, 0.0f));
 }
 
 //--------------------------------------------------------------
-void ofApp::update() { player.update(); }
+void ofApp::update() {
+  if (ofGetWidth() != Constants::DEFAULT_WIDTH ||
+      ofGetHeight() != Constants::DEFAULT_HEIGHT) {
+    ofSetWindowShape(Constants::DEFAULT_WIDTH, Constants::DEFAULT_HEIGHT);
+  }
+
+  player.update();
+}
 
 //--------------------------------------------------------------
 void ofApp::draw() { player.draw(); }

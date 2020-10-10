@@ -1,3 +1,7 @@
+/*
+ * Pattern sourced from Design Patterns / Game Programming Patterns
+ */
+
 #pragma once
 
 #include "Actor.h"

@@ -122,6 +122,9 @@
     <ClInclude Include="src\Player.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Constants.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

@@ -42,26 +42,26 @@ glm::vec3 Actor::getPosition() { return position; }
  */
 void Actor::moveUp() {
   // y values shrink upwards
-  position.y -= DEFAULT_MOVEMENT_STEP;
+  position.y -= Constants::DEFAULT_MOVEMENT_STEP;
 }
 
 /**
  * @brief Move the Actor left
  */
-void Actor::moveLeft() { position.x -= DEFAULT_MOVEMENT_STEP; }
+void Actor::moveLeft() { position.x -= Constants::DEFAULT_MOVEMENT_STEP; }
 
 /**
  * @brief Move the Actor down
  */
 void Actor::moveDown() {
   // y values grow downwards
-  position.y += DEFAULT_MOVEMENT_STEP;
+  position.y += Constants::DEFAULT_MOVEMENT_STEP;
 }
 
 /**
  * @brief Move the Actor right
  */
-void Actor::moveRight() { position.x += DEFAULT_MOVEMENT_STEP; }
+void Actor::moveRight() { position.x += Constants::DEFAULT_MOVEMENT_STEP; }
 
 // Private Methods
 void Actor::updateTransformationMatrix() {

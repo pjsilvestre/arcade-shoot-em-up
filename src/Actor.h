@@ -1,14 +1,14 @@
 #pragma once
 
 #include "Sprite.h"
+#include "Constants.h"
 
-const float DEFAULT_MOVEMENT_STEP{30.0f};
 
 class Actor {
  public:
   Actor();
   Actor(Sprite sprite);
-  void update();
+  virtual void update();
   void draw();
   void setPosition(glm::vec3 position);
   glm::vec3 getPosition();

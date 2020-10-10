@@ -1,7 +1,7 @@
 #pragma once
 
-#include "ofMain.h"
 #include "Constants.h"
+#include "ofMain.h"
 
 class Sprite {
  public:
@@ -11,6 +11,8 @@ class Sprite {
   void draw();
 
  private:
+  void drawPlaceholder();
+
   bool loaded;
   ofImage image;
   glm::mat4 transformationMatrix;

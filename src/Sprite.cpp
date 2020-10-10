@@ -38,13 +38,16 @@ void Sprite::draw() {
     image.draw(0, 0);
     ofDisableAlphaBlending();
   } else {
-    // draw placeholder
-    ofSetColor(ofColor::hotPink);
-    ofDrawRectangle(
-        glm::vec3(0.0f - Constants::DEFAULT_SPRITE_DIMENSIONS / 2.0f,
-                  0.0f - Constants::DEFAULT_SPRITE_DIMENSIONS / 2.0f, 0.0f),
-        Constants::DEFAULT_SPRITE_DIMENSIONS,
-        Constants::DEFAULT_SPRITE_DIMENSIONS);
+    drawPlaceholder();
   }
   ofPopMatrix();
+}
+
+void Sprite::drawPlaceholder() {
+  ofSetColor(ofColor::hotPink);
+  ofDrawRectangle(
+      glm::vec3(0.0f - Constants::DEFAULT_SPRITE_DIMENSIONS / 2.0f,
+                0.0f - Constants::DEFAULT_SPRITE_DIMENSIONS / 2.0f, 0.0f),
+      Constants::DEFAULT_SPRITE_DIMENSIONS,
+      Constants::DEFAULT_SPRITE_DIMENSIONS);
 }

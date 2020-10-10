@@ -33,9 +33,18 @@ void Sprite::draw() {
   ofMultMatrix(transformationMatrix);
   if (loaded) {
     image.setAnchorPercent(0.5f, 0.5f);
+    ofEnableAlphaBlending();
+    ofSetColor(ofColor::white, 255);
     image.draw(0, 0);
+    ofDisableAlphaBlending();
   } else {
-    ofDrawRectangle(glm::vec3(0.0f, 0.0f, 0.0f), 128.0f, 128.0f);
+    // draw placeholder
+    ofSetColor(ofColor::hotPink);
+    ofDrawRectangle(
+        glm::vec3(0.0f - Constants::DEFAULT_SPRITE_DIMENSIONS / 2.0f,
+                  0.0f - Constants::DEFAULT_SPRITE_DIMENSIONS / 2.0f, 0.0f),
+        Constants::DEFAULT_SPRITE_DIMENSIONS,
+        Constants::DEFAULT_SPRITE_DIMENSIONS);
   }
   ofPopMatrix();
 }

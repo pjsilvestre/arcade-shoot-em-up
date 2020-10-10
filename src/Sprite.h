@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Constants.h"
 
 class Sprite {
  public:

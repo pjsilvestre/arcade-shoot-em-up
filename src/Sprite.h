@@ -6,7 +6,6 @@ class Sprite {
  public:
   Sprite();
   Sprite(string fileName);
-  bool isLoaded();
   void setTransformationMatrix(glm::mat4 transformationMatrix);
   void draw();
 

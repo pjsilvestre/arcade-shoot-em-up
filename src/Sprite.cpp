@@ -19,12 +19,6 @@ Sprite::Sprite(string fileName) {
 }
 
 /**
- * @brief Returns if image is loaded
- * @return True if image is loaded, false otherwise
- */
-bool Sprite::isLoaded() { return loaded; }
-
-/**
  * @brief Sets the Sprite's transformation matrix
  */
 void Sprite::setTransformationMatrix(glm::mat4 transformationMatrix) {

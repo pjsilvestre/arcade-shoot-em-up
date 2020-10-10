@@ -14,6 +14,8 @@ class ofApp : public ofBaseApp {
   void update();
   void draw();
 
+  void drawStartMessage();
+
   void keyPressed(int key);
   void keyReleased(int key);
   void mouseMoved(int x, int y);
@@ -28,6 +30,7 @@ class ofApp : public ofBaseApp {
 
   void preventResize();
 
+  bool gameNotStarted;
   InputHandler inputHandler;
   Sprite playerSprite;
   Player player;

@@ -3,6 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
+  gameNotStarted = true;
   playerSprite = Sprite("battery.png");
   player = Player(playerSprite);
   player.setPosition(
@@ -12,14 +13,34 @@ void ofApp::setup() {
 //--------------------------------------------------------------
 void ofApp::update() {
   preventResize();
+
+  while (gameNotStarted) {
+    return;
+  }
+
   player.update();
 }
 
 //--------------------------------------------------------------
-void ofApp::draw() { player.draw(); }
+void ofApp::draw() {
+  while (gameNotStarted) {
+    drawStartMessage();
+    return;
+  }
+
+  player.draw();
+}
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
+  while (gameNotStarted) {
+    if (key == ' ') {
+      gameNotStarted = false;
+    }
+
+    return;
+  }
+
   Command* command = inputHandler.handleInput(key);
 
   if (command) {
@@ -63,4 +84,17 @@ void ofApp::preventResize() {
       ofGetHeight() != Constants::DEFAULT_HEIGHT) {
     ofSetWindowShape(Constants::DEFAULT_WIDTH, Constants::DEFAULT_HEIGHT);
   }
+}
+
+//--------------------------------------------------------------
+void ofApp::drawStartMessage() {
+  // TODO replace bitmap string with truetype string
+
+  string startMessage = "Press space to start...";
+  ofBitmapFont font;
+  ofRectangle boundingBox = font.getBoundingBox(startMessage, 0, 0);
+  ofSetColor(ofColor::black);
+  ofDrawBitmapString(startMessage,
+                     glm::vec3(ofGetWidth() / 2 - boundingBox.width / 2,
+                               ofGetHeight() / 2 - boundingBox.height / 2, 0));
 }

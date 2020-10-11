@@ -11,6 +11,7 @@ class InputHandler {
   Command* handleInput(int key);
 
  private:
+  // TODO smart pointers?
   Command* keyW;
   Command* keyA;
   Command* keyS;

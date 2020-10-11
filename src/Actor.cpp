@@ -53,10 +53,6 @@ void Actor::setVelocity(const glm::vec3& velocity) {
  */
 glm::vec3 Actor::getVelocity() { return velocity; }
 
-void Actor::setAcceleration(const glm::vec3& acceleration) {
-  this->acceleration = acceleration;
-}
-
 /**
  * @brief Set the Actor's acceleration
  * @param acceleration The desired acceleration
@@ -64,6 +60,12 @@ void Actor::setAcceleration(const glm::vec3& acceleration) {
 void Actor::setAcceleration(const glm::vec3& acceleration) {
   this->acceleration = acceleration;
 }
+
+/**
+ * @brief Get the Actor's acceleration
+ * @return The Actor's acceleration
+ */
+glm::vec3 Actor::getAcceleration() { return acceleration; }
 
 /**
  * @brief Move the Actor up

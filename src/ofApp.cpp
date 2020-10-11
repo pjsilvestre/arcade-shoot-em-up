@@ -48,7 +48,17 @@ void ofApp::keyPressed(int key) {
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key) {}
+void ofApp::keyReleased(int key) {
+  // TODO refactor to use InputHandler?
+  switch (key) {
+    case 'w':
+    case 'a':
+    case 's':
+    case 'd':
+      player.stop();
+      break;
+  }
+}
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {}
@@ -79,9 +89,8 @@ void ofApp::dragEvent(ofDragInfo dragInfo) {}
 
 //--------------------------------------------------------------
 void ofApp::preventResize() {
-  if (ofGetWidth() != Constants::DEFAULT_WIDTH ||
-      ofGetHeight() != Constants::DEFAULT_HEIGHT) {
-    ofSetWindowShape(Constants::DEFAULT_WIDTH, Constants::DEFAULT_HEIGHT);
+  if (ofGetWidth() != Constants::WIDTH || ofGetHeight() != Constants::HEIGHT) {
+    ofSetWindowShape(Constants::WIDTH, Constants::HEIGHT);
   }
 }
 

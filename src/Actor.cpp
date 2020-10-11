@@ -3,19 +3,28 @@
 /**
  * @brief Create an Actor with no Sprite
  */
-Actor::Actor() : position{glm::vec3(0.0f)} {}
+Actor::Actor()
+    : position{glm::vec3(0.0f)},
+      velocity{glm::vec3(0.0f)},
+      acceleration{glm::vec3(0.0f)} {}
 
 /**
  * @brief Create an Actor with a Sprite
  * @param sprite The desired Sprite
  */
 Actor::Actor(const Sprite& sprite)
-    : position{glm::vec3(0.0f)}, sprite{sprite} {}
+    : sprite{sprite},
+      position{glm::vec3(0.0f)},
+      velocity{glm::vec3(0.0f)},
+      acceleration{glm::vec3(0.0f)} {}
 
 /**
  * @brief Update the Actor's state
  */
 void Actor::update() {
+  updatePosition();
+  updateVelocity();
+  updateAcceleration();
   updateTransformationMatrix();
   sprite.setTransformationMatrix(transformationMatrix);
 }
@@ -72,28 +81,55 @@ glm::vec3 Actor::getAcceleration() { return acceleration; }
  */
 void Actor::moveUp() {
   // y values shrink upwards
-  position.y -= Constants::DEFAULT_MOVEMENT_STEP;
+  acceleration.y = -Constants::ACCELERATION;
 }
 
 /**
  * @brief Move the Actor left
  */
-void Actor::moveLeft() { position.x -= Constants::DEFAULT_MOVEMENT_STEP; }
+void Actor::moveLeft() { acceleration.x = -Constants::ACCELERATION; }
 
 /**
  * @brief Move the Actor down
  */
 void Actor::moveDown() {
   // y values grow downwards
-  position.y += Constants::DEFAULT_MOVEMENT_STEP;
+  acceleration.y = Constants::ACCELERATION;
 }
 
 /**
  * @brief Move the Actor right
  */
-void Actor::moveRight() { position.x += Constants::DEFAULT_MOVEMENT_STEP; }
+void Actor::moveRight() { acceleration.x = Constants::ACCELERATION; }
+
+/**
+ * @brief Stop the Actor
+ */
+void Actor::stop() {
+  velocity = glm::vec3(0.0f);
+  acceleration = glm::vec3(0.0f);
+}
 
 // Private Methods
+
+void Actor::updatePosition() {
+  // TODO improve responsiveness?
+  position += velocity;
+}
+
+void Actor::updateVelocity() {
+  velocity += acceleration;
+
+  velocity.x = Utility::clamp(velocity.x, -Constants::MAX_VELOCITY,
+                              Constants::MAX_VELOCITY);
+  velocity.y = Utility::clamp(velocity.y, -Constants::MAX_VELOCITY,
+                              Constants::MAX_VELOCITY);
+}
+
+void Actor::updateAcceleration() {
+  // TODO non-linear acceleration?
+}
+
 void Actor::updateTransformationMatrix() {
   transformationMatrix = glm::translate(glm::mat4(1.0f), position);
 }

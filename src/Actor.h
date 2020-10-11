@@ -2,6 +2,7 @@
 
 #include "Constants.h"
 #include "Sprite.h"
+#include "Utility.h"
 
 class Actor {
  public:
@@ -18,13 +19,16 @@ class Actor {
   void setAcceleration(const glm::vec3& acceleration);
   glm::vec3 getAcceleration();
 
-  // TODO update following methods to use position, velocity, and acceleration
   void moveUp();
   void moveLeft();
   void moveDown();
   void moveRight();
+  void stop();
 
  private:
+  void updatePosition();
+  void updateVelocity();
+  void updateAcceleration();
   void updateTransformationMatrix();
 
   Sprite sprite;

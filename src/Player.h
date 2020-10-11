@@ -11,5 +11,5 @@ class Player : public Actor {
   void update();
 
  private:
-  void clamp();
+  void clampPosition();
 };

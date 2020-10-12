@@ -8,6 +8,7 @@ const int HEIGHT{720};
 // Sprite constants
 const float SPRITE_DIMENSIONS{128.0f};
 // Actor constants
+const int LIFESPAN{-1};
 const float MAX_VELOCITY{5.0f};
 const float ACCELERATION{5.0f};
 }  // namespace Constants

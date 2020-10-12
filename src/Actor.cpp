@@ -4,7 +4,9 @@
  * @brief Create an Actor with no Sprite
  */
 Actor::Actor()
-    : position{glm::vec3(0.0f)},
+    : age{0},
+      lifespan{Constants::LIFESPAN},
+      position{glm::vec3(0.0f)},
       velocity{glm::vec3(0.0f)},
       acceleration{glm::vec3(0.0f)} {}
 
@@ -12,16 +14,13 @@ Actor::Actor()
  * @brief Create an Actor with a Sprite
  * @param sprite The desired Sprite
  */
-Actor::Actor(const Sprite& sprite)
-    : sprite{sprite},
-      position{glm::vec3(0.0f)},
-      velocity{glm::vec3(0.0f)},
-      acceleration{glm::vec3(0.0f)} {}
+Actor::Actor(const Sprite& sprite) : Actor() { this->sprite = sprite; }
 
 /**
  * @brief Update the Actor's state
  */
 void Actor::update() {
+  age++;
   updatePosition();
   updateVelocity();
   updateAcceleration();

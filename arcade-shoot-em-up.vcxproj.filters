@@ -55,6 +55,7 @@
     <ClCompile Include="src\Utility.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Emitter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -131,6 +132,7 @@
     <ClInclude Include="src\Utility.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Emitter.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

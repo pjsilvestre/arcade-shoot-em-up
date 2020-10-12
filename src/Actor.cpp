@@ -70,6 +70,7 @@ void Actor::stop() {
 // Private Methods
 
 void Actor::updatePosition() {
+  // TODO integrate framerate as time delta
   // TODO improve responsiveness?
   position += velocity;
 }

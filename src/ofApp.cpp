@@ -4,6 +4,7 @@
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
   gameNotStarted = true;
+  ofHideCursor();
   player = Player(Sprite("battery.png"));
   player.setPosition(
       glm::vec3(ofGetWidth() / 2, ofGetHeight() / 2, 0));
@@ -68,7 +69,9 @@ void ofApp::keyReleased(int key) {
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {}
+void ofApp::mouseMoved(int x, int y) {
+  player.setPosition(glm::vec3(x, y, 0));
+}
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button) {}

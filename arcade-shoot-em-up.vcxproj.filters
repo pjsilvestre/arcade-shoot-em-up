@@ -55,8 +55,10 @@
     <ClCompile Include="src\Utility.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Emitter.cpp" />
     <ClCompile Include="src\ActorSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Emitter.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -135,8 +137,10 @@
     <ClInclude Include="src\Utility.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Emitter.h" />
     <ClInclude Include="src\ActorSystem.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Emitter.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

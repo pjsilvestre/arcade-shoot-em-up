@@ -8,7 +8,7 @@ class Player : public Actor {
   // inherit constructors
   using Actor::Actor;
 
-  void update();
+  void update() override;
 
  private:
   void clampPosition();

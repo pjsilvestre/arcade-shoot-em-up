@@ -12,12 +12,15 @@ class Actor {
   virtual void update();
   void draw();
 
-  void setPosition(const glm::vec3& position);
-  glm::vec3 getPosition();
-  void setVelocity(const glm::vec3& velocity);
-  glm::vec3 getVelocity();
-  void setAcceleration(const glm::vec3& acceleration);
-  glm::vec3 getAcceleration();
+  int getAge() { return age; };
+  void setLifespan(int lifespan) { this->lifespan = lifespan; }
+  int getLifespan() { return lifespan; }
+  void setPosition(const glm::vec3& position) { this->position = position; }
+  glm::vec3 getPosition() { return position; }
+  void setVelocity(const glm::vec3& velocity) { this->velocity = velocity; }
+  glm::vec3 getVelocity() { return velocity; }
+  void setAcceleration(const glm::vec3& accel) { this->acceleration = accel; }
+  glm::vec3 getAcceleration() { return acceleration; }
 
   void moveUp();
   void moveLeft();
@@ -32,7 +35,7 @@ class Actor {
   void updateTransformationMatrix();
 
   Sprite sprite;
-  int age; // TODO use time_point?
+  int age;  // TODO use time_point?
   int lifespan;
   glm::vec3 position;
   glm::vec3 velocity;

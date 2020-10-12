@@ -56,6 +56,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Emitter.cpp" />
+    <ClCompile Include="src\ActorSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -133,6 +136,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Emitter.h" />
+    <ClInclude Include="src\ActorSystem.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

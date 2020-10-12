@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Actor.h"
+#include "ActorSystem.h"
 #include "Command.h"
 #include "Constants.h"
 #include "InputHandler.h"
@@ -32,5 +33,7 @@ class ofApp : public ofBaseApp {
 
   bool gameNotStarted;
   InputHandler inputHandler;
+  ActorSystem enemies;
   Player player;
+  Actor enemy;
 };

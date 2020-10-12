@@ -34,48 +34,6 @@ void Actor::update() {
 void Actor::draw() { sprite.draw(); }
 
 /**
- * @brief Set the Actor's position
- * @param position The desired position
- */
-void Actor::setPosition(const glm::vec3& position) {
-  this->position = position;
-}
-
-/**
- * @brief Get the Actor's position
- * @return The Actor's position
- */
-glm::vec3 Actor::getPosition() { return position; }
-
-/**
- * @brief Set the Actor's velocity
- * @param velocity The desired velocity
- */
-void Actor::setVelocity(const glm::vec3& velocity) {
-  this->velocity = velocity;
-}
-
-/**
- * @brief Get the Actor's velocity
- * @return The Actor's velocity
- */
-glm::vec3 Actor::getVelocity() { return velocity; }
-
-/**
- * @brief Set the Actor's acceleration
- * @param acceleration The desired acceleration
- */
-void Actor::setAcceleration(const glm::vec3& acceleration) {
-  this->acceleration = acceleration;
-}
-
-/**
- * @brief Get the Actor's acceleration
- * @return The Actor's acceleration
- */
-glm::vec3 Actor::getAcceleration() { return acceleration; }
-
-/**
  * @brief Move the Actor up
  */
 void Actor::moveUp() {

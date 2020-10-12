@@ -181,6 +181,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Actor.cpp" />
+    <ClCompile Include="src\ActorSystem.cpp" />
     <ClCompile Include="src\Command.cpp" />
     <ClCompile Include="src\Emitter.cpp" />
     <ClCompile Include="src\InputHandler.cpp" />
@@ -202,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Actor.h" />
+    <ClInclude Include="src\ActorSystem.h" />
     <ClInclude Include="src\Command.h" />
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Emitter.h" />

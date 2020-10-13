@@ -67,7 +67,7 @@ void Actor::stop() {
   acceleration = glm::vec3(0.0f);
 }
 
-// Private Methods
+//-Private Methods----------------------------------------------
 
 void Actor::updatePosition() {
   // TODO integrate framerate as time delta

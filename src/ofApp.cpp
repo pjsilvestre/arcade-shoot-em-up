@@ -4,6 +4,8 @@
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
   gameNotStarted = true;
+  mouseEnabled = false;
+  guiShown = true;
 
   gui.setup();
   gui.add(turretDirection.setup("turret direction", {0, -1}, {-1, -1}, {1, 1}));
@@ -15,6 +17,13 @@ void ofApp::update() {
 
   while (gameNotStarted) {
     return;
+  }
+
+  if (mouseEnabled) {
+    ofHideCursor();
+  }
+  else {
+    ofShowCursor();
   }
 
   auto x = turretDirection->x;
@@ -32,7 +41,10 @@ void ofApp::draw() {
   }
 
   player.draw();
-  gui.draw();
+
+  if (guiShown) {
+    gui.draw();
+  }
 }
 
 //--------------------------------------------------------------
@@ -47,7 +59,10 @@ void ofApp::keyPressed(int key) {
 
   switch (key) {
     case 'h':
-      // toggleGui(); TODO
+      guiShown = !guiShown;
+      break;
+    case 'm':
+      mouseEnabled = !mouseEnabled;
       break;
     case 'w':
       player.moveUp();
@@ -80,7 +95,11 @@ void ofApp::keyReleased(int key) {
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) { player.setPosition(glm::vec3(x, y, 0)); }
+void ofApp::mouseMoved(int x, int y) {
+  if (mouseEnabled) {
+    player.setPosition(glm::vec3(x, y, 0));
+  }
+}
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button) {}

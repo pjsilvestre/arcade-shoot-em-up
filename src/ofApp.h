@@ -32,8 +32,10 @@ class ofApp : public ofBaseApp {
   void drawStartMessage();
 
   bool gameNotStarted;
+  bool mouseEnabled;
   Player player;
 
+  bool guiShown;
   ofxVec2Slider turretDirection;
   ofxPanel gui;
 };

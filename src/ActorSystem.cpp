@@ -14,8 +14,18 @@ void ActorSystem::update() {
  * @brief Draw all Actors
  */
 void ActorSystem::draw() {
-  for (Actor actor : actors) {
+  for (Actor& actor : actors) {
     actor.draw();
+  }
+}
+
+/**
+ * @brief Set the position of all Actors
+ * @param position The desired position
+*/
+void ActorSystem::setPosition(const glm::vec3& position) {
+  for (Actor& actor : actors) {
+    actor.setPosition(position);
   }
 }
 

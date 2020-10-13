@@ -29,6 +29,16 @@ void ActorSystem::setPosition(const glm::vec3& position) {
   }
 }
 
+/**
+ * @brief Invoke move() on all Actors
+ * @param direction The desired direction
+*/
+void ActorSystem::moveActors(const glm::vec3& direction) {
+  for (Actor& actor : actors) {
+    actor.move(direction);
+  }
+}
+
 //-Private Methods----------------------------------------------
 
 void ActorSystem::deleteDeadActors() {

@@ -8,6 +8,7 @@ class ActorSystem {
 
   void add(Actor& actor) { actors.push_back(actor); }
   void setPosition(const glm::vec3& position);
+  void moveActors(const glm::vec3& direction);
 
  private:
   void deleteDeadActors();

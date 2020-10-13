@@ -36,7 +36,7 @@ void Actor::draw() { sprite.draw(); }
 /**
  * @brief Move the Actor in a given direction
  * @param direction The desired direction
-*/
+ */
 void Actor::move(const glm::vec3& direction) {
   acceleration = glm::normalize(direction);
 }

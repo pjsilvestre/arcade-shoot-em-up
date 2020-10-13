@@ -4,7 +4,10 @@
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
   gameNotStarted = true;
-  ofHideCursor();
+
+  //gui.setup();
+  //gui.add(
+  //    emitterDirection.setup("emitter direction", {0, -1}, {-1, -1}, {1, 1}));
 }
 
 //--------------------------------------------------------------
@@ -26,6 +29,7 @@ void ofApp::draw() {
   }
 
   player.draw();
+  //gui.draw();
 }
 
 //--------------------------------------------------------------
@@ -95,6 +99,8 @@ void ofApp::gotMessage(ofMessage msg) {}
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo) {}
+
+//-Private Methods----------------------------------------------
 
 //--------------------------------------------------------------
 void ofApp::preventResize() {

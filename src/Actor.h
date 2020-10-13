@@ -10,7 +10,7 @@ class Actor {
   Actor(const Sprite& sprite);
 
   virtual void update();
-  void draw();
+  virtual void draw();
 
   int getAge() { return age; };
   void setLifespan(int lifespan) { this->lifespan = lifespan; }

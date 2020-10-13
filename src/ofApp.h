@@ -4,18 +4,16 @@
 #include "ActorSystem.h"
 #include "Constants.h"
 #include "Emitter.h"
-#include "Missile.h"
 #include "Player.h"
 #include "Sprite.h"
 #include "ofMain.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp {
  public:
   void setup();
   void update();
   void draw();
-
-  void drawStartMessage();
 
   void keyPressed(int key);
   void keyReleased(int key);
@@ -29,8 +27,13 @@ class ofApp : public ofBaseApp {
   void dragEvent(ofDragInfo dragInfo);
   void gotMessage(ofMessage msg);
 
+ private:
   void preventResize();
+  void drawStartMessage();
 
   bool gameNotStarted;
   Player player;
+
+  // ofxVec2Slider emitterDirection;
+  // ofxPanel gui;
 };

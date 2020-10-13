@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Actor.h"
-#include "Emitter.h"
 #include "Constants.h"
+#include "Emitter.h"
 
 class Player : public Actor {
  public:
@@ -16,5 +16,6 @@ class Player : public Actor {
  private:
   void clampPosition();
 
-  Emitter turret;
+  Emitter turret;  // TODO encapsulate into turret class?
+  ofSoundPlayer turretSound;
 };

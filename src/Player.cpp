@@ -8,6 +8,10 @@ Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0));
   turret = Emitter(Constants::MISSILE_SPRITE());
   turret.setLifespan(Constants::MISSILE_LIFESPAN);
+
+  if (!turretSound.load(Constants::MISSILE_SOUND_EFFECT())) {
+    cerr << Constants::MISSILE_SOUND_EFFECT() << " not found" << endl;
+  }
 };
 
 /**
@@ -37,6 +41,7 @@ void Player::draw() {
  */
 void Player::shoot() {
   turret.emit(); // TODO dynamic rate
+  turretSound.play();
 }
 
 //-Private Methods----------------------------------------------

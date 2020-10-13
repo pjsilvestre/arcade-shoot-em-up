@@ -18,6 +18,7 @@ const float ACCELERATION{5.0f};
 // Player constants
 const std::string PLAYER_SPRITE();
 const std::string MISSILE_SPRITE();
+const std::string MISSILE_SOUND_EFFECT();
 const int MISSILE_LIFESPAN{500};
 
 }  // namespace Constants

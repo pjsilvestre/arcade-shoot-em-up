@@ -8,6 +8,9 @@ void ofApp::setup() {
   guiShown = true;
 
   gui.setup();
+  gui.add(missileRate.setup("missiles per second",
+                            Constants::SPRITES_PER_SECOND,
+                            Constants::SPRITES_PER_SECOND, 16));
   gui.add(turretDirection.setup("turret direction", {0, -1}, {-1, -1}, {1, 1}));
 }
 
@@ -21,15 +24,14 @@ void ofApp::update() {
 
   if (mouseEnabled) {
     ofHideCursor();
-  }
-  else {
+  } else {
     ofShowCursor();
   }
 
   auto x = turretDirection->x;
   auto y = turretDirection->y;
-  player.updateTurretDirection(glm::vec3(x, y, 0));
-
+  player.setTurretRate(missileRate);
+  player.setTurretDirection(glm::vec3(x, y, 0));
   player.update();
 }
 
@@ -77,7 +79,7 @@ void ofApp::keyPressed(int key) {
       player.moveRight();
       break;
     case ' ':
-      player.shoot();
+      player.startTurret();
       break;
   }
 }
@@ -90,6 +92,9 @@ void ofApp::keyReleased(int key) {
     case 's':
     case 'd':
       player.stop();
+      break;
+    case ' ':
+      player.stopTurret();
       break;
   }
 }

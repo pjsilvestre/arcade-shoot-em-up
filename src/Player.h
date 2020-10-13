@@ -11,14 +11,13 @@ class Player : public Actor {
   void update() override;
   void draw() override;
 
-  void updateTurretDirection(glm::vec3 direction) {
-    turret.setDirection(direction);
-  }
-  void shoot();
+  void setTurretDirection(glm::vec3 dir) { turret.setDirection(dir); }
+  void setTurretRate(float rate) { turret.setRate(rate); }
+  void startTurret();
+  void stopTurret();
 
  private:
   void clampPosition();
 
   Emitter turret;  // TODO encapsulate into turret class?
-  ofSoundPlayer turretSound;
 };

@@ -8,10 +8,6 @@ Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0));
   turret = Emitter(Constants::MISSILE_SPRITE());
   turret.setLifespan(Constants::MISSILE_LIFESPAN);
-
-  if (!turretSound.load(Constants::MISSILE_SOUND_EFFECT())) {
-    cerr << Constants::MISSILE_SOUND_EFFECT() << " not found" << endl;
-  }
 };
 
 /**
@@ -21,26 +17,23 @@ void Player::update() {
   clampPosition();
   turret.setPosition(getPosition());
   turret.update();
-
   Actor::update();
 }
 
 /**
  * @brief Draw the Player
-*/
+ */
 void Player::draw() {
   turret.draw();
-
   Actor::draw();
 }
 
 /**
- * @brief Shoot a missile from the Player's turret
+ * @brief Start shooting missiles from the turret
  */
-void Player::shoot() {
-  turret.emit(); // TODO dynamic rate
-  turretSound.play();
-}
+void Player::startTurret() { turret.start(); }
+
+void Player::stopTurret() { turret.stop(); }
 
 //-Private Methods----------------------------------------------
 

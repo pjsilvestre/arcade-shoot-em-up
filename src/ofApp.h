@@ -8,6 +8,7 @@
 #include "Sprite.h"
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "ofThread.h"
 
 class ofApp : public ofBaseApp {
  public:
@@ -36,6 +37,7 @@ class ofApp : public ofBaseApp {
   Player player;
 
   bool guiShown;
+  ofxIntSlider missileRate;
   ofxVec2Slider turretDirection;
   ofxPanel gui;
 };

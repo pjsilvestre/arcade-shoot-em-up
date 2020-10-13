@@ -21,4 +21,7 @@ const std::string MISSILE_SPRITE();
 const std::string MISSILE_SOUND_EFFECT();
 const int MISSILE_LIFESPAN{500};
 
+// Emitter constants
+const float SPRITES_PER_SECOND{1.0};
+
 }  // namespace Constants

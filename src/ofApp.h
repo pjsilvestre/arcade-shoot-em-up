@@ -33,7 +33,5 @@ class ofApp : public ofBaseApp {
 
   bool gameNotStarted;
   InputHandler inputHandler;
-  ActorSystem enemies;
   Player player;
-  Actor enemy;
 };

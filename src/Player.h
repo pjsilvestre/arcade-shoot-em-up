@@ -5,8 +5,10 @@
 
 class Player : public Actor {
  public:
-  // inherit constructors
-  using Actor::Actor;
+  Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
+    this->setPosition(
+        glm::vec3(Constants::WIDTH / 2, Constants::HEIGHT / 2, 0));
+  };
 
   void update() override;
 

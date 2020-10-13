@@ -22,6 +22,7 @@ class Actor {
   void setAcceleration(const glm::vec3& accel) { this->acceleration = accel; }
   glm::vec3 getAcceleration() { return acceleration; }
 
+  void move(const glm::vec3& direction);
   void moveUp();
   void moveLeft();
   void moveDown();

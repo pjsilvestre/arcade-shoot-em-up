@@ -2,10 +2,8 @@
 
 #include "Actor.h"
 #include "ActorSystem.h"
-#include "Command.h"
 #include "Constants.h"
 #include "Emitter.h"
-#include "InputHandler.h"
 #include "Missile.h"
 #include "Player.h"
 #include "Sprite.h"
@@ -34,6 +32,5 @@ class ofApp : public ofBaseApp {
   void preventResize();
 
   bool gameNotStarted;
-  InputHandler inputHandler;
   Player player;
 };

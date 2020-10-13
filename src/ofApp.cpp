@@ -38,16 +38,27 @@ void ofApp::keyPressed(int key) {
     return;
   }
 
-  Command* command = inputHandler.handleInput(key);
-
-  if (command) {
-    command->execute(player);
+  switch (key) {
+    case 'w':
+      player.moveUp();
+      break;
+    case 'a':
+      player.moveLeft();
+      break;
+    case 's':
+      player.moveDown();
+      break;
+    case 'd':
+      player.moveRight();
+      break;
+    case ' ':
+      player.shoot();
+      break;
   }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key) {
-  // TODO refactor to use InputHandler?
   switch (key) {
     case 'w':
     case 'a':

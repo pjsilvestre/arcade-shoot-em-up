@@ -2,7 +2,7 @@
 
 /**
  * @brief Create a Player with the default player sprite
-*/
+ */
 Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
   this->setPosition(
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0));
@@ -14,6 +14,13 @@ Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
 void Player::update() {
   clampPosition();
   Actor::update();
+}
+
+/**
+ * @brief TODO
+ */
+void Player::shoot() {
+  // TODO
 }
 
 //-Private Methods----------------------------------------------

@@ -11,7 +11,7 @@ const int SCREEN_HEIGHT{720};
 const float SPRITE_DIMENSIONS{128.0f};
 
 // Actor constants
-const int LIFESPAN{-1};
+const int LIFESPAN{INT_MAX};
 const float MAX_VELOCITY{5.0f};
 const float ACCELERATION{5.0f};
 

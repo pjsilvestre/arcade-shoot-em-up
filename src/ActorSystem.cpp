@@ -22,12 +22,14 @@ void ActorSystem::draw() {
 /**
  * @brief Set the position of all Actors
  * @param position The desired position
-*/
+ */
 void ActorSystem::setPosition(const glm::vec3& position) {
   for (Actor& actor : actors) {
     actor.setPosition(position);
   }
 }
+
+//-Private Methods----------------------------------------------
 
 void ActorSystem::deleteDeadActors() {
   auto iterator = actors.begin();

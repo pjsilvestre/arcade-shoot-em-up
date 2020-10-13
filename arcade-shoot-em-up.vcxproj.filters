@@ -58,9 +58,6 @@
     <ClCompile Include="src\Constants.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Missile.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -135,9 +132,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Constants.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Missile.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,9 +5,8 @@ void ofApp::setup() {
   ofSetBackgroundColor(ofColor::darkGrey);
   gameNotStarted = true;
 
-  //gui.setup();
-  //gui.add(
-  //    emitterDirection.setup("emitter direction", {0, -1}, {-1, -1}, {1, 1}));
+  gui.setup();
+  gui.add(turretDirection.setup("turret direction", {0, -1}, {-1, -1}, {1, 1}));
 }
 
 //--------------------------------------------------------------
@@ -17,6 +16,10 @@ void ofApp::update() {
   while (gameNotStarted) {
     return;
   }
+
+  auto x = turretDirection->x;
+  auto y = turretDirection->y;
+  player.updateTurretDirection(glm::vec3(x, y, 0));
 
   player.update();
 }
@@ -29,7 +32,7 @@ void ofApp::draw() {
   }
 
   player.draw();
-  //gui.draw();
+  gui.draw();
 }
 
 //--------------------------------------------------------------
@@ -43,6 +46,9 @@ void ofApp::keyPressed(int key) {
   }
 
   switch (key) {
+    case 'h':
+      // toggleGui(); TODO
+      break;
     case 'w':
       player.moveUp();
       break;

@@ -34,6 +34,6 @@ class ofApp : public ofBaseApp {
   bool gameNotStarted;
   Player player;
 
-  // ofxVec2Slider emitterDirection;
-  // ofxPanel gui;
+  ofxVec2Slider turretDirection;
+  ofxPanel gui;
 };

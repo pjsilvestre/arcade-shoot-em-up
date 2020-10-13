@@ -20,8 +20,6 @@ Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
 void Player::update() {
   clampPosition();
   turret.setPosition(getPosition());
-  turret.setDirection(glm::vec3(0, -1, 0));
-  //turret.setDirection(...) TODO dynamic direction
   turret.update();
 
   Actor::update();

@@ -11,6 +11,9 @@ class Player : public Actor {
   void update() override;
   void draw() override;
 
+  void updateTurretDirection(glm::vec3 direction) {
+    turret.setDirection(direction);
+  }
   void shoot();
 
  private:

@@ -3,7 +3,7 @@
 
 //========================================================================
 int main() {
-  ofSetupOpenGL(Constants::WIDTH, Constants::HEIGHT,
+  ofSetupOpenGL(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT,
                 OF_WINDOW);  // <-------- setup the GL context
 
   // this kicks off the running of my app

@@ -61,7 +61,12 @@
     <ClCompile Include="src\Emitter.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Constants.cpp" />
+    <ClCompile Include="src\Constants.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Missile.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -141,7 +146,12 @@
     <ClInclude Include="src\Emitter.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\Constants.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Missile.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

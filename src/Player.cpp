@@ -12,8 +12,8 @@ void Player::clampPosition() {
   glm::vec3 position{getPosition()};
   glm::vec3 newPosition = position;
 
-  newPosition.x = Utility::clamp(newPosition.x, 0, Constants::WIDTH);
-  newPosition.y = Utility::clamp(newPosition.y, 0, Constants::HEIGHT);
+  newPosition.x = Utility::clamp(newPosition.x, 0, Constants::SCREEN_WIDTH);
+  newPosition.y = Utility::clamp(newPosition.y, 0, Constants::SCREEN_HEIGHT);
 
   setPosition(newPosition);
 }

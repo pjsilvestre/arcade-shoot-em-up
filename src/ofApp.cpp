@@ -87,8 +87,8 @@ void ofApp::dragEvent(ofDragInfo dragInfo) {}
 
 //--------------------------------------------------------------
 void ofApp::preventResize() {
-  if (ofGetWidth() != Constants::WIDTH || ofGetHeight() != Constants::HEIGHT) {
-    ofSetWindowShape(Constants::WIDTH, Constants::HEIGHT);
+  if (ofGetWidth() != Constants::SCREEN_WIDTH || ofGetHeight() != Constants::SCREEN_HEIGHT) {
+    ofSetWindowShape(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT);
   }
 }
 

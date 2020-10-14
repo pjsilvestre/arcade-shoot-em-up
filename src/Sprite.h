@@ -6,7 +6,7 @@
 class Sprite {
  public:
   Sprite();
-  Sprite(string fileName);
+  Sprite(const string& fileName);
 
   void draw();
 
@@ -16,6 +16,6 @@ class Sprite {
   void drawPlaceholder();
 
   bool loaded;
-  ofImage image;
   glm::mat4 transformationMatrix;
+  ofImage image;
 };

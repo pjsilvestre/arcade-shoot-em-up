@@ -35,11 +35,11 @@ class Actor {
   void updateAcceleration();
   void updateTransformationMatrix();
 
-  Sprite sprite;
-  int age;  // TODO use time_point?
+  int age;  // TODO implement using ofGetElapsedTimeMillis()
   int lifespan;
   glm::vec3 position;
   glm::vec3 velocity;
   glm::vec3 acceleration;
   glm::mat4 transformationMatrix;
+  Sprite sprite;
 };

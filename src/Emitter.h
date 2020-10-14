@@ -25,10 +25,9 @@ class Emitter {
   bool started;
   int lifespan;
   float spriteRatePerSecond;
+  float timeOfLastEmittedActor;
   glm::vec3 position;
   glm::vec3 direction;
-
-  float timeOfLastEmittedActor;
   Sprite sprite;
   ActorSystem actors;
   ofSoundPlayer sound;

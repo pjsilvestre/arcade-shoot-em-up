@@ -30,9 +30,14 @@ void Emitter::update() {
   actors.update();
 
   if (started) {
-    float currentTime = ofGetElapsedTimeMillis();
+    // Arithmetic overflow: Using operator '-' on a 4 byte value and then
+    // casting the result to a 8 byte value.
+    // float currentTime = ofGetElapsedTimeMillis();
 
-    if ((currentTime - timeOfLastEmittedActor) > (1000.0 / spriteRatePerSecond)) {
+    double currentTime = ofGetElapsedTimeMillis();
+
+    if ((currentTime - timeOfLastEmittedActor) >
+        (Constants::MS_PER_S / spriteRatePerSecond)) {
       emit();
     }
   }
@@ -46,10 +51,7 @@ void Emitter::draw() { actors.draw(); }
 /**
  * @brief Start the Emitter
  */
-void Emitter::start() {
-  started = true;
-  float elapsedTime = ofGetElapsedTimeMillis();
-}
+void Emitter::start() { started = true; }
 
 /**
  * @brief Stop the Emitter
@@ -58,18 +60,15 @@ void Emitter::stop() { started = false; }
 
 //-Private Methods----------------------------------------------
 
-/**
- * @brief Emit an Actor from the associated ActorSystem
- */
 void Emitter::emit() {
-  Actor missile = Actor(sprite);
+  Actor missile = Actor(sprite);  // TODO add more Actor constructors?
   missile.setPosition(position);
   missile.setLifespan(lifespan);
+
   actors.add(missile);
-
-  actors.update();
-
   actors.moveActors(glm::normalize(direction));
+
   sound.play();
+
   timeOfLastEmittedActor = ofGetElapsedTimeMillis();
 }

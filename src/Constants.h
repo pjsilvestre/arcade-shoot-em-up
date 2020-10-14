@@ -3,7 +3,7 @@
 #include <string>
 
 namespace Constants {
-// app constants
+// General constants
 const int SCREEN_WIDTH{1280};
 const int SCREEN_HEIGHT{720};
 
@@ -23,5 +23,6 @@ const int MISSILE_LIFESPAN{500};
 
 // Emitter constants
 const float SPRITES_PER_SECOND{1.0};
+const float MS_PER_S{1000.0};
 
 }  // namespace Constants

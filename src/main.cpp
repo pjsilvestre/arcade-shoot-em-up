@@ -1,13 +1,7 @@
 #include "ofApp.h"
 #include "ofMain.h"
 
-//========================================================================
 int main() {
-  ofSetupOpenGL(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT,
-                OF_WINDOW);  // <-------- setup the GL context
-
-  // this kicks off the running of my app
-  // can be OF_WINDOW or OF_FULLSCREEN
-  // pass in width and height too:
+  ofSetupOpenGL(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT, OF_WINDOW);
   ofRunApp(new ofApp());
 }

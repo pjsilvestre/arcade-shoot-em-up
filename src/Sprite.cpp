@@ -1,7 +1,7 @@
 #include "Sprite.h"
 
 /**
- * @brief Creates a sprite with no image
+ * @brief Creates a Sprite with no image
  */
 Sprite::Sprite() : loaded{false} {}
 
@@ -9,7 +9,7 @@ Sprite::Sprite() : loaded{false} {}
  * @brief Creates a sprite with an image
  * @param fileName The name of the image to load from bin/data
  */
-Sprite::Sprite(string fileName) {
+Sprite::Sprite(const string& fileName) {
   if (image.load(fileName)) {
     loaded = true;
   } else {
@@ -45,9 +45,7 @@ void Sprite::setTransformationMatrix(const glm::mat4& transformationMatrix) {
 
 void Sprite::drawPlaceholder() {
   ofSetColor(ofColor::hotPink);
-  ofDrawRectangle(
-      glm::vec3(0.0f - Constants::SPRITE_DIMENSIONS / 2.0f,
-                0.0f - Constants::SPRITE_DIMENSIONS / 2.0f, 0.0f),
-      Constants::SPRITE_DIMENSIONS,
-      Constants::SPRITE_DIMENSIONS);
+  ofDrawRectangle(glm::vec3(0.0f - Constants::SPRITE_DIMENSIONS / 2.0f,
+                            0.0f - Constants::SPRITE_DIMENSIONS / 2.0f, 0.0f),
+                  Constants::SPRITE_DIMENSIONS, Constants::SPRITE_DIMENSIONS);
 }

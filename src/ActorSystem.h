@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Actor.h"
 
 class ActorSystem {
@@ -12,5 +13,6 @@ class ActorSystem {
 
  private:
   void deleteDeadActors();
+
   vector<Actor> actors;
 };

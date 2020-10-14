@@ -1,7 +1,7 @@
 #include "Player.h"
 
 /**
- * @brief Create a Player with the default player sprite
+ * @brief Creates a Player with the default player sprite
  */
 Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
   this->setPosition(
@@ -11,7 +11,7 @@ Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
 };
 
 /**
- * @brief Update the Player's state
+ * @brief Updates the Player's state
  */
 void Player::update() {
   clampPosition();
@@ -21,7 +21,7 @@ void Player::update() {
 }
 
 /**
- * @brief Draw the Player
+ * @brief Draws the Player
  */
 void Player::draw() {
   turret.draw();
@@ -29,10 +29,13 @@ void Player::draw() {
 }
 
 /**
- * @brief Start shooting missiles from the turret
+ * @brief Starts the turret
  */
 void Player::startTurret() { turret.start(); }
 
+/**
+ * @brief Stops the turret
+ */
 void Player::stopTurret() { turret.stop(); }
 
 //-Private Methods----------------------------------------------

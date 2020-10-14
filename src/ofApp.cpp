@@ -28,9 +28,9 @@ void ofApp::update() {
     ofShowCursor();
   }
 
+  player.setTurretRate(missileRate);
   auto x = turretDirection->x;
   auto y = turretDirection->y;
-  player.setTurretRate(missileRate);
   player.setTurretDirection(glm::vec3(x, y, 0));
   player.update();
 }
@@ -42,11 +42,11 @@ void ofApp::draw() {
     return;
   }
 
-  player.draw();
-
   if (guiShown) {
     gui.draw();
   }
+
+  player.draw();
 }
 
 //--------------------------------------------------------------
@@ -105,30 +105,6 @@ void ofApp::mouseMoved(int x, int y) {
     player.setPosition(glm::vec3(x, y, 0));
   }
 }
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button) {}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y) {}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h) {}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg) {}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo) {}
 
 //-Private Methods----------------------------------------------
 

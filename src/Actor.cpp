@@ -1,7 +1,7 @@
 #include "Actor.h"
 
 /**
- * @brief Create an Actor with no Sprite
+ * @brief Creates an Actor with no Sprite
  */
 Actor::Actor()
     : age{0},
@@ -11,30 +11,30 @@ Actor::Actor()
       acceleration{glm::vec3(0.0f)} {}
 
 /**
- * @brief Create an Actor with a Sprite
+ * @brief Creates an Actor with a Sprite
  * @param sprite The desired Sprite
  */
 Actor::Actor(const Sprite& sprite) : Actor() { this->sprite = sprite; }
 
 /**
- * @brief Update the Actor's state
+ * @brief Updates the Actor's state
  */
 void Actor::update() {
   age++;
   updatePosition();
   updateVelocity();
-  updateAcceleration();
+  // updateAcceleration();
   updateTransformationMatrix();
   sprite.setTransformationMatrix(transformationMatrix);
 }
 
 /**
- * @brief Draw the Actor
+ * @brief Draws the Actor
  */
 void Actor::draw() { sprite.draw(); }
 
 /**
- * @brief Move the Actor in a given direction
+ * @brief Moves the Actor in a given direction
  * @param direction The desired direction
  */
 void Actor::move(const glm::vec3& direction) {
@@ -42,7 +42,7 @@ void Actor::move(const glm::vec3& direction) {
 }
 
 /**
- * @brief Move the Actor up
+ * @brief Moves the Actor up
  */
 void Actor::moveUp() {
   // y values shrink upwards
@@ -50,12 +50,12 @@ void Actor::moveUp() {
 }
 
 /**
- * @brief Move the Actor left
+ * @brief Moves the Actor left
  */
 void Actor::moveLeft() { acceleration.x = -Constants::ACCELERATION; }
 
 /**
- * @brief Move the Actor down
+ * @brief Moves the Actor down
  */
 void Actor::moveDown() {
   // y values grow downwards
@@ -63,12 +63,12 @@ void Actor::moveDown() {
 }
 
 /**
- * @brief Move the Actor right
+ * @brief Moves the Actor right
  */
 void Actor::moveRight() { acceleration.x = Constants::ACCELERATION; }
 
 /**
- * @brief Stop the Actor
+ * @brief Stops the Actor
  */
 void Actor::stop() {
   velocity = glm::vec3(0.0f);
@@ -79,7 +79,6 @@ void Actor::stop() {
 
 void Actor::updatePosition() {
   // TODO integrate framerate as time delta
-  // TODO improve responsiveness?
   position += velocity;
 }
 

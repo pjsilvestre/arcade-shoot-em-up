@@ -1,7 +1,7 @@
 #include "ActorSystem.h"
 
 /**
- * @brief Update all Actors, deleting dead Actors if necessary
+ * @brief Updates all Actors, deleting dead Actors if necessary
  */
 void ActorSystem::update() {
   deleteDeadActors();
@@ -11,7 +11,7 @@ void ActorSystem::update() {
 }
 
 /**
- * @brief Draw all Actors
+ * @brief Draws all Actors
  */
 void ActorSystem::draw() {
   for (Actor& actor : actors) {
@@ -20,7 +20,7 @@ void ActorSystem::draw() {
 }
 
 /**
- * @brief Set the position of all Actors
+ * @brief Sets the position of all Actors
  * @param position The desired position
  */
 void ActorSystem::setPosition(const glm::vec3& position) {
@@ -30,9 +30,9 @@ void ActorSystem::setPosition(const glm::vec3& position) {
 }
 
 /**
- * @brief Invoke move() on all Actors
+ * @brief Invokes move() on all Actors
  * @param direction The desired direction
-*/
+ */
 void ActorSystem::moveActors(const glm::vec3& direction) {
   for (Actor& actor : actors) {
     actor.move(direction);
@@ -43,9 +43,10 @@ void ActorSystem::moveActors(const glm::vec3& direction) {
 
 void ActorSystem::deleteDeadActors() {
   auto iterator = actors.begin();
+  Actor actor;
 
   while (iterator != actors.end()) {
-    auto actor = (*iterator);
+    actor = (*iterator);
 
     if (actor.getAge() > actor.getLifespan()) {
       iterator = actors.erase(iterator);

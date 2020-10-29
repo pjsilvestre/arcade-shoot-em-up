@@ -8,7 +8,7 @@ Emitter::Emitter()
       lifespan{Constants::LIFESPAN},
       magnitude{Constants::EMITTER_MAGNITUDE},
       spriteRatePerSecond{Constants::SPRITES_PER_SECOND},
-      timeOfLastEmittedActor{0} {}
+      timeOfLastEmittedActor{0.0f} {}
 
 /**
  * @brief Create an Emitter with an associated Sprite
@@ -34,7 +34,6 @@ void Emitter::update() {
     // Arithmetic overflow: Using operator '-' on a 4 byte value and then
     // casting the result to a 8 byte value.
     // float currentTime = ofGetElapsedTimeMillis();
-
     double currentTime = ofGetElapsedTimeMillis();
 
     if ((currentTime - timeOfLastEmittedActor) >

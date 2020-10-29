@@ -21,11 +21,11 @@ const float MIN_VELOCITY{0.1f};
 const std::string PLAYER_SPRITE();
 const std::string MISSILE_SPRITE();
 const std::string MISSILE_SOUND_EFFECT();
-const float MISSILE_LIFESPAN{1};
+const float MISSILE_LIFESPAN{5.0f};
 
 // Emitter constants
-const float SPRITES_PER_SECOND{1.0};
+const float SPRITES_PER_SECOND{1.0f};
 const float EMITTER_MAGNITUDE{1000.0f};
-const float MS_PER_S{1000.0};
+const float MS_PER_S{1000.0f};
 
 }  // namespace Constants

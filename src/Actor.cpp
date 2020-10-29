@@ -4,7 +4,8 @@
  * @brief Creates an Actor with no Sprite
  */
 Actor::Actor()
-    : spawnTime{ofGetElapsedTimef()},
+    : initialAcceleration{Constants::ACCELERATION},
+      spawnTime{ofGetElapsedTimef()},
       lifespan{Constants::LIFESPAN},
       position{glm::vec3(0.0f)},
       velocity{glm::vec3(0.0f)},
@@ -46,26 +47,26 @@ void Actor::move(const glm::vec3& direction) { acceleration = direction; }
  */
 void Actor::moveUp() {
   // y values shrink upwards
-  acceleration.y = -Constants::ACCELERATION;
+  acceleration.y = -initialAcceleration;
 }
 
 /**
  * @brief Moves the Actor left
  */
-void Actor::moveLeft() { acceleration.x = -Constants::ACCELERATION; }
+void Actor::moveLeft() { acceleration.x = -initialAcceleration; }
 
 /**
  * @brief Moves the Actor down
  */
 void Actor::moveDown() {
   // y values grow downwards
-  acceleration.y = Constants::ACCELERATION;
+  acceleration.y = initialAcceleration;
 }
 
 /**
  * @brief Moves the Actor right
  */
-void Actor::moveRight() { acceleration.x = Constants::ACCELERATION; }
+void Actor::moveRight() { acceleration.x = initialAcceleration; }
 
 /**
  * @brief Stops the Actor

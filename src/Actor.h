@@ -33,6 +33,7 @@ class Actor {
   void updatePosition();
   void updateTransformationMatrix();
 
+  float initialAcceleration;
   float spawnTime;
   float lifespan;
   glm::vec3 position;

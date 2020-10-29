@@ -32,7 +32,6 @@ class Actor {
  private:
   void updatePosition();
   void updateVelocity();
-  void updateAcceleration();
   void updateTransformationMatrix();
 
   int age;  // TODO implement using ofGetElapsedTimeMillis()

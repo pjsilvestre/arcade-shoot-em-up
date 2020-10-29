@@ -23,7 +23,6 @@ void Actor::update() {
   age++;
   updatePosition();
   updateVelocity();
-  // updateAcceleration();
   updateTransformationMatrix();
   sprite.setTransformationMatrix(transformationMatrix);
 }
@@ -89,10 +88,6 @@ void Actor::updateVelocity() {
                               Constants::MAX_VELOCITY);
   velocity.y = Utility::clamp(velocity.y, -Constants::MAX_VELOCITY,
                               Constants::MAX_VELOCITY);
-}
-
-void Actor::updateAcceleration() {
-  // TODO non-linear acceleration?
 }
 
 void Actor::updateTransformationMatrix() {

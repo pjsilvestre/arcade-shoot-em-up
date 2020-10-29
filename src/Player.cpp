@@ -7,6 +7,7 @@ Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
   this->setPosition(
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0));
   turret = Emitter(Constants::MISSILE_SPRITE());
+  turret.setMagnitude(Constants::MISSILE_ACCELERATION_MAGNITUDE);
   turret.setLifespan(Constants::MISSILE_LIFESPAN);
 };
 

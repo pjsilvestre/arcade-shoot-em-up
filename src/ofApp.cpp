@@ -91,7 +91,7 @@ void ofApp::keyReleased(int key) {
     case 'a':
     case 's':
     case 'd':
-      player.stop();
+      player.dampMotion();
       break;
     case ' ':
       player.stopTurret();

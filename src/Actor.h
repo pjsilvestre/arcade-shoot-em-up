@@ -27,11 +27,10 @@ class Actor {
   void moveLeft();
   void moveDown();
   void moveRight();
-  void stop();
+  void dampMotion();
 
  private:
   void updatePosition();
-  void updateVelocity();
   void updateTransformationMatrix();
 
   int age;  // TODO implement using ofGetElapsedTimeMillis()

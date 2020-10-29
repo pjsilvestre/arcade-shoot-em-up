@@ -12,8 +12,10 @@ const float SPRITE_DIMENSIONS{128.0f};
 
 // Actor constants
 const int LIFESPAN{INT_MAX};
-const float MAX_VELOCITY{5.0f};
-const float ACCELERATION{5.0f};
+const float ACCELERATION{1000.0f};
+const float VELOCITY_DAMPING{0.99f};
+const float ACCELERATION_DAMPING{0.99f};
+const float MIN_VELOCITY{0.1f};
 
 // Player constants
 const std::string PLAYER_SPRITE();

@@ -22,7 +22,6 @@ Actor::Actor(const Sprite& sprite) : Actor() { this->sprite = sprite; }
 void Actor::update() {
   age++;
   updatePosition();
-  updateVelocity();
   updateTransformationMatrix();
   sprite.setTransformationMatrix(transformationMatrix);
 }
@@ -69,25 +68,24 @@ void Actor::moveRight() { acceleration.x = Constants::ACCELERATION; }
 /**
  * @brief Stops the Actor
  */
-void Actor::stop() {
-  velocity = glm::vec3(0.0f);
-  acceleration = glm::vec3(0.0f);
+void Actor::dampMotion() {
+   while (glm::length(acceleration) > 0.1) {
+    acceleration *= Constants::ACCELERATION_DAMPING;
+  }
 }
 
 //-Private Methods----------------------------------------------
 
 void Actor::updatePosition() {
-  // TODO integrate framerate as time delta
-  position += velocity;
-}
+  float timestep = 1.0f / ofGetFrameRate();
 
-void Actor::updateVelocity() {
-  velocity += acceleration;
+  position += velocity * timestep;
+  velocity += acceleration * timestep;
+  velocity *= Constants::VELOCITY_DAMPING;
 
-  velocity.x = Utility::clamp(velocity.x, -Constants::MAX_VELOCITY,
-                              Constants::MAX_VELOCITY);
-  velocity.y = Utility::clamp(velocity.y, -Constants::MAX_VELOCITY,
-                              Constants::MAX_VELOCITY);
+  if (glm::length(velocity) < Constants::MIN_VELOCITY) {
+    velocity = glm::vec3(0.0f);
+  }
 }
 
 void Actor::updateTransformationMatrix() {

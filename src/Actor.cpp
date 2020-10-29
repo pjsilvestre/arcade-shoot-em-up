@@ -4,7 +4,7 @@
  * @brief Creates an Actor with no Sprite
  */
 Actor::Actor()
-    : age{0},
+    : spawnTime{ofGetElapsedTimef()},
       lifespan{Constants::LIFESPAN},
       position{glm::vec3(0.0f)},
       velocity{glm::vec3(0.0f)},
@@ -20,7 +20,6 @@ Actor::Actor(const Sprite& sprite) : Actor() { this->sprite = sprite; }
  * @brief Updates the Actor's state
  */
 void Actor::update() {
-  age++;
   updatePosition();
   updateTransformationMatrix();
   sprite.setTransformationMatrix(transformationMatrix);
@@ -32,12 +31,15 @@ void Actor::update() {
 void Actor::draw() { sprite.draw(); }
 
 /**
+ * @brief Gets this Actor's age in seconds
+ */
+float Actor::getAge() { return ofGetElapsedTimef() - spawnTime; }
+
+/**
  * @brief Moves the Actor in a given direction
  * @param direction The desired direction
  */
-void Actor::move(const glm::vec3& direction) {
-  acceleration = direction;
-}
+void Actor::move(const glm::vec3& direction) { acceleration = direction; }
 
 /**
  * @brief Moves the Actor up
@@ -69,7 +71,7 @@ void Actor::moveRight() { acceleration.x = Constants::ACCELERATION; }
  * @brief Stops the Actor
  */
 void Actor::dampMotion() {
-   while (glm::length(acceleration) > 0.1) {
+  while (glm::length(acceleration) > 0.1) {
     acceleration *= Constants::ACCELERATION_DAMPING;
   }
 }

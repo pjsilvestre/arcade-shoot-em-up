@@ -11,7 +11,7 @@ const int SCREEN_HEIGHT{720};
 const float SPRITE_DIMENSIONS{128.0f};
 
 // Actor constants
-const int LIFESPAN{INT_MAX};
+const float LIFESPAN{FLT_MAX};
 const float ACCELERATION{1000.0f};
 const float VELOCITY_DAMPING{0.99f};
 const float ACCELERATION_DAMPING{0.99f};
@@ -21,11 +21,11 @@ const float MIN_VELOCITY{0.1f};
 const std::string PLAYER_SPRITE();
 const std::string MISSILE_SPRITE();
 const std::string MISSILE_SOUND_EFFECT();
-const int MISSILE_LIFESPAN{500};
+const float MISSILE_LIFESPAN{1};
 
 // Emitter constants
 const float SPRITES_PER_SECOND{1.0};
-const float EMITTER_MAGNITUDE{5000.0f};
+const float EMITTER_MAGNITUDE{1000.0f};
 const float MS_PER_S{1000.0};
 
 }  // namespace Constants

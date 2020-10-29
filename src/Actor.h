@@ -12,7 +12,6 @@ class Actor {
   virtual void update();
   virtual void draw();
 
-  int getAge() { return age; };
   void setLifespan(int lifespan) { this->lifespan = lifespan; }
   int getLifespan() { return lifespan; }
   void setPosition(const glm::vec3& position) { this->position = position; }
@@ -22,6 +21,7 @@ class Actor {
   void setAcceleration(const glm::vec3& accel) { this->acceleration = accel; }
   glm::vec3 getAcceleration() { return acceleration; }
 
+  float getAge();
   void move(const glm::vec3& direction);
   void moveUp();
   void moveLeft();
@@ -33,8 +33,8 @@ class Actor {
   void updatePosition();
   void updateTransformationMatrix();
 
-  int age;  // TODO implement using ofGetElapsedTimeMillis()
-  int lifespan;
+  float spawnTime;
+  float lifespan;
   glm::vec3 position;
   glm::vec3 velocity;
   glm::vec3 acceleration;

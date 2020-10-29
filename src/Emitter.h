@@ -23,7 +23,7 @@ class Emitter {
   void emit();
 
   bool started;
-  int lifespan;
+  float lifespan;
   float magnitude;
   float spriteRatePerSecond;
   float timeOfLastEmittedActor;

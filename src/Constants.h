@@ -25,6 +25,7 @@ const int MISSILE_LIFESPAN{500};
 
 // Emitter constants
 const float SPRITES_PER_SECOND{1.0};
+const float EMITTER_MAGNITUDE{5000.0f};
 const float MS_PER_S{1000.0};
 
 }  // namespace Constants

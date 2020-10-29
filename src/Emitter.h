@@ -24,6 +24,7 @@ class Emitter {
 
   bool started;
   int lifespan;
+  float magnitude;
   float spriteRatePerSecond;
   float timeOfLastEmittedActor;
   glm::vec3 position;

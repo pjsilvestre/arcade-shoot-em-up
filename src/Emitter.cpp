@@ -6,6 +6,7 @@
 Emitter::Emitter()
     : started{false},
       lifespan{Constants::LIFESPAN},
+      magnitude{Constants::EMITTER_MAGNITUDE},
       spriteRatePerSecond{Constants::SPRITES_PER_SECOND},
       timeOfLastEmittedActor{0} {}
 
@@ -66,7 +67,7 @@ void Emitter::emit() {
   missile.setLifespan(lifespan);
 
   actors.add(missile);
-  actors.moveActors(glm::normalize(direction));
+  actors.moveActors(direction * magnitude);
 
   sound.play();
 

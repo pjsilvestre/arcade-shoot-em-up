@@ -6,7 +6,7 @@
 class Emitter {
  public:
   Emitter();
-  Emitter(const Sprite& sprite);
+  Emitter(const Sprite& sprite, const string* soundFileName);
 
   void update();
   void draw();

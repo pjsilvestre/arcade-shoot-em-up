@@ -2,7 +2,7 @@
 
 #include "Actor.h"
 #include "Constants.h"
-#include "Emitter.h"
+#include "Turret.h"
 
 class Player : public Actor {
  public:
@@ -19,5 +19,5 @@ class Player : public Actor {
  private:
   void clampPosition();
 
-  Emitter turret;  // TODO encapsulate into turret class?
+  Turret turret;
 };

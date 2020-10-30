@@ -13,14 +13,21 @@ Emitter::Emitter()
 /**
  * @brief Create an Emitter with an associated Sprite
  * @param sprite The desired Sprite
+ * @param soundFileName The filename of the desired sound (may be null)
  */
-Emitter::Emitter(const Sprite& sprite) : Emitter() {
+Emitter::Emitter(const Sprite& sprite, const string* soundFileName)
+    : Emitter() {
+  // TODO simplifiy into initialization subroutines?
   this->sprite = sprite;
 
-  // TODO encapsulate following into turret class ?
-  if (!sound.load(Constants::MISSILE_SOUND_EFFECT())) {
-    cerr << Constants::MISSILE_SOUND_EFFECT() << " not found" << endl;
+  if (soundFileName == nullptr) {
+    return;
   }
+
+  if (!sound.load(*soundFileName)) {
+    cerr << *soundFileName << " not found" << endl;
+  }
+
   sound.setMultiPlay(true);
 }
 

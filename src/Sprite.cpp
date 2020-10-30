@@ -1,12 +1,6 @@
 #include "Sprite.h"
 
 /**
- * @brief Creates a Sprite
- */
-Sprite::Sprite()
-    : loaded{false}, transformationMatrix{glm::mat4(0.0f)}, image{ofImage()} {}
-
-/**
  * @brief Draws the Sprite
  */
 void Sprite::draw() {

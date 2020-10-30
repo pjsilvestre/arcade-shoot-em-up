@@ -5,8 +5,6 @@
 
 class Sprite {
  public:
-  Sprite();
-
   void draw();
 
   void setTransformationMatrix(const glm::mat4& transformationMatrix);
@@ -15,7 +13,7 @@ class Sprite {
  private:
   void drawPlaceholder();
 
-  bool loaded;
-  glm::mat4 transformationMatrix;
-  ofImage image;
+  bool loaded{false};
+  glm::mat4 transformationMatrix{glm::mat4()};
+  ofImage image{ofImage()};
 };

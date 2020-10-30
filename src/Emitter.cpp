@@ -44,7 +44,7 @@ void Emitter::setSound(const string& filename) {
   }
 }
 
-//-Private Methods----------------------------------------------
+//-Protected Methods--------------------------------------------
 
 void Emitter::emit() {
   Actor missile;

@@ -12,7 +12,6 @@ class Player : public Actor {
   void draw() override;
 
   void setTurretDirection(glm::vec3 dir) { turret.setDirection(dir); }
-  void setTurretRate(float rate) { turret.setRate(rate); }
   void startTurret();
   void stopTurret();
 

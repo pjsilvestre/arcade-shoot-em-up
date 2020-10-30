@@ -8,9 +8,6 @@ void ofApp::setup() {
   guiShown = true;
 
   gui.setup();
-  gui.add(missileRate.setup("missiles per second",
-                            Constants::SPRITES_PER_SECOND,
-                            Constants::SPRITES_PER_SECOND, 16));
 }
 
 //--------------------------------------------------------------
@@ -27,7 +24,6 @@ void ofApp::update() {
     ofShowCursor();
   }
 
-  player.setTurretRate(missileRate);
   player.update();
 }
 

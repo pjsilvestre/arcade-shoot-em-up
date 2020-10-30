@@ -29,6 +29,5 @@ class ofApp : public ofBaseApp {
   bool guiShown;
 
   Player player;
-  ofxIntSlider missileRate;
   ofxPanel gui;
 };

@@ -32,6 +32,32 @@ void Player::draw() {
 }
 
 /**
+ * @brief Moves this Player up
+ */
+void Player::moveUp() {
+  // y values shrink upwards
+  acceleration.y = -initialAcceleration;
+}
+
+/**
+ * @brief Moves this Player left
+ */
+void Player::moveLeft() { acceleration.x = -initialAcceleration; }
+
+/**
+ * @brief Moves this Player down
+ */
+void Player::moveDown() {
+  // y values grow downwards
+  acceleration.y = initialAcceleration;
+}
+
+/**
+ * @brief Moves this Player right
+ */
+void Player::moveRight() { acceleration.x = initialAcceleration; }
+
+/**
  * @brief Starts the turret
  */
 void Player::startTurret() { turret.start(); }

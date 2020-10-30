@@ -16,10 +16,6 @@ class Actor {
 
   float getAge();
   void move(const glm::vec3& direction);
-  void moveUp();
-  void moveLeft();
-  void moveDown();
-  void moveRight();
 
  protected:
   virtual void integrate();

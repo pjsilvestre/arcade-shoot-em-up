@@ -20,36 +20,10 @@ void Actor::draw() { sprite.draw(); }
 float Actor::getAge() { return ofGetElapsedTimef() - spawnTime; }
 
 /**
- * @brief Moves this Actor in a given direction
- * @param direction The desired direction
+ * @brief Moves this Actor according to a given force
+ * @param direction The applied force
  */
-void Actor::move(const glm::vec3& direction) { acceleration = direction; }
-
-/**
- * @brief Moves this Actor up
- */
-void Actor::moveUp() {
-  // y values shrink upwards
-  acceleration.y = -initialAcceleration;
-}
-
-/**
- * @brief Moves this Actor left
- */
-void Actor::moveLeft() { acceleration.x = -initialAcceleration; }
-
-/**
- * @brief Moves this Actor down
- */
-void Actor::moveDown() {
-  // y values grow downwards
-  acceleration.y = initialAcceleration;
-}
-
-/**
- * @brief Moves this Actor right
- */
-void Actor::moveRight() { acceleration.x = initialAcceleration; }
+void Actor::move(const glm::vec3& force) { acceleration = force; }
 
 //-Protected Methods--------------------------------------------
 

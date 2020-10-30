@@ -1,18 +1,6 @@
 #include "Emitter.h"
 
 /**
- * @brief Create an Emitter
- */
-Emitter::Emitter()
-    : started{false},
-      lifespan{Constants::LIFESPAN},
-      magnitude{Constants::EMITTER_MAGNITUDE},
-      spriteRatePerSecond{Constants::SPRITES_PER_SECOND},
-      timeOfLastEmittedActor{0.0f} {
-  sound.setMultiPlay(true);
-}
-
-/**
  * @brief Update the associated ActorSystem
  */
 void Emitter::update() {
@@ -59,7 +47,7 @@ void Emitter::setSound(const string& filename) {
 //-Private Methods----------------------------------------------
 
 void Emitter::emit() {
-  Actor missile;  // TODO add more Actor constructors?
+  Actor missile;
   missile.setPosition(position);
   missile.setLifespan(lifespan);
   missile.setSprite(sprite);

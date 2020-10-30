@@ -5,8 +5,6 @@
 
 class Emitter {
  public:
-  Emitter();
-
   void update();
   void draw();
 
@@ -24,14 +22,14 @@ class Emitter {
  private:
   void emit();
 
-  bool started;
-  float lifespan;
-  float magnitude;
-  float spriteRatePerSecond;
-  float timeOfLastEmittedActor;
-  glm::vec3 position;
-  glm::vec3 direction;
-  Sprite sprite;
-  ActorSystem actors;
-  ofSoundPlayer sound;
+  bool started{false};
+  float lifespan{Constants::LIFESPAN};
+  float magnitude{Constants::EMITTER_MAGNITUDE};
+  float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
+  float timeOfLastEmittedActor{0.0f};
+  glm::vec3 position{glm::vec3(0.0f)};
+  glm::vec3 direction{glm::vec3(0.0f)};
+  Sprite sprite{Sprite()};
+  ActorSystem actors{ActorSystem()};
+  ofSoundPlayer sound{ofSoundPlayer()};
 };

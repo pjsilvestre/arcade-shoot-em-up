@@ -23,7 +23,7 @@ class Emitter {
   void emit();
 
   bool started{false};
-  float lifespan{Constants::LIFESPAN};
+  float lifespan{Constants::ACTOR_LIFESPAN};
   float magnitude{Constants::EMITTER_MAGNITUDE};
   float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActor{0.0f};

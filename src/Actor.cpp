@@ -56,7 +56,7 @@ void Actor::moveRight() { acceleration.x = initialAcceleration; }
  */
 void Actor::dampMotion() {
   while (glm::length(acceleration) > 0.1) {
-    acceleration *= Constants::ACCELERATION_DAMPING;
+    acceleration *= accelerationDamping;
   }
 }
 
@@ -67,9 +67,9 @@ void Actor::updatePosition() {
 
   position += velocity * timestep;
   velocity += acceleration * timestep;
-  velocity *= Constants::VELOCITY_DAMPING;
+  velocity *= velocityDamping;
 
-  if (glm::length(velocity) < Constants::MIN_VELOCITY) {
+  if (glm::length(velocity) < minVelocity) {
     velocity = glm::vec3(0.0f);
   }
 }

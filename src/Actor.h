@@ -9,8 +9,17 @@ class Actor {
   virtual void update();
   virtual void draw();
 
+  void setAccelerationDamping(const float damping) {
+    this->accelerationDamping = damping;
+  }
+  void setInitialAcceleration(const float accel) {
+    this->initialAcceleration = accel;
+  }
   void setLifespan(int lifespan) { this->lifespan = lifespan; }
   int getLifespan() { return lifespan; }
+  void setVelocityDamping(const float damping) {
+    this->velocityDamping = damping;
+  }
   void setPosition(const glm::vec3& position) { this->position = position; }
   glm::vec3 getPosition() { return position; }
   void setVelocity(const glm::vec3& velocity) { this->velocity = velocity; }
@@ -31,9 +40,12 @@ class Actor {
   void updatePosition();
   void updateTransformationMatrix();
 
-  float initialAcceleration{Constants::ACCELERATION};
+  float accelerationDamping{Constants::ACTOR_ACCELERATION_DAMPING};
+  float initialAcceleration{Constants::ACTOR_INITIAL_ACCELERATION};
+  float lifespan{Constants::ACTOR_LIFESPAN};
+  float minVelocity{Constants::ACTOR_MIN_VELOCITY};
   float spawnTime{ofGetElapsedTimef()};
-  float lifespan{Constants::LIFESPAN};
+  float velocityDamping{Constants::ACTOR_VELOCITY_DAMPING};
   glm::vec3 position{glm::vec3(0.0f)};
   glm::vec3 velocity{glm::vec3(0.0f)};
   glm::vec3 acceleration{glm::vec3(0.0f)};

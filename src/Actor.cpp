@@ -1,7 +1,7 @@
 #include "Actor.h"
 
 /**
- * @brief Updates the Actor's state
+ * @brief Updates this Actor's state
  */
 void Actor::update() {
   integrate();
@@ -10,7 +10,7 @@ void Actor::update() {
 }
 
 /**
- * @brief Draws the Actor
+ * @brief Draws this Actor
  */
 void Actor::draw() { sprite.draw(); }
 
@@ -20,13 +20,13 @@ void Actor::draw() { sprite.draw(); }
 float Actor::getAge() { return ofGetElapsedTimef() - spawnTime; }
 
 /**
- * @brief Moves the Actor in a given direction
+ * @brief Moves this Actor in a given direction
  * @param direction The desired direction
  */
 void Actor::move(const glm::vec3& direction) { acceleration = direction; }
 
 /**
- * @brief Moves the Actor up
+ * @brief Moves this Actor up
  */
 void Actor::moveUp() {
   // y values shrink upwards
@@ -34,12 +34,12 @@ void Actor::moveUp() {
 }
 
 /**
- * @brief Moves the Actor left
+ * @brief Moves this Actor left
  */
 void Actor::moveLeft() { acceleration.x = -initialAcceleration; }
 
 /**
- * @brief Moves the Actor down
+ * @brief Moves this Actor down
  */
 void Actor::moveDown() {
   // y values grow downwards
@@ -47,18 +47,18 @@ void Actor::moveDown() {
 }
 
 /**
- * @brief Moves the Actor right
+ * @brief Moves this Actor right
  */
 void Actor::moveRight() { acceleration.x = initialAcceleration; }
 
-//-Private Methods----------------------------------------------
+//-Protected Methods--------------------------------------------
 
 void Actor::integrate() {
   float timestep = 1.0f / ofGetFrameRate();
 
   position += velocity * timestep;
 
-  if (glm::length(velocity) < Constants::ACTOR_MAX_VELOCITY) {
+  if (glm::length(velocity) < maxVelocity) {
     velocity += acceleration * timestep;
   }
 

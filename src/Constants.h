@@ -18,6 +18,10 @@ const float ACTOR_MAX_VELOCITY{500.0f};
 const float ACTOR_VELOCITY_DAMPING{0.99f};
 
 // Player constants
+const float PLAYER_ACCELERATION_DAMPING{0.99f};
+const float PLAYER_INITIAL_ACCELERATION{1000.0f};
+const float PLAYER_MAX_VELOCITY{500.0f};
+const float PLAYER_VELOCITY_DAMPING{0.99f};
 const std::string PLAYER_SPRITE();
 
 // Emitter constants

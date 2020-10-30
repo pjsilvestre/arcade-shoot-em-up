@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
-  ofSetBackgroundColor(ofColor::darkGrey);
+  ofSetBackgroundColor(ofColor::black);
   gameNotStarted = true;
   mouseEnabled = false;
   guiShown = true;
@@ -114,7 +114,7 @@ void ofApp::drawStartMessage() {
   string startMessage = "Press space to start...";
   ofBitmapFont font;
   ofRectangle boundingBox = font.getBoundingBox(startMessage, 0, 0);
-  ofSetColor(ofColor::black);
+  ofSetColor(ofColor::white);
   ofDrawBitmapString(startMessage,
                      glm::vec3(ofGetWidth() / 2 - boundingBox.width / 2,
                                ofGetHeight() / 2 - boundingBox.height / 2, 0));

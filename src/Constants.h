@@ -14,7 +14,7 @@ const float SPRITE_DIMENSIONS{128.0f};
 const float ACTOR_ACCELERATION_DAMPING{0.99f};
 const float ACTOR_INITIAL_ACCELERATION{1000.0f};
 const float ACTOR_LIFESPAN{FLT_MAX};
-const float ACTOR_MIN_VELOCITY{0.1f};
+const float ACTOR_MAX_VELOCITY{500.0f};
 const float ACTOR_VELOCITY_DAMPING{0.99f};
 
 // Player constants

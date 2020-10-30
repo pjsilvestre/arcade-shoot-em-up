@@ -34,16 +34,14 @@ class Actor {
   void moveLeft();
   void moveDown();
   void moveRight();
-  void dampMotion();
 
  private:
-  void updatePosition();
+  void integrate();
   void updateTransformationMatrix();
 
   float accelerationDamping{Constants::ACTOR_ACCELERATION_DAMPING};
   float initialAcceleration{Constants::ACTOR_INITIAL_ACCELERATION};
   float lifespan{Constants::ACTOR_LIFESPAN};
-  float minVelocity{Constants::ACTOR_MIN_VELOCITY};
   float spawnTime{ofGetElapsedTimef()};
   float velocityDamping{Constants::ACTOR_VELOCITY_DAMPING};
   glm::vec3 position{glm::vec3(0.0f)};

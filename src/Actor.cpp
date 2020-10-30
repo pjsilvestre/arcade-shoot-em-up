@@ -4,7 +4,7 @@
  * @brief Updates the Actor's state
  */
 void Actor::update() {
-  updatePosition();
+  integrate();
   updateTransformationMatrix();
   sprite.setTransformationMatrix(transformationMatrix);
 }
@@ -51,27 +51,19 @@ void Actor::moveDown() {
  */
 void Actor::moveRight() { acceleration.x = initialAcceleration; }
 
-/**
- * @brief Stops the Actor
- */
-void Actor::dampMotion() {
-  while (glm::length(acceleration) > 0.1) {
-    acceleration *= accelerationDamping;
-  }
-}
-
 //-Private Methods----------------------------------------------
 
-void Actor::updatePosition() {
+void Actor::integrate() {
   float timestep = 1.0f / ofGetFrameRate();
 
   position += velocity * timestep;
-  velocity += acceleration * timestep;
-  velocity *= velocityDamping;
 
-  if (glm::length(velocity) < minVelocity) {
-    velocity = glm::vec3(0.0f);
+  if (glm::length(velocity) < Constants::ACTOR_MAX_VELOCITY) {
+    velocity += acceleration * timestep;
   }
+
+  velocity *= velocityDamping;
+  acceleration *= accelerationDamping;
 }
 
 void Actor::updateTransformationMatrix() {

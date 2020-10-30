@@ -35,4 +35,7 @@ const float MISSILE_LIFESPAN{5.0f};
 const std::string MISSILE_SOUND_EFFECT();
 const std::string MISSILE_SPRITE();
 
+// Enemy constants
+const std::string ENEMY_SPRITE();
+
 }  // namespace Constants

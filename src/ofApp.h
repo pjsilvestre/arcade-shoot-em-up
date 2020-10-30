@@ -30,4 +30,6 @@ class ofApp : public ofBaseApp {
 
   Player player;
   ofxPanel gui;
+
+  Emitter enemyEmitter;
 };

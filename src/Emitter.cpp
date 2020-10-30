@@ -41,21 +41,26 @@ void Emitter::stop() { started = false; }
 void Emitter::setSound(const string& filename) {
   if (!sound.load(filename)) {
     cerr << filename << " not found" << endl;
+    soundLoaded = false;
+  } else {
+    soundLoaded = true;
   }
 }
 
 //-Protected Methods--------------------------------------------
 
 void Emitter::emit() {
-  Actor missile;
-  missile.setPosition(position);
-  missile.setLifespan(lifespan);
-  missile.setSprite(sprite);
+  Actor actor;
+  actor.setPosition(position);
+  actor.setLifespan(lifespan);
+  actor.setSprite(sprite);
 
-  actors.add(missile);
+  actors.add(actor);
   actors.moveActors(direction * magnitude);
 
-  sound.play();
+  if (soundLoaded) {
+    sound.play();
+  }
 
   timeOfLastEmittedActor = ofGetElapsedTimeMillis();
 }

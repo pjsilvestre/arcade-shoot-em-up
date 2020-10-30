@@ -11,6 +11,11 @@ class Emitter {
   void setPosition(const glm::vec3& position) { this->position = position; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
 
+  // temp
+  void setLifespan(float lifespan) { this->lifespan = lifespan; }
+  void setMagnitude(float magnitude) { this->magnitude = magnitude; }
+  void setSprite(const Sprite& sprite) { this->sprite = sprite; }
+
   void start();
   void stop();
   void setSound(const string& filename);
@@ -18,6 +23,7 @@ class Emitter {
  protected:
   void emit();
 
+  bool soundLoaded{false};
   bool started{false};
   float lifespan{Constants::ACTOR_LIFESPAN};
   float magnitude{Constants::EMITTER_MAGNITUDE};

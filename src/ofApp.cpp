@@ -8,6 +8,15 @@ void ofApp::setup() {
   guiShown = true;
 
   gui.setup();
+
+  enemyEmitter.setLifespan(10.0f);
+  enemyEmitter.setMagnitude(1000.0f);
+  enemyEmitter.setPosition(glm::vec3(100.0f, -200.0f, 0.0f));
+  enemyEmitter.setDirection(glm::vec3(0.0f, 1.0f, 0.0f));
+
+  Sprite enemySprite;
+  enemySprite.setImage(Constants::ENEMY_SPRITE());
+  enemyEmitter.setSprite(enemySprite);
 }
 
 //--------------------------------------------------------------
@@ -25,6 +34,7 @@ void ofApp::update() {
   }
 
   player.update();
+  enemyEmitter.update();
 }
 
 //--------------------------------------------------------------
@@ -39,6 +49,7 @@ void ofApp::draw() {
   }
 
   player.draw();
+  enemyEmitter.draw();
 }
 
 //--------------------------------------------------------------
@@ -73,6 +84,9 @@ void ofApp::keyPressed(int key) {
     case ' ':
       player.startTurret();
       break;
+    case 'e':
+      enemyEmitter.start();
+      break;
   }
 }
 
@@ -86,6 +100,9 @@ void ofApp::keyReleased(int key) {
       break;
     case ' ':
       player.stopTurret();
+      break;
+    case 'e':
+      // enemyEmitter.stop();
       break;
   }
 }

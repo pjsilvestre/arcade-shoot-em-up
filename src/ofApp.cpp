@@ -97,6 +97,7 @@ void ofApp::keyReleased(int key) {
     case 'a':
     case 's':
     case 'd':
+      player.stop();
       break;
     case ' ':
       player.stopTurret();

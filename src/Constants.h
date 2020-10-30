@@ -18,20 +18,20 @@ const float ACTOR_MAX_VELOCITY{500.0f};
 const float ACTOR_VELOCITY_DAMPING{0.99f};
 
 // Player constants
-const float PLAYER_ACCELERATION_DAMPING{0.99f};
-const float PLAYER_INITIAL_ACCELERATION{1000.0f};
-const float PLAYER_MAX_VELOCITY{500.0f};
-const float PLAYER_VELOCITY_DAMPING{0.99f};
+const float PLAYER_INITIAL_ACCELERATION{10000.0f};
+const float PLAYER_MAX_VELOCITY{1000.0f};
 const std::string PLAYER_SPRITE();
 
 // Emitter constants
-const float EMITTER_MAGNITUDE{1000.0f};
+const float EMITTER_MAGNITUDE{ACTOR_INITIAL_ACCELERATION};
+const float EMITTER_MAX_VELOCITY{ACTOR_MAX_VELOCITY};
 const float MS_PER_S{1000.0f};
 const float SPRITES_PER_SECOND{1.0f};
 
 // Turret constants
-const float MISSILE_ACCELERATION_MAGNITUDE{5000.0f};
 const float MISSILE_LIFESPAN{5.0f};
+const float MISSILE_MAGNITUDE{10000.0f};
+const float MISSILE_MAX_VELOCITY{1500.0f};
 const std::string MISSILE_SOUND_EFFECT();
 const std::string MISSILE_SPRITE();
 

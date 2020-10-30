@@ -17,6 +17,7 @@ class Player : public Actor {
   void moveLeft();
   void moveDown();
   void moveRight();
+  void stop();
   void startTurret();
   void stopTurret();
 

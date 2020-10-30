@@ -53,6 +53,7 @@ void Emitter::emit() {
   Actor actor;
   actor.setPosition(position);
   actor.setLifespan(lifespan);
+  actor.setMaxVelocity(maxVelocity);
   actor.setSprite(sprite);
 
   actors.add(actor);

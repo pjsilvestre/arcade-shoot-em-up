@@ -27,6 +27,7 @@ class Emitter {
   bool started{false};
   float lifespan{Constants::ACTOR_LIFESPAN};
   float magnitude{Constants::EMITTER_MAGNITUDE};
+  float maxVelocity{Constants::EMITTER_MAX_VELOCITY};
   float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActor{0.0f};
   glm::vec3 position{glm::vec3(0.0f)};

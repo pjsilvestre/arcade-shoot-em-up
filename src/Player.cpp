@@ -4,10 +4,8 @@
  * @brief Creates a Player
  */
 Player::Player() : Actor() {
-  accelerationDamping = Constants::PLAYER_ACCELERATION_DAMPING;
   initialAcceleration = Constants::PLAYER_INITIAL_ACCELERATION;
   maxVelocity = Constants::PLAYER_MAX_VELOCITY;
-  velocityDamping = Constants::PLAYER_VELOCITY_DAMPING;
   position =
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0);
   sprite.setImage(Constants::PLAYER_SPRITE());
@@ -57,6 +55,11 @@ void Player::moveDown() {
  */
 void Player::moveRight() { acceleration.x = initialAcceleration; }
 
+void Player::stop() {
+  velocity = glm::vec3(0.0f);
+  acceleration = glm::vec3(0.0f);
+}
+
 /**
  * @brief Starts the turret
  */
@@ -79,7 +82,6 @@ void Player::clampPosition() {
 }
 
 void Player::integrate() {
-  // TODO customize player movement
   float timestep = 1.0f / ofGetFrameRate();
 
   position += velocity * timestep;
@@ -87,7 +89,4 @@ void Player::integrate() {
   if (glm::length(velocity) < maxVelocity) {
     velocity += acceleration * timestep;
   }
-
-  velocity *= velocityDamping;
-  acceleration *= accelerationDamping;
 }

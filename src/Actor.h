@@ -11,6 +11,7 @@ class Actor {
 
   void setLifespan(int lifespan) { this->lifespan = lifespan; }
   int getLifespan() { return lifespan; }
+  void setMaxVelocity(float maxVelocity) { this->maxVelocity = maxVelocity; }
   void setPosition(const glm::vec3& position) { this->position = position; }
   void setSprite(const Sprite& sprite) { this->sprite = sprite; }
 

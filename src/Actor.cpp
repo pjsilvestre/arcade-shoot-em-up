@@ -1,17 +1,6 @@
 #include "Actor.h"
 
 /**
- * @brief Creates an Actor with no Sprite
- */
-Actor::Actor()
-    : initialAcceleration{Constants::ACCELERATION},
-      spawnTime{ofGetElapsedTimef()},
-      lifespan{Constants::LIFESPAN},
-      position{glm::vec3(0.0f)},
-      velocity{glm::vec3(0.0f)},
-      acceleration{glm::vec3(0.0f)} {}
-
-/**
  * @brief Updates the Actor's state
  */
 void Actor::update() {

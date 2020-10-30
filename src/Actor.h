@@ -6,8 +6,6 @@
 
 class Actor {
  public:
-  Actor();
-
   virtual void update();
   virtual void draw();
 
@@ -33,12 +31,12 @@ class Actor {
   void updatePosition();
   void updateTransformationMatrix();
 
-  float initialAcceleration;
-  float spawnTime;
-  float lifespan;
-  glm::vec3 position;
-  glm::vec3 velocity;
-  glm::vec3 acceleration;
-  glm::mat4 transformationMatrix;
-  Sprite sprite;
+  float initialAcceleration{Constants::ACCELERATION};
+  float spawnTime{ofGetElapsedTimef()};
+  float lifespan{Constants::LIFESPAN};
+  glm::vec3 position{glm::vec3(0.0f)};
+  glm::vec3 velocity{glm::vec3(0.0f)};
+  glm::vec3 acceleration{glm::vec3(0.0f)};
+  glm::mat4 transformationMatrix{glm::mat4(0.0f)};
+  Sprite sprite{Sprite()};
 };

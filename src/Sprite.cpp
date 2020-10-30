@@ -42,7 +42,7 @@ void Sprite::setImage(const string& filename) {
 
 void Sprite::drawPlaceholder() {
   ofSetColor(ofColor::hotPink);
-  ofDrawRectangle(glm::vec3(0.0f - Constants::SPRITE_DIMENSIONS / 2.0f,
-                            0.0f - Constants::SPRITE_DIMENSIONS / 2.0f, 0.0f),
-                  Constants::SPRITE_DIMENSIONS, Constants::SPRITE_DIMENSIONS);
+  ofDrawRectangle(
+      glm::vec3(0.0f - defaultWidth / 2.0f, 0.0f - defaultHeight / 2.0f, 0.0f),
+      defaultWidth, defaultHeight);
 }

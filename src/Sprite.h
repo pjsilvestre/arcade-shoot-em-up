@@ -14,6 +14,8 @@ class Sprite {
   void drawPlaceholder();
 
   bool loaded{false};
+  float defaultHeight{Constants::SPRITE_DIMENSIONS};
+  float defaultWidth{Constants::SPRITE_DIMENSIONS};
   glm::mat4 transformationMatrix{glm::mat4()};
   ofImage image{ofImage()};
 };

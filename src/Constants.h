@@ -22,7 +22,7 @@ const std::string PLAYER_SPRITE();
 const std::string MISSILE_SPRITE();
 const std::string MISSILE_SOUND_EFFECT();
 const float MISSILE_LIFESPAN{5.0f};
-const float MISSILE_ACCELERATION_MAGNITUDE{1000.0f};
+const float MISSILE_ACCELERATION_MAGNITUDE{5000.0f};
 
 // Emitter constants
 const float SPRITES_PER_SECOND{1.0f};

@@ -11,7 +11,6 @@ void ofApp::setup() {
   gui.add(missileRate.setup("missiles per second",
                             Constants::SPRITES_PER_SECOND,
                             Constants::SPRITES_PER_SECOND, 16));
-  gui.add(turretDirection.setup("turret direction", {0, -1}, {-1, -1}, {1, 1}));
 }
 
 //--------------------------------------------------------------
@@ -29,9 +28,6 @@ void ofApp::update() {
   }
 
   player.setTurretRate(missileRate);
-  auto x = turretDirection->x;
-  auto y = turretDirection->y;
-  player.setTurretDirection(glm::vec3(x, y, 0));
   player.update();
 }
 

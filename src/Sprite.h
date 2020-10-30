@@ -16,6 +16,6 @@ class Sprite {
   bool loaded{false};
   float defaultHeight{Constants::SPRITE_DIMENSIONS};
   float defaultWidth{Constants::SPRITE_DIMENSIONS};
-  glm::mat4 transformationMatrix{glm::mat4()};
+  glm::mat4 transformationMatrix{glm::mat4(-FLT_MAX)};
   ofImage image{ofImage()};
 };

@@ -19,5 +19,5 @@ class Player : public Actor {
  private:
   void clampPosition();
 
-  Turret turret;
+  Turret turret{Turret()};
 };

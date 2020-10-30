@@ -3,9 +3,13 @@
 /**
  * @brief Creates a Player with the default player sprite
  */
-Player::Player() : Actor(Sprite(Constants::PLAYER_SPRITE())) {
+Player::Player() : Actor() {
   this->setPosition(
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0));
+
+  Sprite sprite;
+  sprite.setImage(Constants::PLAYER_SPRITE());
+  this->setSprite(sprite);
 };
 
 /**

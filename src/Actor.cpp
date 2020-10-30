@@ -12,12 +12,6 @@ Actor::Actor()
       acceleration{glm::vec3(0.0f)} {}
 
 /**
- * @brief Creates an Actor with a Sprite
- * @param sprite The desired Sprite
- */
-Actor::Actor(const Sprite& sprite) : Actor() { this->sprite = sprite; }
-
-/**
  * @brief Updates the Actor's state
  */
 void Actor::update() {

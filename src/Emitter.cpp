@@ -1,33 +1,14 @@
 #include "Emitter.h"
 
 /**
- * @brief Create an Emitter with no associated Sprite
+ * @brief Create an Emitter
  */
 Emitter::Emitter()
     : started{false},
       lifespan{Constants::LIFESPAN},
       magnitude{Constants::EMITTER_MAGNITUDE},
       spriteRatePerSecond{Constants::SPRITES_PER_SECOND},
-      timeOfLastEmittedActor{0.0f} {}
-
-/**
- * @brief Create an Emitter with an associated Sprite
- * @param sprite The desired Sprite
- * @param soundFileName The filename of the desired sound (may be null)
- */
-Emitter::Emitter(const Sprite& sprite, const string* soundFileName)
-    : Emitter() {
-  // TODO simplifiy into initialization subroutines?
-  this->sprite = sprite;
-
-  if (soundFileName == nullptr) {
-    return;
-  }
-
-  if (!sound.load(*soundFileName)) {
-    cerr << *soundFileName << " not found" << endl;
-  }
-
+      timeOfLastEmittedActor{0.0f} {
   sound.setMultiPlay(true);
 }
 
@@ -65,12 +46,23 @@ void Emitter::start() { started = true; }
  */
 void Emitter::stop() { started = false; }
 
+/**
+ * @brief Sets this Emitter's sound effect
+ * @param filename The sound to load from bin/data
+ */
+void Emitter::setSound(const string& filename) {
+  if (!sound.load(filename)) {
+    cerr << filename << " not found" << endl;
+  }
+}
+
 //-Private Methods----------------------------------------------
 
 void Emitter::emit() {
-  Actor missile = Actor(sprite);  // TODO add more Actor constructors?
+  Actor missile;  // TODO add more Actor constructors?
   missile.setPosition(position);
   missile.setLifespan(lifespan);
+  missile.setSprite(sprite);
 
   actors.add(missile);
   actors.moveActors(direction * magnitude);

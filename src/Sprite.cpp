@@ -1,22 +1,10 @@
 #include "Sprite.h"
 
 /**
- * @brief Creates a Sprite with no image
+ * @brief Creates a Sprite
  */
-Sprite::Sprite() : loaded{false} {}
-
-/**
- * @brief Creates a sprite with an image
- * @param fileName The name of the image to load from bin/data
- */
-Sprite::Sprite(const string& fileName) {
-  if (image.load(fileName)) {
-    loaded = true;
-  } else {
-    loaded = false;
-    cerr << fileName << " not found" << endl;
-  }
-}
+Sprite::Sprite()
+    : loaded{false}, transformationMatrix{glm::mat4(0.0f)}, image{ofImage()} {}
 
 /**
  * @brief Draws the Sprite
@@ -42,6 +30,21 @@ void Sprite::draw() {
 void Sprite::setTransformationMatrix(const glm::mat4& transformationMatrix) {
   this->transformationMatrix = transformationMatrix;
 }
+
+/**
+ * @brief Sets this Sprite's image
+ * @param filename The image to load from bin/data
+ */
+void Sprite::setImage(const string& filename) {
+  if (image.load(filename)) {
+    loaded = true;
+  } else {
+    loaded = false;
+    cerr << filename << " not found" << endl;
+  }
+}
+
+//-Private Methods----------------------------------------------
 
 void Sprite::drawPlaceholder() {
   ofSetColor(ofColor::hotPink);

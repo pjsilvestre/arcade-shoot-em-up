@@ -6,7 +6,6 @@
 class Emitter {
  public:
   Emitter();
-  Emitter(const Sprite& sprite, const string* soundFileName);
 
   void update();
   void draw();
@@ -16,9 +15,11 @@ class Emitter {
   void setRate(const int rate) { this->spriteRatePerSecond = rate; }
   void setPosition(const glm::vec3& position) { this->position = position; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
+  void setSprite(const Sprite& sprite) { this->sprite = sprite; }
 
   void start();
   void stop();
+  void setSound(const string& filename);
 
  private:
   void emit();

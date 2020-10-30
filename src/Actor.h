@@ -7,7 +7,6 @@
 class Actor {
  public:
   Actor();
-  Actor(const Sprite& sprite);
 
   virtual void update();
   virtual void draw();
@@ -20,6 +19,7 @@ class Actor {
   glm::vec3 getVelocity() { return velocity; }
   void setAcceleration(const glm::vec3& accel) { this->acceleration = accel; }
   glm::vec3 getAcceleration() { return acceleration; }
+  void setSprite(const Sprite& sprite) { this->sprite = sprite; }
 
   float getAge();
   void move(const glm::vec3& direction);

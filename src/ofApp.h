@@ -32,4 +32,6 @@ class ofApp : public ofBaseApp {
   ofxIntSlider missileRate;
   ofxVec2Slider turretDirection;
   ofxPanel gui;
+
+  Sprite sprite;
 };

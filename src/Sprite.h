@@ -6,11 +6,11 @@
 class Sprite {
  public:
   Sprite();
-  Sprite(const string& fileName);
 
   void draw();
 
   void setTransformationMatrix(const glm::mat4& transformationMatrix);
+  void setImage(const string& filename);
 
  private:
   void drawPlaceholder();

@@ -13,6 +13,7 @@ class Player : public Actor {
 
   void setTurretDirection(const glm::vec3& dir) { turret.setDirection(dir); }
 
+  vector<glm::vec3> getMissilePositions();
   void moveUp();
   void moveLeft();
   void moveDown();

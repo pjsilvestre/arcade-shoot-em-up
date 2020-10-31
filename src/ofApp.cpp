@@ -45,6 +45,15 @@ void ofApp::update() {
   topLeftSpawner.update();
   topRightSpawner.update();
   middleLeftSpawner.update();
+  missilePositions = player->getMissilePositions();
+
+  for (auto& position : missilePositions) {
+    cout << position << endl;
+    topLeftSpawner.removeNear(position, 100.0f);
+    topRightSpawner.removeNear(position, 100.0f);
+    middleLeftSpawner.removeNear(position, 100.0f);
+  }
+  cout << endl;
 }
 
 //--------------------------------------------------------------

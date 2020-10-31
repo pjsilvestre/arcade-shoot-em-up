@@ -15,6 +15,7 @@ class Actor {
   void setLifespan(float lifespan) { this->lifespan = lifespan; }
   int getLifespan() { return lifespan; }
   void setPosition(const glm::vec3& position) { this->position = position; }
+  glm::vec3 getPosition() { return position; }
   IntegrationStrategy* getIntegrationStrategy() { return integrationStrategy; }
   void setIntegrationStrategy(IntegrationStrategy* strategy) {
     integrationStrategy = strategy;

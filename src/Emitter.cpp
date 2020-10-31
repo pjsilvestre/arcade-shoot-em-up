@@ -24,6 +24,19 @@ void Emitter::update() {
  */
 void Emitter::draw() { actors.draw(); }
 
+vector<glm::vec3> Emitter::getActorPositions() {
+  return actors.getActorPositions();
+}
+
+/**
+ * @brief TODO
+ * @param point TODO
+ * @param distance TODO
+*/
+void Emitter::removeNear(const glm::vec3& point, float distance) {
+  actors.removeNear(point, distance);
+}
+
 /**
  * @brief Start this Emitter
  */

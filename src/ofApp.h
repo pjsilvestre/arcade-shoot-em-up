@@ -35,6 +35,8 @@ class ofApp : public ofBaseApp {
   EnemySpawner topRightSpawner;
   EnemySpawner middleLeftSpawner;
 
+  vector<glm::vec3> missilePositions;
+
   // following pointers must be deallocated in exit()
   Player* player{nullptr};
   IntegrationStrategy* playerIntegrationStrategy{nullptr};

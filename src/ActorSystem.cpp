@@ -30,6 +30,33 @@ void ActorSystem::setPosition(const glm::vec3& position) {
 }
 
 /**
+ * @brief TODO
+ * @return TODO
+*/
+vector<glm::vec3> ActorSystem::getActorPositions() {
+  vector<glm::vec3> positions;
+
+  for (Actor& actor : actors) {
+    positions.push_back(actor.getPosition());
+  }
+
+  return positions;
+}
+
+/**
+ * @brief TODO
+ * @param point TODO
+ * @param distance TODO
+ */
+void ActorSystem::removeNear(const glm::vec3& point, float distance) {
+  for (Actor& actor : actors) {
+    if (abs(glm::length(actor.getPosition() - point)) < distance) {
+      actor.setLifespan(0.0f);
+    }
+  }
+}
+
+/**
  * @brief Invokes move() on all Actors
  * @param force The applied force
  */

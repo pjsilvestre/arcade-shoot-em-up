@@ -28,6 +28,10 @@ void Player::draw() {
   Actor::draw();
 }
 
+vector<glm::vec3> Player::getMissilePositions() {
+  return turret.getActorPositions();
+}
+
 /**
  * @brief Moves this Player up
  */

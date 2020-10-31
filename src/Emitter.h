@@ -16,6 +16,8 @@ class Emitter {
   void setPosition(const glm::vec3& position) { this->position = position; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
 
+  vector<glm::vec3> getActorPositions();
+  void removeNear(const glm::vec3& point, float distance);
   void start();
   void stop();
   void setSound(const string& filename);

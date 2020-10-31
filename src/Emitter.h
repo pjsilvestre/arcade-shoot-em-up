@@ -10,6 +10,9 @@ class Emitter {
   void draw();
 
   void setRate(float rate) { this->spriteRatePerSecond = rate; }
+  void setIntegrationStrategyType(Integration_Strategy_Type strategy) {
+    this->integrationStrategyType = strategy;
+  }
   void setPosition(const glm::vec3& position) { this->position = position; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
 

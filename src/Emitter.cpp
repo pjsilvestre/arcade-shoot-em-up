@@ -54,6 +54,7 @@ void Emitter::emit() {
   actor.setPosition(position);
   actor.setLifespan(lifespan);
 
+  // TODO more elegant solution?
   switch (integrationStrategyType) {
     case (Integration_Strategy_Type::actor): {
       actor.setIntegrationStrategy(new ActorIntegrationStrategy);
@@ -69,6 +70,10 @@ void Emitter::emit() {
     }
     case (Integration_Strategy_Type::enemy_linear): {
       actor.setIntegrationStrategy(new EnemyLinearIntegrationStrategy);
+      break;
+    }
+    case (Integration_Strategy_Type::enemy_sine): {
+      actor.setIntegrationStrategy(new EnemySineIntegrationStrategy);
       break;
     }
     default:

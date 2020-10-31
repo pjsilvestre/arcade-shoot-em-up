@@ -9,14 +9,22 @@ void ofApp::setup() {
 
   gui.setup();
 
-  leftEnemySpawner.setPosition(glm::vec3(100.0f, -200.0f, 0.0f));
-  rightEnemySpawner.setPosition(
+  topLeftSpawner.setPosition(glm::vec3(100.0f, -200.0f, 0.0f));
+  topRightSpawner.setPosition(
       glm::vec3(Constants::SCREEN_WIDTH - 100.0f, -200.0f, 0.0f));
+  middleLeftSpawner.setPosition(
+      glm::vec3(-200.0f, Constants::SCREEN_HEIGHT / 2, 0.0f));
+  middleLeftSpawner.setDirection(glm::vec3(1.0f, 0.0f, 0.0f));
 
-  rightEnemySpawner.setRate(0.75f);
+  topRightSpawner.setRate(0.75f);
+  middleLeftSpawner.setRate(0.25f);
 
-  leftEnemySpawner.start();
-  rightEnemySpawner.start();
+  middleLeftSpawner.setIntegrationStrategyType(
+      Integration_Strategy_Type::enemy_sine);
+
+  topLeftSpawner.start();
+  topRightSpawner.start();
+  middleLeftSpawner.start();
 }
 
 //--------------------------------------------------------------
@@ -34,8 +42,9 @@ void ofApp::update() {
   }
 
   player->update();
-  leftEnemySpawner.update();
-  rightEnemySpawner.update();
+  topLeftSpawner.update();
+  topRightSpawner.update();
+  middleLeftSpawner.update();
 }
 
 //--------------------------------------------------------------
@@ -50,8 +59,9 @@ void ofApp::draw() {
   }
 
   player->draw();
-  leftEnemySpawner.draw();
-  rightEnemySpawner.draw();
+  topLeftSpawner.draw();
+  topRightSpawner.draw();
+  middleLeftSpawner.draw();
 }
 
 //--------------------------------------------------------------

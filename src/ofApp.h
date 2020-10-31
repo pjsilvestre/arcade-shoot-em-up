@@ -31,8 +31,9 @@ class ofApp : public ofBaseApp {
   bool mouseEnabled{false};
 
   ofxPanel gui;
-  EnemySpawner leftEnemySpawner;
-  EnemySpawner rightEnemySpawner;
+  EnemySpawner topLeftSpawner;
+  EnemySpawner topRightSpawner;
+  EnemySpawner middleLeftSpawner;
 
   // following pointers must be deallocated in exit()
   Player* player{nullptr};

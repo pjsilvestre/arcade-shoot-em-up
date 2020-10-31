@@ -3,7 +3,13 @@
 #include "Constants.h"
 #include "ofMain.h"
 
-enum class Integration_Strategy_Type { actor, player, turret, enemy_linear };
+enum class Integration_Strategy_Type {
+  actor,
+  player,
+  turret,
+  enemy_linear,
+  enemy_sine
+};
 
 class IntegrationStrategy {
  public:
@@ -33,4 +39,24 @@ class EnemyLinearIntegrationStrategy : public IntegrationStrategy {
  public:
   void integrate(glm::vec3& position, glm::vec3& velocity,
                  glm::vec3& acceleration) override;
+};
+
+class EnemySineIntegrationStrategy : public IntegrationStrategy {
+ public:
+  void integrate(glm::vec3& position, glm::vec3& velocity,
+                 glm::vec3& acceleration) override;
+
+ private:
+  float lookaheadFactor;
+  glm::vec3 lookaheadPosition;
+
+  class SineWave {
+   public:
+    glm::vec3 getEvaluation(float x);
+
+    float amplitude{Constants::SINE_WAVE_AMPLITUDE};
+    float frequency{Constants::SINE_WAVE_FREQUENCY};
+  };
+
+  SineWave sineWave;
 };

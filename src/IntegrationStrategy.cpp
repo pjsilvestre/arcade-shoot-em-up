@@ -60,14 +60,14 @@ void TurretIntegrationStrategy::integrate(glm::vec3& position,
 }
 /**
  * @brief Describes how, when emitted from a EnemySpawner, an Actor's position,
- * velocity, and acceleration change over time
+ * velocity, and acceleration change over time in a linear fashion
  * @param position The Actor's position
  * @param velocity The Actor's velocity
  * @param acceleration The Actor's acceleration
  */
 void EnemyLinearIntegrationStrategy::integrate(glm::vec3& position,
-                                         glm::vec3& velocity,
-                                         glm::vec3& acceleration) {
+                                               glm::vec3& velocity,
+                                               glm::vec3& acceleration) {
   float timestep = 1.0f / ofGetFrameRate();
 
   position += velocity * timestep;
@@ -75,4 +75,33 @@ void EnemyLinearIntegrationStrategy::integrate(glm::vec3& position,
   if (glm::length(velocity) < Constants::ENEMY_MAX_VELOCITY) {
     velocity += acceleration * timestep;
   }
+}
+/**
+ * @brief Describes how, when emitted from a EnemySpawner, an Actor's position,
+ * velocity, and acceleration change over time in a sine wave fashion
+ * @param position The Actor's position
+ * @param velocity The Actor's velocity
+ * @param acceleration The Actor's acceleration
+ */
+void EnemySineIntegrationStrategy::integrate(glm::vec3& position,
+                                             glm::vec3& velocity,
+                                             glm::vec3& acceleration) {
+  // TODO accomodate non-horizontal wave movement
+  float timestep = 1.0f / ofGetFrameRate();
+
+  position += velocity * timestep;
+  position.y = sineWave.getEvaluation(position.x).y;
+
+  if (glm::length(velocity) < Constants::ENEMY_MAX_VELOCITY) {
+    velocity += acceleration * timestep;
+  }
+}
+
+glm::vec3 EnemySineIntegrationStrategy::SineWave::getEvaluation(float x) {
+  // original implementation courtesy Professor Smith
+  return glm::vec3(
+      x,
+      -amplitude * sin(frequency * x * PI / Constants::SCREEN_WIDTH) +
+          (Constants::SCREEN_HEIGHT / 2),
+      0);
 }

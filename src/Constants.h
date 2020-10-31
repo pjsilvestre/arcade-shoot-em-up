@@ -42,4 +42,8 @@ const float ENEMY_MAX_VELOCITY{500.0f};
 const float ENEMY_RATE{0.5f};
 const std::string ENEMY_SPRITE();
 
+// IntegrationStrategy constants
+const float SINE_WAVE_AMPLITUDE{400.0f};
+const float SINE_WAVE_FREQUENCY{1.5f};
+
 }  // namespace Constants

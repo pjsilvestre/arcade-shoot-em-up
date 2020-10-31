@@ -40,3 +40,21 @@ void PlayerIntegrationStrategy::integrate(glm::vec3& position,
     velocity += acceleration * timestep;
   }
 }
+/**
+ * @brief Describes how, when emitted from a Turret, an Actor's position,
+ * velocity, and acceleration change over time
+ * @param position The Actor's position
+ * @param velocity The Actor's velocity
+ * @param acceleration The Actor's acceleration
+ */
+void TurretIntegrationStrategy::integrate(glm::vec3& position,
+                                          glm::vec3& velocity,
+                                          glm::vec3& acceleration) {
+  float timestep = 1.0f / ofGetFrameRate();
+
+  position += velocity * timestep;
+
+  if (glm::length(velocity) < Constants::MISSILE_MAX_VELOCITY) {
+    velocity += acceleration * timestep;
+  }
+}

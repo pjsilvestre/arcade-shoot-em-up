@@ -1,7 +1,9 @@
 #pragma once
 
-#include "ofMain.h"
 #include "Constants.h"
+#include "ofMain.h"
+
+enum class Integration_Strategy_Type { actor, player, turret };
 
 class IntegrationStrategy {
  public:
@@ -12,11 +14,17 @@ class IntegrationStrategy {
 class ActorIntegrationStrategy : public IntegrationStrategy {
  public:
   void integrate(glm::vec3& position, glm::vec3& velocity,
-                         glm::vec3& acceleration) override;
+                 glm::vec3& acceleration) override;
 };
 
 class PlayerIntegrationStrategy : public IntegrationStrategy {
  public:
   void integrate(glm::vec3& position, glm::vec3& velocity,
-                         glm::vec3& acceleration) override;
+                 glm::vec3& acceleration) override;
+};
+
+class TurretIntegrationStrategy : public IntegrationStrategy {
+ public:
+  void integrate(glm::vec3& position, glm::vec3& velocity,
+                 glm::vec3& acceleration) override;
 };

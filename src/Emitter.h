@@ -9,6 +9,7 @@ class Emitter {
   void update();
   void draw();
 
+  void setRate(float rate) { this->spriteRatePerSecond = rate; }
   void setPosition(const glm::vec3& position) { this->position = position; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
 
@@ -25,11 +26,11 @@ class Emitter {
   float magnitude{Constants::EMITTER_MAGNITUDE};
   float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActor{0.0f};
-  ActorSystem actors{ActorSystem()};
+  ActorSystem actors;
   Integration_Strategy_Type integrationStrategyType{
       Integration_Strategy_Type::actor};
-  ofSoundPlayer sound{ofSoundPlayer()};
-  Sprite sprite{Sprite()};
+  ofSoundPlayer sound;
+  Sprite sprite;
   glm::vec3 direction{glm::vec3(0.0f)};
   glm::vec3 position{glm::vec3(0.0f)};
 };

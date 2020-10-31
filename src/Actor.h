@@ -12,7 +12,7 @@ class Actor {
   virtual void update();
   virtual void draw();
 
-  void setLifespan(int lifespan) { this->lifespan = lifespan; }
+  void setLifespan(float lifespan) { this->lifespan = lifespan; }
   int getLifespan() { return lifespan; }
   void setPosition(const glm::vec3& position) { this->position = position; }
   IntegrationStrategy* getIntegrationStrategy() { return integrationStrategy; }

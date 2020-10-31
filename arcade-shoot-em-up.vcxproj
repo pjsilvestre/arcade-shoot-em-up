@@ -184,6 +184,7 @@
     <ClCompile Include="src\ActorSystem.cpp" />
     <ClCompile Include="src\Constants.cpp" />
     <ClCompile Include="src\Emitter.cpp" />
+    <ClCompile Include="src\EnemySpawner.cpp" />
     <ClCompile Include="src\IntegrationStrategy.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -207,6 +208,7 @@
     <ClInclude Include="src\ActorSystem.h" />
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Emitter.h" />
+    <ClInclude Include="src\EnemySpawner.h" />
     <ClInclude Include="src\IntegrationStrategy.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.h" />

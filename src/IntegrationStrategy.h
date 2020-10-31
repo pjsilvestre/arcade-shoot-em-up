@@ -3,7 +3,7 @@
 #include "Constants.h"
 #include "ofMain.h"
 
-enum class Integration_Strategy_Type { actor, player, turret };
+enum class Integration_Strategy_Type { actor, player, turret, enemy_linear };
 
 class IntegrationStrategy {
  public:
@@ -24,6 +24,12 @@ class PlayerIntegrationStrategy : public IntegrationStrategy {
 };
 
 class TurretIntegrationStrategy : public IntegrationStrategy {
+ public:
+  void integrate(glm::vec3& position, glm::vec3& velocity,
+                 glm::vec3& acceleration) override;
+};
+
+class EnemyLinearIntegrationStrategy : public IntegrationStrategy {
  public:
   void integrate(glm::vec3& position, glm::vec3& velocity,
                  glm::vec3& acceleration) override;

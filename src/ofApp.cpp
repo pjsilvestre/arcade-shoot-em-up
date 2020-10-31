@@ -9,16 +9,14 @@ void ofApp::setup() {
 
   gui.setup();
 
-  enemyEmitter.setLifespan(10.0f);
-  enemyEmitter.setMagnitude(1000.0f);
-  enemyEmitter.setPosition(glm::vec3(100.0f, -200.0f, 0.0f));
-  enemyEmitter.setDirection(glm::vec3(0.0f, 1.0f, 0.0f));
+  leftEnemySpawner.setPosition(glm::vec3(100.0f, -200.0f, 0.0f));
+  rightEnemySpawner.setPosition(
+      glm::vec3(Constants::SCREEN_WIDTH - 100.0f, -200.0f, 0.0f));
 
-  Sprite enemySprite;
-  enemySprite.setImage(Constants::ENEMY_SPRITE());
-  enemyEmitter.setSprite(enemySprite);
+  rightEnemySpawner.setRate(0.75f);
 
-  enemyEmitter.start();
+  leftEnemySpawner.start();
+  rightEnemySpawner.start();
 }
 
 //--------------------------------------------------------------
@@ -36,7 +34,8 @@ void ofApp::update() {
   }
 
   player->update();
-  enemyEmitter.update();
+  leftEnemySpawner.update();
+  rightEnemySpawner.update();
 }
 
 //--------------------------------------------------------------
@@ -51,7 +50,8 @@ void ofApp::draw() {
   }
 
   player->draw();
-  enemyEmitter.draw();
+  leftEnemySpawner.draw();
+  rightEnemySpawner.draw();
 }
 
 //--------------------------------------------------------------

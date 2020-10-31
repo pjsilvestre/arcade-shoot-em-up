@@ -4,6 +4,7 @@
 #include "ActorSystem.h"
 #include "Constants.h"
 #include "Emitter.h"
+#include "EnemySpawner.h"
 #include "IntegrationStrategy.h"
 #include "Player.h"
 #include "Sprite.h"
@@ -30,7 +31,8 @@ class ofApp : public ofBaseApp {
   bool mouseEnabled{false};
 
   ofxPanel gui;
-  Emitter enemyEmitter;
+  EnemySpawner leftEnemySpawner;
+  EnemySpawner rightEnemySpawner;
 
   // following pointers must be deallocated in exit()
   Player* player{nullptr};

@@ -67,6 +67,10 @@ void Emitter::emit() {
       actor.setIntegrationStrategy(new TurretIntegrationStrategy);
       break;
     }
+    case (Integration_Strategy_Type::enemy_linear): {
+      actor.setIntegrationStrategy(new EnemyLinearIntegrationStrategy);
+      break;
+    }
     default:
       cerr << "Emitter missing integration strategy" << endl;
       break;

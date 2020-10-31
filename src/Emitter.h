@@ -2,6 +2,7 @@
 
 #include "ActorSystem.h"
 #include "Constants.h"
+#include "IntegrationStrategy.h"
 
 class Emitter {
  public:
@@ -10,12 +11,6 @@ class Emitter {
 
   void setPosition(const glm::vec3& position) { this->position = position; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
-
-  // temp
-  void setLifespan(float lifespan) { this->lifespan = lifespan; }
-  void setMagnitude(float magnitude) { this->magnitude = magnitude; }
-  void setSprite(const Sprite& sprite) { this->sprite = sprite; }
-  // temp
 
   void start();
   void stop();
@@ -31,8 +26,10 @@ class Emitter {
   float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActor{0.0f};
   ActorSystem actors{ActorSystem()};
+  Integration_Strategy_Type integrationStrategyType{
+      Integration_Strategy_Type::actor};
   ofSoundPlayer sound{ofSoundPlayer()};
   Sprite sprite{Sprite()};
-  glm::vec3 position{glm::vec3(0.0f)};
   glm::vec3 direction{glm::vec3(0.0f)};
+  glm::vec3 position{glm::vec3(0.0f)};
 };

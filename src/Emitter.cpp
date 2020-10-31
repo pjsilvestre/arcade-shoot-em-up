@@ -53,7 +53,25 @@ void Emitter::emit() {
   Actor actor;
   actor.setPosition(position);
   actor.setLifespan(lifespan);
-  actor.setIntegrationStrategy(new ActorIntegrationStrategy);
+
+  switch (integrationStrategyType) {
+    case (Integration_Strategy_Type::actor): {
+      actor.setIntegrationStrategy(new ActorIntegrationStrategy);
+      break;
+    }
+    case (Integration_Strategy_Type::player): {
+      actor.setIntegrationStrategy(new PlayerIntegrationStrategy);
+      break;
+    }
+    case (Integration_Strategy_Type::turret): {
+      actor.setIntegrationStrategy(new TurretIntegrationStrategy);
+      break;
+    }
+    default:
+      cerr << "Emitter missing integration strategy" << endl;
+      break;
+  }
+
   actor.setSprite(sprite);
 
   actors.add(actor);

@@ -7,7 +7,7 @@ class Sprite {
  public:
   void draw();
 
-  void setTransformationMatrix(const glm::mat4& transform);
+  void setTransform(const glm::mat4& transform);
   void setImage(const string& filename);
 
  private:

@@ -31,11 +31,11 @@ void ActorSystem::setPosition(const glm::vec3& position) {
 
 /**
  * @brief Invokes move() on all Actors
- * @param direction The desired direction
+ * @param force The applied force
  */
-void ActorSystem::moveActors(const glm::vec3& direction) {
+void ActorSystem::moveActors(const glm::vec3& force) {
   for (Actor& actor : actors) {
-    actor.move(direction);
+    actor.move(force);
   }
 }
 
@@ -48,8 +48,11 @@ void ActorSystem::deleteDeadActors() {
     Actor actor = (*iterator);
 
     if (actor.getAge() > actor.getLifespan()) {
+      // delete allocated memory
       delete actor.getIntegrationStrategy();
       actor.setIntegrationStrategy(nullptr);
+
+      // remove from vector
       iterator = actors.erase(iterator);
     } else {
       iterator++;

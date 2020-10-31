@@ -14,5 +14,5 @@ class ActorSystem {
  private:
   void deleteDeadActors();
 
-  vector<Actor> actors{vector<Actor>()};
+  vector<Actor> actors;
 };

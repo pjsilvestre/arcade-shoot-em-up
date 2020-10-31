@@ -8,7 +8,6 @@
 #include "Player.h"
 #include "Sprite.h"
 #include "ofMain.h"
-#include "ofThread.h"
 #include "ofxGui.h"
 
 class ofApp : public ofBaseApp {
@@ -23,17 +22,17 @@ class ofApp : public ofBaseApp {
   void exit();
 
  private:
-  void preventResize();
   void drawStartMessage();
+  void preventResize();
 
   bool gameNotStarted{true};
   bool guiShown{false};
   bool mouseEnabled{false};
 
-  // all memory allocated here must be deallocated in exit()
-  Player* player{nullptr};
-  IntegrationStrategy* playerIntegrationStrategy{nullptr};
-
   ofxPanel gui;
   Emitter enemyEmitter;
+
+  // following pointers must be deallocated in exit()
+  Player* player{nullptr};
+  IntegrationStrategy* playerIntegrationStrategy{nullptr};
 };

@@ -23,7 +23,6 @@ class Player : public Actor {
 
  private:
   void clampPosition();
-  void integrate() override;
 
-  Turret turret{Turret()};
+  Turret turret;
 };

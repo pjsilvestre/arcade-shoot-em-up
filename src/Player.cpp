@@ -5,7 +5,6 @@
  */
 Player::Player() : Actor() {
   initialAcceleration = Constants::PLAYER_INITIAL_ACCELERATION;
-  maxVelocity = Constants::PLAYER_MAX_VELOCITY;
   position =
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0);
   sprite.setImage(Constants::PLAYER_SPRITE());
@@ -79,21 +78,4 @@ void Player::clampPosition() {
   newPosition.y = Utility::clamp(newPosition.y, 0, Constants::SCREEN_HEIGHT);
 
   position = newPosition;
-}
-
-void Player::integrate() {
-  float timestep = 1.0f / ofGetFrameRate();
-
-  position += velocity * timestep;
-
-  if (glm::length(velocity) < maxVelocity) {
-    velocity += acceleration * timestep;
-  }
-
-  if (integrationStrategy != nullptr) {
-    integrationStrategy->integrate();
-  }
-  else {
-    cerr << "Player missing integrationStrategy" << endl;
-  }
 }

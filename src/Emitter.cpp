@@ -25,12 +25,12 @@ void Emitter::update() {
 void Emitter::draw() { actors.draw(); }
 
 /**
- * @brief Start the Emitter
+ * @brief Start this Emitter
  */
 void Emitter::start() { started = true; }
 
 /**
- * @brief Stop the Emitter
+ * @brief Stop this Emitter
  */
 void Emitter::stop() { started = false; }
 
@@ -53,7 +53,6 @@ void Emitter::emit() {
   Actor actor;
   actor.setPosition(position);
   actor.setLifespan(lifespan);
-  actor.setMaxVelocity(maxVelocity);
   actor.setIntegrationStrategy(new ActorIntegrationStrategy);
   actor.setSprite(sprite);
 

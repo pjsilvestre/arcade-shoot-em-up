@@ -17,6 +17,8 @@ void ofApp::setup() {
   Sprite enemySprite;
   enemySprite.setImage(Constants::ENEMY_SPRITE());
   enemyEmitter.setSprite(enemySprite);
+
+  enemyEmitter.start();
 }
 
 //--------------------------------------------------------------
@@ -84,9 +86,6 @@ void ofApp::keyPressed(int key) {
     case ' ':
       player->startTurret();
       break;
-    case 'e':
-      enemyEmitter.start();
-      break;
   }
 }
 
@@ -101,8 +100,6 @@ void ofApp::keyReleased(int key) {
       break;
     case ' ':
       player->stopTurret();
-      break;
-    case 'e':
       break;
   }
 }
@@ -126,14 +123,6 @@ void ofApp::exit() {
 //-Private Methods----------------------------------------------
 
 //--------------------------------------------------------------
-void ofApp::preventResize() {
-  if (ofGetWidth() != Constants::SCREEN_WIDTH ||
-      ofGetHeight() != Constants::SCREEN_HEIGHT) {
-    ofSetWindowShape(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT);
-  }
-}
-
-//--------------------------------------------------------------
 void ofApp::drawStartMessage() {
   // TODO replace bitmap string with truetype string
 
@@ -144,4 +133,12 @@ void ofApp::drawStartMessage() {
   ofDrawBitmapString(startMessage,
                      glm::vec3(ofGetWidth() / 2 - boundingBox.width / 2,
                                ofGetHeight() / 2 - boundingBox.height / 2, 0));
+}
+
+//--------------------------------------------------------------
+void ofApp::preventResize() {
+  if (ofGetWidth() != Constants::SCREEN_WIDTH ||
+      ofGetHeight() != Constants::SCREEN_HEIGHT) {
+    ofSetWindowShape(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT);
+  }
 }

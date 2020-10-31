@@ -15,6 +15,7 @@ class Emitter {
   void setLifespan(float lifespan) { this->lifespan = lifespan; }
   void setMagnitude(float magnitude) { this->magnitude = magnitude; }
   void setSprite(const Sprite& sprite) { this->sprite = sprite; }
+  // temp
 
   void start();
   void stop();
@@ -27,7 +28,6 @@ class Emitter {
   bool started{false};
   float lifespan{Constants::ACTOR_LIFESPAN};
   float magnitude{Constants::EMITTER_MAGNITUDE};
-  float maxVelocity{Constants::EMITTER_MAX_VELOCITY};
   float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActor{0.0f};
   ActorSystem actors{ActorSystem()};

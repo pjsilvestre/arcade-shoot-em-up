@@ -21,7 +21,7 @@ void Sprite::draw() {
 /**
  * @brief Sets this Sprite's transformation matrix
  */
-void Sprite::setTransformationMatrix(const glm::mat4& transform) {
+void Sprite::setTransform(const glm::mat4& transform) {
   this->transform = transform;
 }
 

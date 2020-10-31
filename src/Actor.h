@@ -14,7 +14,6 @@ class Actor {
 
   void setLifespan(int lifespan) { this->lifespan = lifespan; }
   int getLifespan() { return lifespan; }
-  void setMaxVelocity(float maxVelocity) { this->maxVelocity = maxVelocity; }
   void setPosition(const glm::vec3& position) { this->position = position; }
   IntegrationStrategy* getIntegrationStrategy() { return integrationStrategy; }
   void setIntegrationStrategy(IntegrationStrategy* strategy) {
@@ -26,15 +25,12 @@ class Actor {
   void move(const glm::vec3& direction);
 
  protected:
-  virtual void integrate();
-  void updateTransformationMatrix();
+  void integrate();
+  void updateTransform();
 
-  float accelerationDamping{Constants::ACTOR_ACCELERATION_DAMPING};
   float initialAcceleration{Constants::ACTOR_INITIAL_ACCELERATION};
   float lifespan{Constants::ACTOR_LIFESPAN};
-  float maxVelocity{Constants::ACTOR_MAX_VELOCITY};
   float spawnTime{ofGetElapsedTimef()};
-  float velocityDamping{Constants::ACTOR_VELOCITY_DAMPING};
   IntegrationStrategy* integrationStrategy{nullptr};
   glm::mat4 transform{glm::mat4(0.0f)};
   Sprite sprite;

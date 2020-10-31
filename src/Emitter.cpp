@@ -54,6 +54,7 @@ void Emitter::emit() {
   actor.setPosition(position);
   actor.setLifespan(lifespan);
   actor.setMaxVelocity(maxVelocity);
+  actor.setIntegrationStrategy(new ActorIntegrationStrategy);
   actor.setSprite(sprite);
 
   actors.add(actor);

@@ -43,12 +43,13 @@ void ActorSystem::moveActors(const glm::vec3& direction) {
 
 void ActorSystem::deleteDeadActors() {
   auto iterator = actors.begin();
-  Actor actor;
 
   while (iterator != actors.end()) {
-    actor = (*iterator);
+    Actor actor = (*iterator);
 
     if (actor.getAge() > actor.getLifespan()) {
+      delete actor.getIntegrationStrategy();
+      actor.setIntegrationStrategy(nullptr);
       iterator = actors.erase(iterator);
     } else {
       iterator++;

@@ -89,4 +89,11 @@ void Player::integrate() {
   if (glm::length(velocity) < maxVelocity) {
     velocity += acceleration * timestep;
   }
+
+  if (integrationStrategy != nullptr) {
+    integrationStrategy->integrate();
+  }
+  else {
+    cerr << "Player missing integrationStrategy" << endl;
+  }
 }

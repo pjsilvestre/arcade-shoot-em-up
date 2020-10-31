@@ -1,5 +1,6 @@
 #include "Turret.h"
 
+
 /**
  * @brief Creates a Turret with the default missile sprite
  */

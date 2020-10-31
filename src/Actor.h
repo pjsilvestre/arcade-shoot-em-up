@@ -1,11 +1,14 @@
 #pragma once
 
 #include "Constants.h"
+#include "IntegrationStrategy.h"
 #include "Sprite.h"
 #include "Utility.h"
 
 class Actor {
  public:
+  ~Actor() {}  // handled by ActorSystem.deleteDeadActors()
+
   virtual void update();
   virtual void draw();
 
@@ -13,6 +16,10 @@ class Actor {
   int getLifespan() { return lifespan; }
   void setMaxVelocity(float maxVelocity) { this->maxVelocity = maxVelocity; }
   void setPosition(const glm::vec3& position) { this->position = position; }
+  IntegrationStrategy* getIntegrationStrategy() { return integrationStrategy; }
+  void setIntegrationStrategy(IntegrationStrategy* strategy) {
+    integrationStrategy = strategy;
+  }
   void setSprite(const Sprite& sprite) { this->sprite = sprite; }
 
   float getAge();
@@ -28,9 +35,10 @@ class Actor {
   float maxVelocity{Constants::ACTOR_MAX_VELOCITY};
   float spawnTime{ofGetElapsedTimef()};
   float velocityDamping{Constants::ACTOR_VELOCITY_DAMPING};
+  IntegrationStrategy* integrationStrategy{nullptr};
+  glm::mat4 transform{glm::mat4(0.0f)};
+  Sprite sprite;
   glm::vec3 position{glm::vec3(0.0f)};
   glm::vec3 velocity{glm::vec3(0.0f)};
   glm::vec3 acceleration{glm::vec3(0.0f)};
-  glm::mat4 transformationMatrix{glm::mat4(0.0f)};
-  Sprite sprite{Sprite()};
 };

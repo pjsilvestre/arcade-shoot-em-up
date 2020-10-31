@@ -1,11 +1,11 @@
 #include "Sprite.h"
 
 /**
- * @brief Draws the Sprite
+ * @brief Draws this Sprite
  */
 void Sprite::draw() {
   ofPushMatrix();
-  ofMultMatrix(transformationMatrix);
+  ofMultMatrix(transform);
   if (loaded) {
     image.setAnchorPercent(0.5f, 0.5f);
     ofEnableAlphaBlending();
@@ -19,10 +19,10 @@ void Sprite::draw() {
 }
 
 /**
- * @brief Sets the Sprite's transformation matrix
+ * @brief Sets this Sprite's transformation matrix
  */
-void Sprite::setTransformationMatrix(const glm::mat4& transformationMatrix) {
-  this->transformationMatrix = transformationMatrix;
+void Sprite::setTransformationMatrix(const glm::mat4& transform) {
+  this->transform = transform;
 }
 
 /**

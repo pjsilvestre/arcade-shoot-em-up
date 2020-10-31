@@ -30,9 +30,9 @@ class Emitter {
   float maxVelocity{Constants::EMITTER_MAX_VELOCITY};
   float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActor{0.0f};
-  glm::vec3 position{glm::vec3(0.0f)};
-  glm::vec3 direction{glm::vec3(0.0f)};
-  Sprite sprite{Sprite()};
   ActorSystem actors{ActorSystem()};
   ofSoundPlayer sound{ofSoundPlayer()};
+  Sprite sprite{Sprite()};
+  glm::vec3 position{glm::vec3(0.0f)};
+  glm::vec3 direction{glm::vec3(0.0f)};
 };

@@ -11,14 +11,14 @@ class Player : public Actor {
   void update() override;
   void draw() override;
 
-  void setTurretDirection(glm::vec3 dir) { turret.setDirection(dir); }
+  void setTurretDirection(const glm::vec3& dir) { turret.setDirection(dir); }
 
   void moveUp();
   void moveLeft();
   void moveDown();
   void moveRight();
-  void stop();
   void startTurret();
+  void stop();
   void stopTurret();
 
  private:

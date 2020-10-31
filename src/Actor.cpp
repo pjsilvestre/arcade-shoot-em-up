@@ -6,7 +6,7 @@
 void Actor::update() {
   integrate();
   updateTransformationMatrix();
-  sprite.setTransformationMatrix(transformationMatrix);
+  sprite.setTransformationMatrix(transform);
 }
 
 /**
@@ -38,8 +38,15 @@ void Actor::integrate() {
 
   velocity *= velocityDamping;
   acceleration *= accelerationDamping;
+
+  if (integrationStrategy != nullptr) {
+    integrationStrategy->integrate();
+  }
+  else {
+    cerr << "Actor missing integrationStrategy" << endl;
+  }
 }
 
 void Actor::updateTransformationMatrix() {
-  transformationMatrix = glm::translate(glm::mat4(1.0f), position);
+  transform = glm::translate(glm::mat4(1.0f), position);
 }

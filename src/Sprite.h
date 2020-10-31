@@ -7,7 +7,7 @@ class Sprite {
  public:
   void draw();
 
-  void setTransformationMatrix(const glm::mat4& transformationMatrix);
+  void setTransformationMatrix(const glm::mat4& transform);
   void setImage(const string& filename);
 
  private:
@@ -16,6 +16,6 @@ class Sprite {
   bool loaded{false};
   float defaultHeight{Constants::SPRITE_DIMENSIONS};
   float defaultWidth{Constants::SPRITE_DIMENSIONS};
-  glm::mat4 transformationMatrix{glm::mat4(-FLT_MAX)};
-  ofImage image{ofImage()};
+  glm::mat4 transform{glm::mat4(-FLT_MAX)};
+  ofImage image;
 };

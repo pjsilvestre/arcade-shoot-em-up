@@ -3,9 +3,9 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::black);
-  gameNotStarted = true;
-  mouseEnabled = false;
-  guiShown = true;
+
+  player = new Player;
+  player->setIntegrationStrategy(new PlayerIntegrationStrategy);
 
   gui.setup();
 
@@ -33,7 +33,7 @@ void ofApp::update() {
     ofShowCursor();
   }
 
-  player.update();
+  player->update();
   enemyEmitter.update();
 }
 
@@ -48,7 +48,7 @@ void ofApp::draw() {
     gui.draw();
   }
 
-  player.draw();
+  player->draw();
   enemyEmitter.draw();
 }
 
@@ -70,19 +70,19 @@ void ofApp::keyPressed(int key) {
       mouseEnabled = !mouseEnabled;
       break;
     case 'w':
-      player.moveUp();
+      player->moveUp();
       break;
     case 'a':
-      player.moveLeft();
+      player->moveLeft();
       break;
     case 's':
-      player.moveDown();
+      player->moveDown();
       break;
     case 'd':
-      player.moveRight();
+      player->moveRight();
       break;
     case ' ':
-      player.startTurret();
+      player->startTurret();
       break;
     case 'e':
       enemyEmitter.start();
@@ -97,13 +97,12 @@ void ofApp::keyReleased(int key) {
     case 'a':
     case 's':
     case 'd':
-      player.stop();
+      player->stop();
       break;
     case ' ':
-      player.stopTurret();
+      player->stopTurret();
       break;
     case 'e':
-      // enemyEmitter.stop();
       break;
   }
 }
@@ -111,8 +110,17 @@ void ofApp::keyReleased(int key) {
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
   if (mouseEnabled) {
-    player.setPosition(glm::vec3(x, y, 0));
+    player->setPosition(glm::vec3(x, y, 0));
   }
+}
+
+//--------------------------------------------------------------
+void ofApp::exit() {
+  delete player;
+  player = nullptr;
+
+  delete playerIntegrationStrategy;
+  playerIntegrationStrategy = nullptr;
 }
 
 //-Private Methods----------------------------------------------

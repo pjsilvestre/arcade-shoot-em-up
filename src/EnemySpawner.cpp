@@ -10,4 +10,6 @@ EnemySpawner::EnemySpawner() : Emitter() {
   Sprite enemySprite;
   enemySprite.loadImage(Constants::ENEMY_SPRITE());
   sprite = enemySprite;
+
+  setCollisionSound(Constants::COLLISION_SOUND_EFFECT());
 }

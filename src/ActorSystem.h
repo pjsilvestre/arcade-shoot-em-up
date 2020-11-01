@@ -19,8 +19,12 @@ class ActorSystem {
   void removeNear(const glm::vec3& point, float distance);
   void setPosition(const glm::vec3& position);
 
+  void setCollisionSound(const string& filename);
+
  private:
   void deleteDeadActors();
 
+  bool soundLoaded{false};
+  ofSoundPlayer collisionSound;
   vector<Actor> actors;
 };

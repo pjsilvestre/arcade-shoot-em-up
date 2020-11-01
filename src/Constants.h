@@ -40,6 +40,7 @@ const float ENEMY_LIFESPAN{10.0f};
 const float ENEMY_MAGNITUDE{1000.0f};
 const float ENEMY_MAX_VELOCITY{500.0f};
 const float ENEMY_RATE{0.5f};
+const std::string COLLISION_SOUND_EFFECT();
 const std::string ENEMY_SPRITE();
 
 // IntegrationStrategy constants

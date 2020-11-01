@@ -42,6 +42,11 @@ void ActorSystem::removeNear(const glm::vec3& point, float distance) {
   for (Actor& actor : actors) {
     if (abs(glm::length(actor.getPosition() - point)) < distance) {
       actor.setLifespan(0.0f);
+
+      // TODO better solution for collision sounds, preferably in Emitter
+      if (soundLoaded) {
+        collisionSound.play();
+      }
     }
   }
 }
@@ -66,6 +71,18 @@ void ActorSystem::setPosition(const glm::vec3& position) {
   }
 }
 
+/**
+ * @brief Sets this ActorSystem's collisionSound effect
+ * @param filename The collisionSound to load from bin/data
+ */
+void ActorSystem::setCollisionSound(const string& filename) {
+  if (!collisionSound.load(filename)) {
+    cerr << filename << " not found" << endl;
+    soundLoaded = false;
+  } else {
+    soundLoaded = true;
+  }
+}
 //-Private Methods----------------------------------------------
 
 void ActorSystem::deleteDeadActors() {

@@ -26,7 +26,8 @@ class Emitter {
   void removeNear(const glm::vec3& point, float distance);
   void start();
   void stop();
-  void setSound(const string& filename);
+  void setCollisionSound(const string& filename);
+  void setEmissionSound(const string& filename);
 
  protected:
   void emit();
@@ -40,7 +41,7 @@ class Emitter {
   ActorSystem actors;
   Integration_Strategy_Type integrationStrategyType{
       Integration_Strategy_Type::actor};
-  ofSoundPlayer sound;
+  ofSoundPlayer emissionSound;
   Sprite sprite;
   glm::vec3 direction{glm::vec3(0.0f)};
   glm::vec3 position{glm::vec3(0.0f)};

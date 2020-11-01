@@ -39,14 +39,16 @@ void ofApp::update() {
 
   player.update();
 
-  topSpawner.setPosition(
-      glm::vec3(ofRandomWidth(), -200.0f, 0.0f));
+  topSpawner.setPosition(glm::vec3(ofRandomWidth(), -200.0f, 0.0f));
   topSpawner.setRate(ofRandom(0.5f));
   topSpawner.update();
 
   leftSpawner.setRate(ofRandom(0.1f));
   leftSpawner.update();
   checkCollisions();
+
+  numberOfEnemiesDestroyed =
+      topSpawner.getActorCollidedCount() + leftSpawner.getActorCollidedCount();
 }
 
 //--------------------------------------------------------------
@@ -63,6 +65,7 @@ void ofApp::draw() {
   player.draw();
   topSpawner.draw();
   leftSpawner.draw();
+  drawScore();
 }
 
 //--------------------------------------------------------------
@@ -151,6 +154,19 @@ void ofApp::drawStartMessage() {
   ofDrawBitmapString(startMessage,
                      glm::vec3(ofGetWidth() / 2 - boundingBox.width / 2,
                                ofGetHeight() / 2 - boundingBox.height / 2, 0));
+}
+
+//--------------------------------------------------------------
+void ofApp::drawScore() {
+  // TODO replace bitmap string with truetype string
+
+  string scoreMessage = "score: " + to_string(numberOfEnemiesDestroyed);
+  ofBitmapFont font;
+  ofRectangle boundingBox = font.getBoundingBox(scoreMessage, 0, 0);
+  ofSetColor(ofColor::white);
+  ofDrawBitmapString(
+      scoreMessage,
+      glm::vec3(boundingBox.width / 2, 10.0f + boundingBox.height / 2, 0));
 }
 
 //--------------------------------------------------------------

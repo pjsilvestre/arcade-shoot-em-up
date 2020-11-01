@@ -13,6 +13,7 @@ class ActorSystem {
   void draw();
 
   void add(Actor& actor) { actors.push_back(actor); }
+  int getActorCollidedCount() { return actorCollidedCount; }
 
   vector<glm::vec3> getActorPositions();
   void moveActors(const glm::vec3& direction);
@@ -25,6 +26,7 @@ class ActorSystem {
   void deleteDeadActors();
 
   bool soundLoaded{false};
+  int actorCollidedCount;
   ofSoundPlayer collisionSound;
   vector<Actor> actors;
 };

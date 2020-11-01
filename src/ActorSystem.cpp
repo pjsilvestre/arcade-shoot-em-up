@@ -47,6 +47,8 @@ void ActorSystem::removeNear(const glm::vec3& point, float distance) {
       if (soundLoaded) {
         collisionSound.play();
       }
+
+      actorCollidedCount++;
     }
   }
 }

@@ -14,6 +14,7 @@ class Emitter {
   void update();
   void draw();
 
+  int getActorCollidedCount() { return actors.getActorCollidedCount(); }
   void setRate(float rate) { this->ratePerSecond = rate; }
   void setIntegrationStrategyType(Integration_Strategy_Type strategy) {
     this->integrationStrategyType = strategy;

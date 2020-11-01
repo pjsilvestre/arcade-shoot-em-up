@@ -25,11 +25,13 @@ class ofApp : public ofBaseApp {
  private:
   void checkCollisions();
   void drawStartMessage();
+  void drawScore();
   void preventResize();
 
   bool gameNotStarted{true};
   bool guiShown{false};
   bool mouseEnabled{false};
+  int numberOfEnemiesDestroyed{0};
 
   ofxPanel gui;
   Player player;

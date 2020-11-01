@@ -1,3 +1,8 @@
+/**
+ * @class EnemySpawner
+ * @brief Encapsulates an enemy Emitter
+ */
+
 #pragma once
 
 #include "Emitter.h"

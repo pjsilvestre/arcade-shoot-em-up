@@ -1,13 +1,21 @@
+/**
+ * @class Actor
+ * @brief Encapsulates movable, drawable objects
+ */
+
 #pragma once
 
 #include "Constants.h"
 #include "IntegrationStrategy.h"
 #include "Sprite.h"
-#include "Utility.h"
 
 class Actor {
  public:
-  ~Actor() {}  // handled by ActorSystem.deleteDeadActors()
+  // when an Actor is destroyed, its IntegrationStrategy may still be allocated
+  // on the heap. If the Actor was contained within an ActorSystem, then the
+  // IntegrationStrategy should have been deleted. In all other cases, the
+  // IntegrationStrategy must be deleted manually. TODO better solution?
+  ~Actor() {}
 
   virtual void update();
   virtual void draw();
@@ -16,6 +24,7 @@ class Actor {
   int getLifespan() { return lifespan; }
   void setPosition(const glm::vec3& position) { this->position = position; }
   glm::vec3 getPosition() { return position; }
+  // TODO better solution than giving out raw pointers?
   IntegrationStrategy* getIntegrationStrategy() { return integrationStrategy; }
   void setIntegrationStrategy(IntegrationStrategy* strategy) {
     integrationStrategy = strategy;

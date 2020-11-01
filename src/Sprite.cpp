@@ -26,10 +26,10 @@ void Sprite::setTransform(const glm::mat4& transform) {
 }
 
 /**
- * @brief Sets this Sprite's image
+ * @brief Loads an image for this Sprite
  * @param filename The image to load from bin/data
  */
-void Sprite::setImage(const string& filename) {
+void Sprite::loadImage(const string& filename) {
   if (image.load(filename)) {
     loaded = true;
   } else {

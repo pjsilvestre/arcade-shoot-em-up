@@ -1,3 +1,9 @@
+/**
+ * @class IntegrationStrategy
+ * @brief Interface for encapsulating how an Actors position, velocity, and
+ * acceleration change over time
+ */
+
 #pragma once
 
 #include "Constants.h"
@@ -47,13 +53,11 @@ class EnemySineIntegrationStrategy : public IntegrationStrategy {
                  glm::vec3& acceleration) override;
 
  private:
-  float lookaheadFactor;
-  glm::vec3 lookaheadPosition;
-
   class SineWave {
    public:
     glm::vec3 getEvaluation(float x);
 
+   private:
     float amplitude{Constants::SINE_WAVE_AMPLITUDE};
     float frequency{Constants::SINE_WAVE_FREQUENCY};
   };

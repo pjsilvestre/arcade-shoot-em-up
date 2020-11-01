@@ -7,7 +7,7 @@ Player::Player() : Actor() {
   initialAcceleration = Constants::PLAYER_INITIAL_ACCELERATION;
   position =
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0);
-  sprite.setImage(Constants::PLAYER_SPRITE());
+  sprite.loadImage(Constants::PLAYER_SPRITE());
 };
 
 /**
@@ -28,6 +28,10 @@ void Player::draw() {
   Actor::draw();
 }
 
+/**
+ * @brief Gets the position of all of the Player's in-flight missiles
+ * @return A vector of missile positions
+ */
 vector<glm::vec3> Player::getMissilePositions() {
   return turret.getActorPositions();
 }

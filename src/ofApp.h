@@ -23,6 +23,7 @@ class ofApp : public ofBaseApp {
   void exit();
 
  private:
+  void checkCollisions();
   void drawStartMessage();
   void preventResize();
 
@@ -31,13 +32,10 @@ class ofApp : public ofBaseApp {
   bool mouseEnabled{false};
 
   ofxPanel gui;
-  EnemySpawner topLeftSpawner;
-  EnemySpawner topRightSpawner;
-  EnemySpawner middleLeftSpawner;
+  Player player;
+  EnemySpawner topSpawner;
+  EnemySpawner leftSpawner;
 
-  vector<glm::vec3> missilePositions;
-
-  // following pointers must be deallocated in exit()
-  Player* player{nullptr};
+  // following pointers MUST be deallocated in exit()
   IntegrationStrategy* playerIntegrationStrategy{nullptr};
 };

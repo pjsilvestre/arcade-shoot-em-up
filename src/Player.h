@@ -1,8 +1,14 @@
+/**
+ * @class Player
+ * @brief Encapsulates an Actor controllable by the user
+ */
+
 #pragma once
 
 #include "Actor.h"
 #include "Constants.h"
 #include "Turret.h"
+#include "Utility.h"
 
 class Player : public Actor {
  public:
@@ -10,8 +16,6 @@ class Player : public Actor {
 
   void update() override;
   void draw() override;
-
-  void setTurretDirection(const glm::vec3& dir) { turret.setDirection(dir); }
 
   vector<glm::vec3> getMissilePositions();
   void moveUp();

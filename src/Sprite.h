@@ -1,3 +1,8 @@
+/**
+ * @class Sprite
+ * @brief Encapsulates loading and drawing of ofImages
+ */
+
 #pragma once
 
 #include "Constants.h"
@@ -8,7 +13,7 @@ class Sprite {
   void draw();
 
   void setTransform(const glm::mat4& transform);
-  void setImage(const string& filename);
+  void loadImage(const string& filename);
 
  private:
   void drawPlaceholder();

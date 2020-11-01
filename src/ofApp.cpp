@@ -4,27 +4,20 @@
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::black);
 
-  player = new Player;
-  player->setIntegrationStrategy(new PlayerIntegrationStrategy);
-
   gui.setup();
 
-  topLeftSpawner.setPosition(glm::vec3(100.0f, -200.0f, 0.0f));
-  topRightSpawner.setPosition(
-      glm::vec3(Constants::SCREEN_WIDTH - 100.0f, -200.0f, 0.0f));
-  middleLeftSpawner.setPosition(
-      glm::vec3(-200.0f, Constants::SCREEN_HEIGHT / 2, 0.0f));
-  middleLeftSpawner.setDirection(glm::vec3(1.0f, 0.0f, 0.0f));
+  playerIntegrationStrategy = new PlayerIntegrationStrategy;
+  player.setIntegrationStrategy(playerIntegrationStrategy);
 
-  topRightSpawner.setRate(0.75f);
-  middleLeftSpawner.setRate(0.25f);
+  leftSpawner.setDirection(glm::vec3(1.0f, 0.0f, 0.0f));
+  leftSpawner.setPosition(glm::vec3(-200.0f, 0.0f, 0.0f));
 
-  middleLeftSpawner.setIntegrationStrategyType(
-      Integration_Strategy_Type::enemy_sine);
+  leftSpawner.setRate(0.1f);
 
-  topLeftSpawner.start();
-  topRightSpawner.start();
-  middleLeftSpawner.start();
+  leftSpawner.setIntegrationStrategyType(Integration_Strategy_Type::enemy_sine);
+
+  topSpawner.start();
+  leftSpawner.start();
 }
 
 //--------------------------------------------------------------
@@ -41,19 +34,16 @@ void ofApp::update() {
     ofShowCursor();
   }
 
-  player->update();
-  topLeftSpawner.update();
-  topRightSpawner.update();
-  middleLeftSpawner.update();
-  missilePositions = player->getMissilePositions();
+  player.update();
 
-  for (auto& position : missilePositions) {
-    cout << position << endl;
-    topLeftSpawner.removeNear(position, 100.0f);
-    topRightSpawner.removeNear(position, 100.0f);
-    middleLeftSpawner.removeNear(position, 100.0f);
-  }
-  cout << endl;
+  topSpawner.setPosition(
+      glm::vec3(ofRandomWidth(), -200.0f, 0.0f));
+  topSpawner.setRate(ofRandom(0.5f));
+  topSpawner.update();
+
+  leftSpawner.setRate(ofRandom(0.1f));
+  leftSpawner.update();
+  checkCollisions();
 }
 
 //--------------------------------------------------------------
@@ -67,10 +57,9 @@ void ofApp::draw() {
     gui.draw();
   }
 
-  player->draw();
-  topLeftSpawner.draw();
-  topRightSpawner.draw();
-  middleLeftSpawner.draw();
+  player.draw();
+  topSpawner.draw();
+  leftSpawner.draw();
 }
 
 //--------------------------------------------------------------
@@ -91,19 +80,19 @@ void ofApp::keyPressed(int key) {
       mouseEnabled = !mouseEnabled;
       break;
     case 'w':
-      player->moveUp();
+      player.moveUp();
       break;
     case 'a':
-      player->moveLeft();
+      player.moveLeft();
       break;
     case 's':
-      player->moveDown();
+      player.moveDown();
       break;
     case 'd':
-      player->moveRight();
+      player.moveRight();
       break;
     case ' ':
-      player->startTurret();
+      player.startTurret();
       break;
   }
 }
@@ -115,10 +104,10 @@ void ofApp::keyReleased(int key) {
     case 'a':
     case 's':
     case 'd':
-      player->stop();
+      player.stop();
       break;
     case ' ':
-      player->stopTurret();
+      player.stopTurret();
       break;
   }
 }
@@ -126,20 +115,27 @@ void ofApp::keyReleased(int key) {
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
   if (mouseEnabled) {
-    player->setPosition(glm::vec3(x, y, 0));
+    player.setPosition(glm::vec3(x, y, 0));
   }
 }
 
 //--------------------------------------------------------------
 void ofApp::exit() {
-  delete player;
-  player = nullptr;
-
   delete playerIntegrationStrategy;
   playerIntegrationStrategy = nullptr;
 }
 
 //-Private Methods----------------------------------------------
+
+//--------------------------------------------------------------
+void ofApp::checkCollisions() {
+  auto missilePositions = player.getMissilePositions();
+
+  for (auto& position : missilePositions) {
+    topSpawner.removeNear(position, 100.0f);
+    leftSpawner.removeNear(position, 100.0f);
+  }
+}
 
 //--------------------------------------------------------------
 void ofApp::drawStartMessage() {

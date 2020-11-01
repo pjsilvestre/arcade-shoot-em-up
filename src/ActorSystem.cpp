@@ -20,19 +20,9 @@ void ActorSystem::draw() {
 }
 
 /**
- * @brief Sets the position of all Actors
- * @param position The desired position
+ * @brief Gets the position of all of the Actors in this ActorSystem
+ * @return A vector of Actor positions
  */
-void ActorSystem::setPosition(const glm::vec3& position) {
-  for (Actor& actor : actors) {
-    actor.setPosition(position);
-  }
-}
-
-/**
- * @brief TODO
- * @return TODO
-*/
 vector<glm::vec3> ActorSystem::getActorPositions() {
   vector<glm::vec3> positions;
 
@@ -44,9 +34,9 @@ vector<glm::vec3> ActorSystem::getActorPositions() {
 }
 
 /**
- * @brief TODO
- * @param point TODO
- * @param distance TODO
+ * @brief Removes all Actors within a distance from a point
+ * @param point The removal origin
+ * @param distance The threshold distance for removal
  */
 void ActorSystem::removeNear(const glm::vec3& point, float distance) {
   for (Actor& actor : actors) {
@@ -63,6 +53,16 @@ void ActorSystem::removeNear(const glm::vec3& point, float distance) {
 void ActorSystem::moveActors(const glm::vec3& force) {
   for (Actor& actor : actors) {
     actor.move(force);
+  }
+}
+
+/**
+ * @brief Sets the position of all Actors
+ * @param position The desired position
+ */
+void ActorSystem::setPosition(const glm::vec3& position) {
+  for (Actor& actor : actors) {
+    actor.setPosition(position);
   }
 }
 

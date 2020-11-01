@@ -86,7 +86,7 @@ void EnemyLinearIntegrationStrategy::integrate(glm::vec3& position,
 void EnemySineIntegrationStrategy::integrate(glm::vec3& position,
                                              glm::vec3& velocity,
                                              glm::vec3& acceleration) {
-  // TODO accomodate non-horizontal wave movement
+  // TODO accommodate non-horizontal wave movement?
   float timestep = 1.0f / ofGetFrameRate();
 
   position += velocity * timestep;
@@ -99,9 +99,12 @@ void EnemySineIntegrationStrategy::integrate(glm::vec3& position,
 
 glm::vec3 EnemySineIntegrationStrategy::SineWave::getEvaluation(float x) {
   // original implementation courtesy Professor Smith
+  // prevent potential arithmetic overflow
+  double dFrequency = (double)frequency;
+
   return glm::vec3(
       x,
-      -amplitude * sin(frequency * x * PI / Constants::SCREEN_WIDTH) +
+      -amplitude * sin(dFrequency * x * PI / Constants::SCREEN_WIDTH) +
           (Constants::SCREEN_HEIGHT / 2),
       0);
 }

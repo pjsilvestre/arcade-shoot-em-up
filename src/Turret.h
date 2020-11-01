@@ -1,3 +1,8 @@
+/**
+ * @class Turret
+ * @brief Encapsulates an missile Emitter specific to a Player
+ */
+
 #pragma once
 
 #include "Emitter.h"

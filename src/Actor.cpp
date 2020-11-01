@@ -29,9 +29,10 @@ void Actor::move(const glm::vec3& force) { acceleration = force; }
 
 void Actor::integrate() {
   if (integrationStrategy != nullptr) {
+    // TODO better solution that doesn't break encapsulation?
     integrationStrategy->integrate(position, velocity, acceleration);
   } else {
-    cerr << "Actor missing integrationStrategy" << endl;
+    cerr << "Actor missing integration strategy" << endl;
   }
 }
 

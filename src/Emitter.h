@@ -1,3 +1,8 @@
+/**
+ * @class Emitter
+ * @brief Encapsulates generic spawning of Actors with force-based movement
+ */
+
 #pragma once
 
 #include "ActorSystem.h"
@@ -9,12 +14,12 @@ class Emitter {
   void update();
   void draw();
 
-  void setRate(float rate) { this->spriteRatePerSecond = rate; }
+  void setRate(float rate) { this->ratePerSecond = rate; }
   void setIntegrationStrategyType(Integration_Strategy_Type strategy) {
     this->integrationStrategyType = strategy;
   }
-  void setPosition(const glm::vec3& position) { this->position = position; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
+  void setPosition(const glm::vec3& position) { this->position = position; }
 
   vector<glm::vec3> getActorPositions();
   void removeNear(const glm::vec3& point, float distance);
@@ -27,10 +32,10 @@ class Emitter {
 
   bool soundLoaded{false};
   bool started{false};
-  float lifespan{Constants::ACTOR_LIFESPAN};
+  float actorLifespan{Constants::ACTOR_LIFESPAN};
   float magnitude{Constants::EMITTER_MAGNITUDE};
-  float spriteRatePerSecond{Constants::SPRITES_PER_SECOND};
-  float timeOfLastEmittedActor{0.0f};
+  float ratePerSecond{Constants::SPRITES_PER_SECOND};
+  float timeOfLastEmittedActorMilliseconds{0.0f};
   ActorSystem actors;
   Integration_Strategy_Type integrationStrategyType{
       Integration_Strategy_Type::actor};

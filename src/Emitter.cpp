@@ -12,8 +12,8 @@ void Emitter::update() {
     // float currentTime = ofGetElapsedTimeMillis();
     double currentTime = ofGetElapsedTimeMillis();
 
-    if ((currentTime - timeOfLastEmittedActor) >
-        (Constants::MS_PER_S / spriteRatePerSecond)) {
+    if ((currentTime - timeOfLastEmittedActorMilliseconds) >
+        (Constants::MS_PER_S / ratePerSecond)) {
       emit();
     }
   }
@@ -24,15 +24,19 @@ void Emitter::update() {
  */
 void Emitter::draw() { actors.draw(); }
 
+/**
+ * @brief Gets the position of all of the Actors in the associated ActorSystem
+ * @return A vector of Actor positions
+ */
 vector<glm::vec3> Emitter::getActorPositions() {
   return actors.getActorPositions();
 }
 
 /**
- * @brief TODO
- * @param point TODO
- * @param distance TODO
-*/
+ * @brief Removes all Actors within a distance from a point
+ * @param point The removal origin
+ * @param distance The threshold distance for removal
+ */
 void Emitter::removeNear(const glm::vec3& point, float distance) {
   actors.removeNear(point, distance);
 }
@@ -64,8 +68,8 @@ void Emitter::setSound(const string& filename) {
 
 void Emitter::emit() {
   Actor actor;
+  actor.setLifespan(actorLifespan);
   actor.setPosition(position);
-  actor.setLifespan(lifespan);
 
   // TODO more elegant solution?
   switch (integrationStrategyType) {
@@ -103,5 +107,5 @@ void Emitter::emit() {
     sound.play();
   }
 
-  timeOfLastEmittedActor = ofGetElapsedTimeMillis();
+  timeOfLastEmittedActorMilliseconds = ofGetElapsedTimeMillis();
 }

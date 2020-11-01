@@ -18,6 +18,7 @@ class Emitter {
   void setIntegrationStrategyType(Integration_Strategy_Type strategy) {
     this->integrationStrategyType = strategy;
   }
+  void setSprite(const Sprite& sprite) { this->sprite = sprite; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
   void setPosition(const glm::vec3& position) { this->position = position; }
 

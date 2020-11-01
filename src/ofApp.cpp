@@ -11,10 +11,13 @@ void ofApp::setup() {
 
   leftSpawner.setDirection(glm::vec3(1.0f, 0.0f, 0.0f));
   leftSpawner.setPosition(glm::vec3(-200.0f, 0.0f, 0.0f));
-
   leftSpawner.setRate(0.1f);
-
   leftSpawner.setIntegrationStrategyType(Integration_Strategy_Type::enemy_sine);
+
+  // TODO properly encapsulate enemy sprite variants
+  Sprite specialEnemySprite;
+  specialEnemySprite.loadImage("enemy-saucer-orange.png");
+  leftSpawner.setSprite(specialEnemySprite);
 
   topSpawner.start();
   leftSpawner.start();

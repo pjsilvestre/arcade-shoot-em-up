@@ -4,8 +4,8 @@
 
 namespace Constants {
 // General constants
-const int SCREEN_HEIGHT{1000};
-const int SCREEN_WIDTH{1000};
+const int SCREEN_HEIGHT{1080};
+const int SCREEN_WIDTH{1920};
 
 // Sprite constants
 const float SPRITE_DIMENSIONS{128.0f};

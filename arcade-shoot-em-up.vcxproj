@@ -180,14 +180,6 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Actor.cpp" />
-    <ClCompile Include="src\ActorSystem.cpp" />
-    <ClCompile Include="src\Constants.cpp" />
-    <ClCompile Include="src\Emitter.cpp" />
-    <ClCompile Include="src\EnemySpawner.cpp" />
-    <ClCompile Include="src\IntegrationStrategy.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxButton.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxColorPicker.cpp" />
@@ -198,19 +190,20 @@
     <ClCompile Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="src\Actor.cpp" />
+    <ClCompile Include="src\ActorSystem.cpp" />
+    <ClCompile Include="src\Constants.cpp" />
+    <ClCompile Include="src\Emitter.cpp" />
+    <ClCompile Include="src\EnemySpawner.cpp" />
+    <ClCompile Include="src\IntegrationStrategy.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\Turret.cpp" />
     <ClCompile Include="src\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Actor.h" />
-    <ClInclude Include="src\ActorSystem.h" />
-    <ClInclude Include="src\Constants.h" />
-    <ClInclude Include="src\Emitter.h" />
-    <ClInclude Include="src\EnemySpawner.h" />
-    <ClInclude Include="src\IntegrationStrategy.h" />
-    <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxButton.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxColorPicker.h" />
@@ -223,6 +216,13 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Misc Applications\of_v0.11.0_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="src\Actor.h" />
+    <ClInclude Include="src\ActorSystem.h" />
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\Emitter.h" />
+    <ClInclude Include="src\EnemySpawner.h" />
+    <ClInclude Include="src\IntegrationStrategy.h" />
+    <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Sprite.h" />
     <ClInclude Include="src\Turret.h" />

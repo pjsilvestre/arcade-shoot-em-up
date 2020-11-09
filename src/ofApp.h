@@ -1,3 +1,13 @@
+/*
+ * TODO decouple audio into separate class
+ * TODO player health
+ * TODO enemy explosions on death
+ * TODO player explosions on death
+ * TODO juice player movement
+ * TODO parallax star field
+ * TODO new sound effects
+ */
+
 #pragma once
 
 #include "Actor.h"

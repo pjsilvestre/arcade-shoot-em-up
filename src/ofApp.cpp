@@ -21,6 +21,7 @@ void ofApp::setup() {
 
   topSpawner.start();
   leftSpawner.start();
+  starEmitter.start();
 
   addEventListeners();
 }
@@ -57,6 +58,11 @@ void ofApp::update() {
 
   leftSpawner.setRate(ofRandom(0.1f));
   leftSpawner.update();
+
+  starEmitter.setPosition(glm::vec3(ofRandomWidth(), -200.0f, 0.0f));
+  starEmitter.setRate(ofRandom(1.0f));
+  starEmitter.update();
+
   checkCollisions();
 
   numberOfEnemiesDestroyed =
@@ -77,6 +83,7 @@ void ofApp::draw() {
   player.draw();
   topSpawner.draw();
   leftSpawner.draw();
+  starEmitter.draw();
   drawScore();
 }
 

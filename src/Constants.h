@@ -47,4 +47,9 @@ const std::string ENEMY_SPRITE();
 const float SINE_WAVE_AMPLITUDE{400.0f};
 const float SINE_WAVE_FREQUENCY{1.5f};
 
+// StarEmitter constants
+const float STAR_LIFESPAN{10.0f};
+const float STAR_MAGNITUDE{1000.0f};
+const std::string STAR_SPRITE();
+
 }  // namespace Constants

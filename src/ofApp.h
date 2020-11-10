@@ -1,5 +1,4 @@
 /*
- * TODO decouple audio into separate class
  * TODO player health
  * TODO enemy explosions on death
  * TODO player explosions on death
@@ -19,6 +18,7 @@
 #include "Player.h"
 #include "SoundPlayer.h"
 #include "Sprite.h"
+#include "StarEmitter.h"
 #include "ofMain.h"
 #include "ofxGui.h"
 
@@ -53,6 +53,8 @@ class ofApp : public ofBaseApp {
   Player player;
   EnemySpawner topSpawner;
   EnemySpawner leftSpawner;
+
+  StarEmitter starEmitter;
 
   SoundPlayer soundPlayer;
 

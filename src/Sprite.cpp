@@ -8,10 +8,7 @@ void Sprite::draw() {
   ofMultMatrix(transform);
   if (loaded) {
     image.setAnchorPercent(0.5f, 0.5f);
-    ofEnableAlphaBlending();
-    ofSetColor(ofColor::white, 255);
     image.draw(0, 0);
-    ofDisableAlphaBlending();
   } else {
     drawPlaceholder();
   }

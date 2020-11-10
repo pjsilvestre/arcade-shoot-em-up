@@ -14,7 +14,8 @@ enum class Integration_Strategy_Type {
   player,
   turret,
   enemy_linear,
-  enemy_sine
+  enemy_sine,
+  star
 };
 
 class IntegrationStrategy {
@@ -63,4 +64,10 @@ class EnemySineIntegrationStrategy : public IntegrationStrategy {
   };
 
   SineWave sineWave;
+};
+
+class StarIntegrationStrategy : public IntegrationStrategy {
+ public:
+  void integrate(glm::vec3& position, glm::vec3& velocity,
+                 glm::vec3& acceleration) override;
 };

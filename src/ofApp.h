@@ -1,9 +1,8 @@
 /*
- * TODO player health
+ * TODO player health (1 life?)
  * TODO enemy explosions on death
  * TODO player explosions on death
  * TODO juice player movement
- * TODO parallax star field
  * TODO new sound effects
  */
 
@@ -18,7 +17,7 @@
 #include "Player.h"
 #include "SoundPlayer.h"
 #include "Sprite.h"
-#include "StarEmitter.h"
+#include "StarSystem.h"
 #include "ofMain.h"
 #include "ofxGui.h"
 
@@ -50,11 +49,10 @@ class ofApp : public ofBaseApp {
 
   ofxPanel gui;
 
-  Player player;
+  StarSystem starSystem;
   EnemySpawner topSpawner;
   EnemySpawner leftSpawner;
-
-  StarEmitter starEmitter;
+  Player player;
 
   SoundPlayer soundPlayer;
 

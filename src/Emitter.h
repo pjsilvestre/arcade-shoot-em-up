@@ -15,6 +15,7 @@ class Emitter {
   void draw();
 
   int getActorCollidedCount() { return actors.getActorCollidedCount(); }
+  void setMagnitude(float magnitude) { this->magnitude = magnitude; }
   void setRate(float rate) { this->ratePerSecond = rate; }
   void setIntegrationStrategyType(Integration_Strategy_Type strategy) {
     this->integrationStrategyType = strategy;
@@ -22,6 +23,7 @@ class Emitter {
   void setSprite(const Sprite& sprite) { this->sprite = sprite; }
   void setDirection(const glm::vec3& direction) { this->direction = direction; }
   void setPosition(const glm::vec3& position) { this->position = position; }
+  void setScale(const glm::vec3& scale) { this->scale = scale; }
 
   vector<glm::vec3> getActorPositions();
   void removeNear(const glm::vec3& point, float distance);

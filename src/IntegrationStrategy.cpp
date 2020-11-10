@@ -40,6 +40,7 @@ void PlayerIntegrationStrategy::integrate(glm::vec3& position,
     velocity += acceleration * timestep;
   }
 }
+
 /**
  * @brief Describes how, when emitted from a Turret, an Actor's position,
  * velocity, and acceleration change over time
@@ -76,6 +77,7 @@ void EnemyLinearIntegrationStrategy::integrate(glm::vec3& position,
     velocity += acceleration * timestep;
   }
 }
+
 /**
  * @brief Describes how, when emitted from a EnemySpawner, an Actor's position,
  * velocity, and acceleration change over time in a sine wave fashion
@@ -107,4 +109,20 @@ glm::vec3 EnemySineIntegrationStrategy::SineWave::getEvaluation(float x) {
       -amplitude * sin(dFrequency * x * PI / Constants::SCREEN_WIDTH) +
           (Constants::SCREEN_HEIGHT / 2),
       0);
+}
+
+/**
+ * @brief Describes how, when emitted from a StarEmitter, an Actor's position,
+ * velocity, and acceleration change over time
+ * @param position The Actor's position
+ * @param velocity The Actor's velocity
+ * @param acceleration The Actor's acceleration
+ */
+void StarIntegrationStrategy::integrate(glm::vec3& position,
+                                        glm::vec3& velocity,
+                                        glm::vec3& acceleration) {
+  float timestep = 1.0f / ofGetFrameRate();
+
+  velocity = acceleration;  // constant velocity
+  position += velocity * timestep;
 }

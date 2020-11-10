@@ -50,6 +50,14 @@ const float SINE_WAVE_FREQUENCY{1.5f};
 // StarEmitter constants
 const float STAR_LIFESPAN{10.0f};
 const float STAR_MAGNITUDE{1000.0f};
+const float NEAR_STAR_MAGNITUDE{1000.0f};
+const float MID_STAR_MAGNTIUDE{750.0f};
+const float FAR_STAR_MAGNITUDE{200.0f};
+const float NEAR_STAR_RATE{0.1f};
+const float MID_STAR_RATE{0.75f};
+const float FAR_STAR_RATE{10.0f};
+const float NEAR_STAR_SCALE{1.0f};
+const float MID_STAR_SCALE{0.5f};
+const float FAR_STAR_SCALE{0.25f};
 const std::string STAR_SPRITE();
-
 }  // namespace Constants

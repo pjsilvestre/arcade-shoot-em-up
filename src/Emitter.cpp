@@ -51,7 +51,6 @@ void Emitter::start() { started = true; }
  */
 void Emitter::stop() { started = false; }
 
-
 //-Protected Methods--------------------------------------------
 
 void Emitter::emit() {
@@ -80,6 +79,10 @@ void Emitter::emit() {
     }
     case (Integration_Strategy_Type::enemy_sine): {
       actor.setIntegrationStrategy(new EnemySineIntegrationStrategy);
+      break;
+    }
+    case (Integration_Strategy_Type::star): {
+      actor.setIntegrationStrategy(new StarIntegrationStrategy);
       break;
     }
     default:

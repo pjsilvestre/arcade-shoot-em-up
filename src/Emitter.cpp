@@ -58,6 +58,7 @@ void Emitter::emit() {
   Actor actor;
   actor.setLifespan(actorLifespan);
   actor.setPosition(position);
+  actor.setScale(scale);
 
   // TODO more elegant solution?
   switch (integrationStrategyType) {

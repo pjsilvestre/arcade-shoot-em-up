@@ -38,4 +38,5 @@ void Actor::integrate() {
 
 void Actor::updateTransform() {
   transform = glm::translate(glm::mat4(1.0f), position);
+  transform = glm::scale(transform, scale);
 }

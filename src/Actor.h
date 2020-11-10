@@ -24,6 +24,7 @@ class Actor {
   int getLifespan() { return lifespan; }
   void setPosition(const glm::vec3& position) { this->position = position; }
   glm::vec3 getPosition() { return position; }
+  void setScale(const glm::vec3& scale) { this->scale = scale; }
   // TODO better solution than giving out raw pointers?
   IntegrationStrategy* getIntegrationStrategy() { return integrationStrategy; }
   void setIntegrationStrategy(IntegrationStrategy* strategy) {
@@ -47,4 +48,5 @@ class Actor {
   glm::vec3 position{glm::vec3(0.0f)};
   glm::vec3 velocity{glm::vec3(0.0f)};
   glm::vec3 acceleration{glm::vec3(0.0f)};
+  glm::vec3 scale{glm::vec3(1.0f)};
 };

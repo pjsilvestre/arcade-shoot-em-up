@@ -17,6 +17,7 @@
 #include "EnemySpawner.h"
 #include "IntegrationStrategy.h"
 #include "Player.h"
+#include "SoundPlayer.h"
 #include "Sprite.h"
 #include "ofMain.h"
 #include "ofxGui.h"
@@ -24,13 +25,17 @@
 class ofApp : public ofBaseApp {
  public:
   void setup();
+  void addEventListeners();
+
   void update();
   void draw();
 
   void keyPressed(int key);
   void keyReleased(int key);
   void mouseMoved(int x, int y);
+
   void exit();
+  void removeEventListeners();
 
  private:
   void checkCollisions();
@@ -44,9 +49,12 @@ class ofApp : public ofBaseApp {
   int numberOfEnemiesDestroyed{0};
 
   ofxPanel gui;
+
   Player player;
   EnemySpawner topSpawner;
   EnemySpawner leftSpawner;
+
+  SoundPlayer soundPlayer;
 
   // following pointers MUST be deallocated in exit()
   IntegrationStrategy* playerIntegrationStrategy{nullptr};

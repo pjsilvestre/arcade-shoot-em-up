@@ -199,6 +199,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\SoundPlayer.cpp" />
     <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\Turret.cpp" />
     <ClCompile Include="src\Utility.cpp" />
@@ -224,6 +225,7 @@
     <ClInclude Include="src\IntegrationStrategy.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\SoundPlayer.h" />
     <ClInclude Include="src\Sprite.h" />
     <ClInclude Include="src\Turret.h" />
     <ClInclude Include="src\Utility.h" />

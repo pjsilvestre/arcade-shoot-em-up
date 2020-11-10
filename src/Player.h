@@ -26,6 +26,8 @@ class Player : public Actor {
   void stop();
   void stopTurret();
 
+  ofEvent<const ofEventArgs> missileLaunched;
+
  private:
   void clampPosition();
 

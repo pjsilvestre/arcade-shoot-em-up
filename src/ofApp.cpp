@@ -21,6 +21,18 @@ void ofApp::setup() {
 
   topSpawner.start();
   leftSpawner.start();
+
+  addEventListeners();
+}
+
+//--------------------------------------------------------------
+void ofApp::addEventListeners() {
+  ofAddListener(player.missileLaunched, &soundPlayer,
+                &SoundPlayer::playMissileSoundEffect);
+  ofAddListener(topSpawner.actors.actorCollided, &soundPlayer,
+                &SoundPlayer::playCollisionSoundEffect);
+  ofAddListener(leftSpawner.actors.actorCollided, &soundPlayer,
+                &SoundPlayer::playCollisionSoundEffect);
 }
 
 //--------------------------------------------------------------
@@ -129,6 +141,18 @@ void ofApp::mouseMoved(int x, int y) {
 void ofApp::exit() {
   delete playerIntegrationStrategy;
   playerIntegrationStrategy = nullptr;
+
+  removeEventListeners();
+}
+
+//--------------------------------------------------------------
+void ofApp::removeEventListeners() {
+  ofRemoveListener(player.missileLaunched, &soundPlayer,
+                   &SoundPlayer::playMissileSoundEffect);
+  ofRemoveListener(topSpawner.actors.actorCollided, &soundPlayer,
+                   &SoundPlayer::playCollisionSoundEffect);
+  ofRemoveListener(leftSpawner.actors.actorCollided, &soundPlayer,
+                   &SoundPlayer::playCollisionSoundEffect);
 }
 
 //-Private Methods----------------------------------------------

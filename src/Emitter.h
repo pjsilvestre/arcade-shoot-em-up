@@ -27,22 +27,20 @@ class Emitter {
   void removeNear(const glm::vec3& point, float distance);
   void start();
   void stop();
-  void setCollisionSound(const string& filename);
-  void setEmissionSound(const string& filename);
+
+  // exposed for direct access for ofEvents
+  ActorSystem actors;
 
  protected:
   void emit();
 
-  bool soundLoaded{false};
   bool started{false};
   float actorLifespan{Constants::ACTOR_LIFESPAN};
   float magnitude{Constants::EMITTER_MAGNITUDE};
   float ratePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActorMilliseconds{0.0f};
-  ActorSystem actors;
   Integration_Strategy_Type integrationStrategyType{
       Integration_Strategy_Type::actor};
-  ofSoundPlayer emissionSound;
   Sprite sprite;
   glm::vec3 direction{glm::vec3(0.0f)};
   glm::vec3 position{glm::vec3(0.0f)};

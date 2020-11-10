@@ -6,6 +6,7 @@
 #pragma once
 
 #include "Actor.h"
+#include "ofEvent.h"
 
 class ActorSystem {
  public:
@@ -20,13 +21,11 @@ class ActorSystem {
   void removeNear(const glm::vec3& point, float distance);
   void setPosition(const glm::vec3& position);
 
-  void setCollisionSound(const string& filename);
+  ofEvent<const ofEventArgs> actorCollided;
 
  private:
   void deleteDeadActors();
 
-  bool soundLoaded{false};
   int actorCollidedCount;
-  ofSoundPlayer collisionSound;
   vector<Actor> actors;
 };

@@ -12,6 +12,4 @@ Turret::Turret() : Emitter() {
   Sprite missileSprite;
   missileSprite.loadImage(Constants::MISSILE_SPRITE());
   sprite = missileSprite;
-
-  setEmissionSound(Constants::MISSILE_SOUND_EFFECT());
 }

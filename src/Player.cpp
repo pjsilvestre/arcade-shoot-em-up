@@ -70,14 +70,20 @@ void Player::stop() {
 /**
  * @brief Starts the turret
  */
-void Player::startTurret() { turret.start(); }
+void Player::startTurret() {
+  turret.start();
+  ofEventArgs noArgs;
+  ofNotifyEvent(missileLaunched, noArgs, this);
+  // TODO either send event every time a missile is launched, or limit turret to
+  // one shot per keypress
+}
 
 /**
  * @brief Stops the turret
  */
 void Player::stopTurret() { turret.stop(); }
 
-//-Protected Methods--------------------------------------------
+//-Private Methods----------------------------------------------
 
 void Player::clampPosition() {
   glm::vec3 newPosition = position;

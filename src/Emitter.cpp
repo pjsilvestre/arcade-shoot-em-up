@@ -51,26 +51,6 @@ void Emitter::start() { started = true; }
  */
 void Emitter::stop() { started = false; }
 
-/**
- * @brief Sets this Emitter's ActorSystem's collisionSound effect
- * @param filename The audio file to load from bin/data
- */
-void Emitter::setCollisionSound(const string& filename) {
-  actors.setCollisionSound(filename);
-}
-
-/**
- * @brief Sets this Emitter's emissionSound effect
- * @param filename The audio file to load from bin/data
- */
-void Emitter::setEmissionSound(const string& filename) {
-  if (!emissionSound.load(filename)) {
-    cerr << filename << " not found" << endl;
-    soundLoaded = false;
-  } else {
-    soundLoaded = true;
-  }
-}
 
 //-Protected Methods--------------------------------------------
 
@@ -110,10 +90,6 @@ void Emitter::emit() {
 
   actors.add(actor);
   actors.moveActors(direction * magnitude);
-
-  if (soundLoaded) {
-    emissionSound.play();
-  }
 
   timeOfLastEmittedActorMilliseconds = ofGetElapsedTimeMillis();
 }

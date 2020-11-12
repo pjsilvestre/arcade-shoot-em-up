@@ -34,6 +34,10 @@ void ofApp::addEventListeners() {
                 &SoundPlayer::playCollisionSoundEffect);
   ofAddListener(leftSpawner.actors.actorCollided, &soundPlayer,
                 &SoundPlayer::playCollisionSoundEffect);
+  ofAddListener(topSpawner.actors.actorCollided, &score,
+                &Score::incrementScore);
+  ofAddListener(leftSpawner.actors.actorCollided, &score,
+                &Score::incrementScore);
 }
 
 //--------------------------------------------------------------
@@ -62,9 +66,6 @@ void ofApp::update() {
   starSystem.update();
 
   checkCollisions();
-
-  numberOfEnemiesDestroyed =
-      topSpawner.getActorCollidedCount() + leftSpawner.getActorCollidedCount();
 }
 
 //--------------------------------------------------------------
@@ -159,6 +160,10 @@ void ofApp::removeEventListeners() {
                    &SoundPlayer::playCollisionSoundEffect);
   ofRemoveListener(leftSpawner.actors.actorCollided, &soundPlayer,
                    &SoundPlayer::playCollisionSoundEffect);
+  ofRemoveListener(topSpawner.actors.actorCollided, &score,
+                   &Score::incrementScore);
+  ofRemoveListener(leftSpawner.actors.actorCollided, &score,
+                   &Score::incrementScore);
 }
 
 //-Private Methods----------------------------------------------
@@ -190,7 +195,7 @@ void ofApp::drawStartMessage() {
 void ofApp::drawScore() {
   // TODO replace bitmap string with truetype string
 
-  string scoreMessage = "score: " + to_string(numberOfEnemiesDestroyed);
+  string scoreMessage = "score: " + to_string(score.getScore());
   ofBitmapFont font;
   ofRectangle boundingBox = font.getBoundingBox(scoreMessage, 0, 0);
   ofSetColor(ofColor::white);

@@ -14,7 +14,6 @@ class ActorSystem {
   void draw();
 
   void add(Actor& actor) { actors.push_back(actor); }
-  int getActorCollidedCount() { return actorCollidedCount; }
 
   vector<glm::vec3> getActorPositions();
   void moveActors(const glm::vec3& direction);
@@ -26,6 +25,5 @@ class ActorSystem {
  private:
   void deleteDeadActors();
 
-  int actorCollidedCount;
   vector<Actor> actors;
 };

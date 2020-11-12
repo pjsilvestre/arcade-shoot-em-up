@@ -15,6 +15,7 @@
 #include "EnemySpawner.h"
 #include "IntegrationStrategy.h"
 #include "Player.h"
+#include "Score.h"
 #include "SoundPlayer.h"
 #include "Sprite.h"
 #include "StarSystem.h"
@@ -45,7 +46,6 @@ class ofApp : public ofBaseApp {
   bool gameNotStarted{true};
   bool guiShown{false};
   bool mouseEnabled{false};
-  int numberOfEnemiesDestroyed{0};
 
   ofxPanel gui;
 
@@ -54,6 +54,7 @@ class ofApp : public ofBaseApp {
   EnemySpawner leftSpawner;
   Player player;
 
+  Score score;
   SoundPlayer soundPlayer;
 
   // following pointers MUST be deallocated in exit()

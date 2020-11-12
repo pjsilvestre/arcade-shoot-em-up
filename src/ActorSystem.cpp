@@ -45,8 +45,6 @@ void ActorSystem::removeNear(const glm::vec3& point, float distance) {
 
       ofEventArgs noArgs;
       ofNotifyEvent(actorCollided, noArgs, this);
-
-      actorCollidedCount++;
     }
   }
 }

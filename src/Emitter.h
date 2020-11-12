@@ -32,9 +32,9 @@ class Emitter {
   void removeNear(const glm::vec3& point, float distance);
   void start();
   void stop();
-  void notifyCollision(const ofEventArgs& unusedArg);
+  void notifyCollision(const ofWindowPosEventArgs& collisionPosition);
 
-  ofEvent<const ofEventArgs> actorCollided;
+  ofEvent<const ofWindowPosEventArgs> actorCollided;
 
  protected:
   void emit();

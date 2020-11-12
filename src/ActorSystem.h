@@ -20,7 +20,7 @@ class ActorSystem {
   void removeNear(const glm::vec3& point, float distance);
   void setPosition(const glm::vec3& position);
 
-  ofEvent<const ofEventArgs> actorCollided;
+  ofEvent<const ofWindowPosEventArgs> actorCollided;
 
  private:
   void deleteDeadActors();

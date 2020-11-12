@@ -7,7 +7,7 @@
 
 class Score {
  public:
-  void incrementScore(const ofEventArgs& unusedArg) { score++; }
+  void incrementScore(const ofWindowPosEventArgs& unusedArg) { score++; }
   int getScore() { return score; }
 
  private:

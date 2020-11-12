@@ -40,11 +40,13 @@ vector<glm::vec3> ActorSystem::getActorPositions() {
  */
 void ActorSystem::removeNear(const glm::vec3& point, float distance) {
   for (Actor& actor : actors) {
-    if (abs(glm::length(actor.getPosition() - point)) < distance) {
+    auto position = actor.getPosition();
+
+    if (abs(glm::length(position - point)) < distance) {
       actor.setLifespan(0.0f);
 
-      ofEventArgs noArgs;
-      ofNotifyEvent(actorCollided, noArgs, this);
+      auto collisionPosition = ofWindowPosEventArgs(position.x, position.y);
+      ofNotifyEvent(actorCollided, collisionPosition, this);
     }
   }
 }

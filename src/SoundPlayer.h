@@ -12,7 +12,7 @@ class SoundPlayer {
  public:
   SoundPlayer();
   void playMissileSoundEffect(const ofEventArgs& unusedArg);
-  void playCollisionSoundEffect(const ofEventArgs& unusedArg);
+  void playCollisionSoundEffect(const ofWindowPosEventArgs& unusedArg);
 
  private:
   bool collisionSoundLoaded;

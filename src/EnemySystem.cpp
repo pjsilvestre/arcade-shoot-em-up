@@ -73,11 +73,10 @@ void EnemySystem::start() {
 /**
  * @brief Notifies all listeners that for all EnemyEmitters, at least one underlying
  * Actor has collided
- * @param unusedArg Unused argument
+ * @param collisionPosition The collision position
  */
-void EnemySystem::notifyCollision(const ofEventArgs& unusedArg) {
-  ofEventArgs noArgs;
-  ofNotifyEvent(actorCollided, noArgs, this);
+void EnemySystem::notifyCollision(const ofWindowPosEventArgs& collisionPosition) {
+  ofNotifyEvent(actorCollided, collisionPosition, this);
 }
 
 //-Private Methods----------------------------------------------

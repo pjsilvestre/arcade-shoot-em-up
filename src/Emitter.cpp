@@ -67,11 +67,10 @@ void Emitter::stop() { started = false; }
 
 /**
  * @brief Notifies all listeners that an underlying Actor has collided
- * @param unusedArg Unused argument
+ * @param collisionPosition The collision position
  */
-void Emitter::notifyCollision(const ofEventArgs& unusedArg) {
-  ofEventArgs noArgs;
-  ofNotifyEvent(actorCollided, noArgs, this);
+void Emitter::notifyCollision(const ofWindowPosEventArgs& collisionPosition) {
+  ofNotifyEvent(actorCollided, collisionPosition, this);
 }
 
 //-Protected Methods--------------------------------------------

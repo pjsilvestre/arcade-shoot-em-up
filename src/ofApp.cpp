@@ -30,14 +30,12 @@ void ofApp::setup() {
 void ofApp::addEventListeners() {
   ofAddListener(player.missileLaunched, &soundPlayer,
                 &SoundPlayer::playMissileSoundEffect);
-  ofAddListener(topSpawner.actors.actorCollided, &soundPlayer,
+  ofAddListener(topSpawner.actorCollided, &soundPlayer,
                 &SoundPlayer::playCollisionSoundEffect);
-  ofAddListener(leftSpawner.actors.actorCollided, &soundPlayer,
+  ofAddListener(leftSpawner.actorCollided, &soundPlayer,
                 &SoundPlayer::playCollisionSoundEffect);
-  ofAddListener(topSpawner.actors.actorCollided, &score,
-                &Score::incrementScore);
-  ofAddListener(leftSpawner.actors.actorCollided, &score,
-                &Score::incrementScore);
+  ofAddListener(topSpawner.actorCollided, &score, &Score::incrementScore);
+  ofAddListener(leftSpawner.actorCollided, &score, &Score::incrementScore);
 }
 
 //--------------------------------------------------------------
@@ -156,14 +154,12 @@ void ofApp::exit() {
 void ofApp::removeEventListeners() {
   ofRemoveListener(player.missileLaunched, &soundPlayer,
                    &SoundPlayer::playMissileSoundEffect);
-  ofRemoveListener(topSpawner.actors.actorCollided, &soundPlayer,
+  ofRemoveListener(topSpawner.actorCollided, &soundPlayer,
                    &SoundPlayer::playCollisionSoundEffect);
-  ofRemoveListener(leftSpawner.actors.actorCollided, &soundPlayer,
+  ofRemoveListener(leftSpawner.actorCollided, &soundPlayer,
                    &SoundPlayer::playCollisionSoundEffect);
-  ofRemoveListener(topSpawner.actors.actorCollided, &score,
-                   &Score::incrementScore);
-  ofRemoveListener(leftSpawner.actors.actorCollided, &score,
-                   &Score::incrementScore);
+  ofRemoveListener(topSpawner.actorCollided, &score, &Score::incrementScore);
+  ofRemoveListener(leftSpawner.actorCollided, &score, &Score::incrementScore);
 }
 
 //-Private Methods----------------------------------------------

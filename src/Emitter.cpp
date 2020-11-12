@@ -1,6 +1,20 @@
 #include "Emitter.h"
 
 /**
+ * @brief Creates an Emitter
+ */
+Emitter::Emitter() {
+  ofAddListener(actors.actorCollided, this, &Emitter::notifyCollision);
+}
+
+/**
+ * @brief Deletes this Emitter
+ */
+Emitter::~Emitter() {
+  ofRemoveListener(actors.actorCollided, this, &Emitter::notifyCollision);
+}
+
+/**
  * @brief Update the associated ActorSystem
  */
 void Emitter::update() {
@@ -50,6 +64,15 @@ void Emitter::start() { started = true; }
  * @brief Stop this Emitter
  */
 void Emitter::stop() { started = false; }
+
+/**
+ * @brief Notifies all listeners that an underlying Actor has collided
+ * @param unusedArg Unused argument
+ */
+void Emitter::notifyCollision(const ofEventArgs& unusedArg) {
+  ofEventArgs noArgs;
+  ofNotifyEvent(actorCollided, noArgs, this);
+}
 
 //-Protected Methods--------------------------------------------
 

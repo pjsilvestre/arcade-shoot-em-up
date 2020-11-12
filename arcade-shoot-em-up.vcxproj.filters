@@ -76,7 +76,9 @@
     <ClCompile Include="src\StarSystem.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Score.cpp" />
+    <ClCompile Include="src\Score.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -171,7 +173,9 @@
     <ClInclude Include="src\StarSystem.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Score.h" />
+    <ClInclude Include="src\Score.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

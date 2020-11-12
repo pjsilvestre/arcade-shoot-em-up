@@ -8,9 +8,13 @@
 #include "ActorSystem.h"
 #include "Constants.h"
 #include "IntegrationStrategy.h"
+#include "ofEvent.h"
 
 class Emitter {
  public:
+  Emitter();
+  ~Emitter();
+
   void update();
   void draw();
 
@@ -28,9 +32,9 @@ class Emitter {
   void removeNear(const glm::vec3& point, float distance);
   void start();
   void stop();
+  void notifyCollision(const ofEventArgs& unusedArg);
 
-  // exposed for direct access for ofEvents
-  ActorSystem actors;
+  ofEvent<const ofEventArgs> actorCollided;
 
  protected:
   void emit();
@@ -40,6 +44,7 @@ class Emitter {
   float magnitude{Constants::EMITTER_MAGNITUDE};
   float ratePerSecond{Constants::SPRITES_PER_SECOND};
   float timeOfLastEmittedActorMilliseconds{0.0f};
+  ActorSystem actors;
   Integration_Strategy_Type integrationStrategyType{
       Integration_Strategy_Type::actor};
   Sprite sprite;

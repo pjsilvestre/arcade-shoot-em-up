@@ -10,7 +10,7 @@
 
 #include "ActorSystem.h"
 #include "Constants.h"
-#include "EnemySpawner.h"
+#include "EnemySystem.h"
 #include "Player.h"
 #include "Score.h"
 #include "SoundPlayer.h"
@@ -43,13 +43,11 @@ class ofApp : public ofBaseApp {
   bool guiShown{false};
   bool mouseEnabled{false};
 
-  ofxPanel gui;
-
   StarSystem starSystem;
-  EnemySpawner topSpawner;
-  EnemySpawner leftSpawner;
+  EnemySystem enemySystem;
   Player player;
 
+  ofxPanel gui;
   Score score;
   SoundPlayer soundPlayer;
 

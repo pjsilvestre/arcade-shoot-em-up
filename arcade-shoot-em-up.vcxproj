@@ -195,6 +195,7 @@
     <ClCompile Include="src\Constants.cpp" />
     <ClCompile Include="src\Emitter.cpp" />
     <ClCompile Include="src\EnemySpawner.cpp" />
+    <ClCompile Include="src\EnemySystem.cpp" />
     <ClCompile Include="src\IntegrationStrategy.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Emitter.h" />
     <ClInclude Include="src\EnemySpawner.h" />
+    <ClInclude Include="src\EnemySystem.h" />
     <ClInclude Include="src\IntegrationStrategy.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Player.h" />

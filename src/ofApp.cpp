@@ -9,19 +9,8 @@ void ofApp::setup() {
   playerIntegrationStrategy = new PlayerIntegrationStrategy;
   player.setIntegrationStrategy(playerIntegrationStrategy);
 
-  leftSpawner.setDirection(glm::vec3(1.0f, 0.0f, 0.0f));
-  leftSpawner.setPosition(glm::vec3(-200.0f, 0.0f, 0.0f));
-  leftSpawner.setRate(0.1f);
-  leftSpawner.setIntegrationStrategyType(Integration_Strategy_Type::enemy_sine);
-
-  // TODO properly encapsulate enemy sprite variants
-  Sprite specialEnemySprite;
-  specialEnemySprite.loadImage("enemy-saucer-orange.png");
-  leftSpawner.setSprite(specialEnemySprite);
-
-  topSpawner.start();
-  leftSpawner.start();
   starSystem.start();
+  enemySystem.start();
 
   addEventListeners();
 }
@@ -30,12 +19,9 @@ void ofApp::setup() {
 void ofApp::addEventListeners() {
   ofAddListener(player.missileLaunched, &soundPlayer,
                 &SoundPlayer::playMissileSoundEffect);
-  ofAddListener(topSpawner.actorCollided, &soundPlayer,
+  ofAddListener(enemySystem.actorCollided, &soundPlayer,
                 &SoundPlayer::playCollisionSoundEffect);
-  ofAddListener(leftSpawner.actorCollided, &soundPlayer,
-                &SoundPlayer::playCollisionSoundEffect);
-  ofAddListener(topSpawner.actorCollided, &score, &Score::incrementScore);
-  ofAddListener(leftSpawner.actorCollided, &score, &Score::incrementScore);
+  ofAddListener(enemySystem.actorCollided, &score, &Score::incrementScore);
 }
 
 //--------------------------------------------------------------
@@ -52,16 +38,9 @@ void ofApp::update() {
     ofShowCursor();
   }
 
-  player.update();
-
-  topSpawner.setPosition(glm::vec3(ofRandomWidth(), -200.0f, 0.0f));
-  topSpawner.setRate(ofRandom(0.5f));
-  topSpawner.update();
-
-  leftSpawner.setRate(ofRandom(0.1f));
-  leftSpawner.update();
-
   starSystem.update();
+  enemySystem.update();
+  player.update();
 
   checkCollisions();
 }
@@ -73,16 +52,15 @@ void ofApp::draw() {
     return;
   }
 
-  if (guiShown) {
-    gui.draw();
-  }
-
   starSystem.draw();
-  topSpawner.draw();
-  leftSpawner.draw();
+  enemySystem.draw();
   player.draw();
 
   drawScore();
+
+  if (guiShown) {
+    gui.draw();
+  }
 }
 
 //--------------------------------------------------------------
@@ -154,12 +132,9 @@ void ofApp::exit() {
 void ofApp::removeEventListeners() {
   ofRemoveListener(player.missileLaunched, &soundPlayer,
                    &SoundPlayer::playMissileSoundEffect);
-  ofRemoveListener(topSpawner.actorCollided, &soundPlayer,
+  ofRemoveListener(enemySystem.actorCollided, &soundPlayer,
                    &SoundPlayer::playCollisionSoundEffect);
-  ofRemoveListener(leftSpawner.actorCollided, &soundPlayer,
-                   &SoundPlayer::playCollisionSoundEffect);
-  ofRemoveListener(topSpawner.actorCollided, &score, &Score::incrementScore);
-  ofRemoveListener(leftSpawner.actorCollided, &score, &Score::incrementScore);
+  ofRemoveListener(enemySystem.actorCollided, &score, &Score::incrementScore);
 }
 
 //-Private Methods----------------------------------------------
@@ -169,8 +144,7 @@ void ofApp::checkCollisions() {
   auto missilePositions = player.getMissilePositions();
 
   for (auto& position : missilePositions) {
-    topSpawner.removeNear(position, 100.0f);
-    leftSpawner.removeNear(position, 100.0f);
+    enemySystem.removeNear(position, 100.0f);
   }
 }
 

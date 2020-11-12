@@ -35,7 +35,7 @@ const float MISSILE_MAX_VELOCITY{1500.0f};
 const std::string MISSILE_SOUND_EFFECT();
 const std::string MISSILE_SPRITE();
 
-// EnemySpawner constants
+// EnemyEmitter constants
 const float ENEMY_LIFESPAN{10.0f};
 const float ENEMY_MAGNITUDE{1000.0f};
 const float ENEMY_MAX_VELOCITY{500.0f};

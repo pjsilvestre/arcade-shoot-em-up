@@ -28,7 +28,7 @@ EnemySystem::EnemySystem() {
 EnemySystem::~EnemySystem() { removeListeners(); }
 
 /**
- * @brief Updates the associated enemy spawners
+ * @brief Updates the associated EnemyEmitters
  */
 void EnemySystem::update() {
   topSpawner.setPosition(glm::vec3(ofRandomWidth(), -200.0f, 0.0f));
@@ -42,7 +42,7 @@ void EnemySystem::update() {
 }
 
 /**
- * @brief Draws the associated enemy spawners
+ * @brief Draws the associated EnemyEmitters
  */
 void EnemySystem::draw() {
   for (auto& spawner : spawners) {
@@ -51,7 +51,7 @@ void EnemySystem::draw() {
 }
 
 /**
- * @brief Removes all Actors for all emitters within a distance from a point
+ * @brief Removes all Actors for all EnemyEmitters within a distance from a point
  * @param point The removal origin
  * @param distance The threshold distance for removal
  */
@@ -62,7 +62,7 @@ void EnemySystem::removeNear(const glm::vec3& point, float distance) {
 }
 
 /**
- * @brief Starts the associated enemy spawners
+ * @brief Starts the associated EnemyEmitters
  */
 void EnemySystem::start() {
   for (auto& spawner : spawners) {
@@ -71,7 +71,7 @@ void EnemySystem::start() {
 }
 
 /**
- * @brief Notifies all listeners that for all emitters, at least one underlying
+ * @brief Notifies all listeners that for all EnemyEmitters, at least one underlying
  * Actor has collided
  * @param unusedArg Unused argument
  */

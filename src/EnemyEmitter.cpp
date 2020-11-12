@@ -1,6 +1,6 @@
-#include "EnemySpawner.h"
+#include "EnemyEmitter.h"
 
-EnemySpawner::EnemySpawner() : Emitter() {
+EnemyEmitter::EnemyEmitter() : Emitter() {
   actorLifespan = Constants::ENEMY_LIFESPAN;
   magnitude = Constants::ENEMY_MAGNITUDE;
   ratePerSecond = Constants::ENEMY_RATE;

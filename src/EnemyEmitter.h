@@ -1,5 +1,5 @@
 /**
- * @class EnemySpawner
+ * @class EnemyEmitter
  * @brief Encapsulates an enemy Emitter
  */
 
@@ -7,7 +7,7 @@
 
 #include "Emitter.h"
 
-class EnemySpawner : public Emitter {
+class EnemyEmitter : public Emitter {
  public:
-  EnemySpawner();
+  EnemyEmitter();
 };

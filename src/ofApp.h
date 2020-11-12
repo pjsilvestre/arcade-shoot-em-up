@@ -8,13 +8,21 @@
 
 #pragma once
 
+#include "Actor.h"
 #include "ActorSystem.h"
 #include "Constants.h"
+#include "Emitter.h"
+#include "EnemyEmitter.h"
 #include "EnemySystem.h"
+#include "IntegrationStrategy.h"
 #include "Player.h"
 #include "Score.h"
 #include "SoundPlayer.h"
+#include "Sprite.h"
+#include "StarEmitter.h"
 #include "StarSystem.h"
+#include "Turret.h"
+#include "Utility.h"
 #include "ofMain.h"
 #include "ofxGui.h"
 

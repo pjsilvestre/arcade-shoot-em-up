@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "EnemySpawner.h"
+#include "EnemyEmitter.h"
 
 class EnemySystem {
  public:
@@ -25,7 +25,7 @@ class EnemySystem {
   void addListeners();
   void removeListeners();
 
-  EnemySpawner topSpawner;
-  EnemySpawner leftSpawner;
-  vector<EnemySpawner> spawners;
+  EnemyEmitter topSpawner;
+  EnemyEmitter leftSpawner;
+  vector<EnemyEmitter> spawners;
 };

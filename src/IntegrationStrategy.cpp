@@ -60,7 +60,7 @@ void TurretIntegrationStrategy::integrate(glm::vec3& position,
   }
 }
 /**
- * @brief Describes how, when emitted from a EnemySpawner, an Actor's position,
+ * @brief Describes how, when emitted from a EnemyEmitter, an Actor's position,
  * velocity, and acceleration change over time in a linear fashion
  * @param position The Actor's position
  * @param velocity The Actor's velocity
@@ -79,7 +79,7 @@ void EnemyLinearIntegrationStrategy::integrate(glm::vec3& position,
 }
 
 /**
- * @brief Describes how, when emitted from a EnemySpawner, an Actor's position,
+ * @brief Describes how, when emitted from a EnemyEmitter, an Actor's position,
  * velocity, and acceleration change over time in a sine wave fashion
  * @param position The Actor's position
  * @param velocity The Actor's velocity

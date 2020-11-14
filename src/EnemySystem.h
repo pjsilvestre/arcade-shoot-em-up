@@ -27,5 +27,5 @@ class EnemySystem {
 
   EnemyEmitter topSpawner;
   EnemyEmitter leftSpawner;
-  vector<EnemyEmitter> spawners;
+  vector<EnemyEmitter*> spawners;
 };

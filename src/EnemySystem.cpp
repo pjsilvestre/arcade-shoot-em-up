@@ -18,8 +18,8 @@ EnemySystem::EnemySystem() {
   specialEnemySprite.loadImage("enemy-saucer-orange.png");
   leftSpawner.setSprite(specialEnemySprite);
 
-  spawners.push_back(topSpawner);
-  spawners.push_back(leftSpawner);
+  spawners.push_back(&topSpawner);
+  spawners.push_back(&leftSpawner);
 }
 
 /**
@@ -36,8 +36,8 @@ void EnemySystem::update() {
 
   leftSpawner.setRate(ofRandom(0.1f));
 
-  for (auto& spawner : spawners) {
-    spawner.update();
+  for (auto spawner : spawners) {
+    spawner->update();
   }
 }
 
@@ -45,8 +45,8 @@ void EnemySystem::update() {
  * @brief Draws the associated EnemyEmitters
  */
 void EnemySystem::draw() {
-  for (auto& spawner : spawners) {
-    spawner.draw();
+  for (auto spawner : spawners) {
+    spawner->draw();
   }
 }
 
@@ -56,8 +56,8 @@ void EnemySystem::draw() {
  * @param distance The threshold distance for removal
  */
 void EnemySystem::removeNear(const glm::vec3& point, float distance) {
-  for (auto& spawner : spawners) {
-    spawner.removeNear(point, distance);
+  for (auto spawner : spawners) {
+    spawner->removeNear(point, distance);
   }
 }
 
@@ -65,8 +65,8 @@ void EnemySystem::removeNear(const glm::vec3& point, float distance) {
  * @brief Starts the associated EnemyEmitters
  */
 void EnemySystem::start() {
-  for (auto& spawner : spawners) {
-    spawner.start();
+  for (auto spawner : spawners) {
+    spawner->start();
   }
 }
 

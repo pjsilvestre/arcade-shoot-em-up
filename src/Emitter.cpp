@@ -26,6 +26,11 @@ void Emitter::update() {
     // float currentTime = ofGetElapsedTimeMillis();
     double currentTime = ofGetElapsedTimeMillis();
 
+    if (oneShotEnabled) {
+      emit();
+      stop();
+    }
+
     if ((currentTime - timeOfLastEmittedActorMilliseconds) >
         (Constants::MS_PER_S / ratePerSecond)) {
       emit();

@@ -139,6 +139,9 @@ void ExplosionIntegrationStrategy::integrate(glm::vec3& position,
                                              glm::vec3& acceleration) {
   float timestep = 1.0f / ofGetFrameRate();
 
-  velocity = acceleration;  // constant velocity
   position += velocity * timestep;
+  velocity += acceleration * timestep;
+
+  velocity *= Constants::EXPLOSION_VELOCITY_DAMPING;
+  acceleration *= Constants::EXPLOSION_ACCELERATION_DAMPING;
 }

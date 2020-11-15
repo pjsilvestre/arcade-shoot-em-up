@@ -82,7 +82,12 @@
     <ClCompile Include="src\EnemyEmitter.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ExplosionEmitter.cpp" />
+    <ClCompile Include="src\ExplosionEmitter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ExplosionSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -183,7 +188,12 @@
     <ClInclude Include="src\EnemyEmitter.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\ExplosionEmitter.h" />
+    <ClInclude Include="src\ExplosionEmitter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ExplosionSystem.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

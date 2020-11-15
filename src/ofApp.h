@@ -14,6 +14,8 @@
 #include "Emitter.h"
 #include "EnemyEmitter.h"
 #include "EnemySystem.h"
+#include "ExplosionEmitter.h"
+#include "ExplosionSystem.h"
 #include "IntegrationStrategy.h"
 #include "Player.h"
 #include "Score.h"
@@ -53,6 +55,7 @@ class ofApp : public ofBaseApp {
 
   StarSystem starSystem;
   EnemySystem enemySystem;
+  ExplosionSystem explosionSystem;
   Player player;
 
   ofxPanel gui;

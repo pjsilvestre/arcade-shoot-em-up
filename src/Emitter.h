@@ -18,6 +18,7 @@ class Emitter {
   void update();
   void draw();
 
+  void enableOneShot() { this->oneShotEnabled = true; }
   void setMagnitude(float magnitude) { this->magnitude = magnitude; }
   void setRate(float rate) { this->ratePerSecond = rate; }
   void setIntegrationStrategyType(Integration_Strategy_Type strategy) {
@@ -39,6 +40,7 @@ class Emitter {
  protected:
   void emit();
 
+  bool oneShotEnabled{false};
   bool started{false};
   float actorLifespan{Constants::ACTOR_LIFESPAN};
   float magnitude{Constants::EMITTER_MAGNITUDE};

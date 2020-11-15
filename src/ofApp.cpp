@@ -22,6 +22,8 @@ void ofApp::addEventListeners() {
   ofAddListener(enemySystem.actorCollided, &soundPlayer,
                 &SoundPlayer::playCollisionSoundEffect);
   ofAddListener(enemySystem.actorCollided, &score, &Score::incrementScore);
+  ofAddListener(enemySystem.actorCollided, &explosionSystem,
+                &ExplosionSystem::explode);
 }
 
 //--------------------------------------------------------------
@@ -40,6 +42,7 @@ void ofApp::update() {
 
   starSystem.update();
   enemySystem.update();
+  explosionSystem.update();
   player.update();
 
   checkCollisions();
@@ -54,6 +57,7 @@ void ofApp::draw() {
 
   starSystem.draw();
   enemySystem.draw();
+  explosionSystem.draw();
   player.draw();
 
   drawScore();
@@ -135,6 +139,8 @@ void ofApp::removeEventListeners() {
   ofRemoveListener(enemySystem.actorCollided, &soundPlayer,
                    &SoundPlayer::playCollisionSoundEffect);
   ofRemoveListener(enemySystem.actorCollided, &score, &Score::incrementScore);
+  ofRemoveListener(enemySystem.actorCollided, &explosionSystem,
+                   &ExplosionSystem::explode);
 }
 
 //-Private Methods----------------------------------------------

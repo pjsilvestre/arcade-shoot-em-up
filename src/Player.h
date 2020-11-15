@@ -29,6 +29,7 @@ class Player : public Actor {
   ofEvent<const ofEventArgs> missileLaunched;
 
  private:
+  bool turretEnabled{true};
   void clampPosition();
 
   Turret turret;

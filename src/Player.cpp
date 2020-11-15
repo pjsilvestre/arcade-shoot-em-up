@@ -8,6 +8,7 @@ Player::Player() : Actor() {
   position =
       glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0);
   sprite.loadImage(Constants::PLAYER_SPRITE());
+  turret.enableOneShot();
 };
 
 /**
@@ -68,17 +69,20 @@ void Player::stop() { acceleration = glm::vec3(0.0f); }
  * @brief Starts the turret
  */
 void Player::startTurret() {
-  turret.start();
-  ofEventArgs noArgs;
-  ofNotifyEvent(missileLaunched, noArgs, this);
-  // TODO either send event every time a missile is launched, or limit turret to
-  // one shot per keypress
+  if (turretEnabled) {
+    turret.start();
+    ofEventArgs noArgs;
+    ofNotifyEvent(missileLaunched, noArgs, this);
+    turretEnabled = false;
+  }
 }
 
 /**
  * @brief Stops the turret
  */
-void Player::stopTurret() { turret.stop(); }
+void Player::stopTurret() {
+  turretEnabled = true;
+}
 
 //-Private Methods----------------------------------------------
 

@@ -15,6 +15,7 @@ class EnemySystem {
   void update();
   void draw();
 
+  vector<glm::vec3> getEnemyPositions();
   void removeNear(const glm::vec3& point, float distance);
   void start();
   void notifyCollision(const ofWindowPosEventArgs& collisionPosition);

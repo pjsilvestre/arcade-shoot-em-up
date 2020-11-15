@@ -1,8 +1,6 @@
 /*
  * TODO player health (1 life?)
- * TODO enemy explosions on death
  * TODO player explosions on death
- * TODO juice player movement
  * TODO new sound effects
  */
 
@@ -44,7 +42,8 @@ class ofApp : public ofBaseApp {
   void removeEventListeners();
 
  private:
-  void checkCollisions();
+  void checkMissileEnemyCollisions();
+  void checkPlayerEnemyCollisions();
   void drawStartMessage();
   void drawScore();
   void preventResize();

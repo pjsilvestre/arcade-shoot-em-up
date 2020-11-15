@@ -50,8 +50,25 @@ void EnemySystem::draw() {
   }
 }
 
+vector<glm::vec3> EnemySystem::getEnemyPositions() {
+  // TODO optimization; add enemy position only when onscreen
+
+  vector<glm::vec3> enemyPositions;
+
+  for (auto spawner : spawners) {
+    auto positions = spawner->getActorPositions();
+
+    for (auto& position : positions) {
+      enemyPositions.push_back(position);
+    }
+  }
+
+  return enemyPositions;
+}
+
 /**
- * @brief Removes all Actors for all EnemyEmitters within a distance from a point
+ * @brief Removes all Actors for all EnemyEmitters within a distance from a
+ * point
  * @param point The removal origin
  * @param distance The threshold distance for removal
  */
@@ -71,11 +88,12 @@ void EnemySystem::start() {
 }
 
 /**
- * @brief Notifies all listeners that for all EnemyEmitters, at least one underlying
- * Actor has collided
+ * @brief Notifies all listeners that for all EnemyEmitters, at least one
+ * underlying Actor has collided
  * @param collisionPosition The collision position
  */
-void EnemySystem::notifyCollision(const ofWindowPosEventArgs& collisionPosition) {
+void EnemySystem::notifyCollision(
+    const ofWindowPosEventArgs& collisionPosition) {
   ofNotifyEvent(actorCollided, collisionPosition, this);
 }
 

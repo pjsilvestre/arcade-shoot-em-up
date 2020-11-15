@@ -46,7 +46,8 @@ void ofApp::update() {
   explosionSystem.update();
   player.update();
 
-  checkCollisions();
+  checkMissileEnemyCollisions();
+  checkPlayerEnemyCollisions();
 }
 
 //--------------------------------------------------------------
@@ -148,11 +149,24 @@ void ofApp::removeEventListeners() {
 //-Private Methods----------------------------------------------
 
 //--------------------------------------------------------------
-void ofApp::checkCollisions() {
+void ofApp::checkMissileEnemyCollisions() {
   auto missilePositions = player.getMissilePositions();
 
   for (auto& position : missilePositions) {
-    enemySystem.removeNear(position, 100.0f);
+    enemySystem.removeNear(position, Constants::COLLISION_THRESHOLD);
+  }
+}
+
+//--------------------------------------------------------------
+void ofApp::checkPlayerEnemyCollisions() {
+  auto position = player.getPosition();
+  vector<glm::vec3> enemyPositions = enemySystem.getEnemyPositions();
+
+  for (auto& enemyPosition : enemyPositions) {
+    if (abs(glm::length(position - enemyPosition)) <
+        Constants::COLLISION_THRESHOLD) {
+      score.reset();
+    }
   }
 }
 

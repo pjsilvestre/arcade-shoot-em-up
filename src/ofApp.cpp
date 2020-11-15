@@ -3,8 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
   ofSetBackgroundColor(ofColor::black);
-
-  gui.setup();
+  montserratSubrayada.load("MontserratSubrayada-Regular.ttf", 40, true, true);
 
   playerIntegrationStrategy = new PlayerIntegrationStrategy;
   player.setIntegrationStrategy(playerIntegrationStrategy);
@@ -35,12 +34,6 @@ void ofApp::update() {
     return;
   }
 
-  if (mouseEnabled) {
-    ofHideCursor();
-  } else {
-    ofShowCursor();
-  }
-
   starSystem.update();
   enemySystem.update();
   explosionSystem.update();
@@ -63,10 +56,6 @@ void ofApp::draw() {
   player.draw();
 
   drawScore();
-
-  if (guiShown) {
-    gui.draw();
-  }
 }
 
 //--------------------------------------------------------------
@@ -80,12 +69,6 @@ void ofApp::keyPressed(int key) {
   }
 
   switch (key) {
-    case 'h':
-      guiShown = !guiShown;
-      break;
-    case 'm':
-      mouseEnabled = !mouseEnabled;
-      break;
     case 'w':
       player.moveUp();
       break;
@@ -116,13 +99,6 @@ void ofApp::keyReleased(int key) {
     case ' ':
       player.stopTurret();
       break;
-  }
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {
-  if (mouseEnabled) {
-    player.setPosition(glm::vec3(x, y, 0));
   }
 }
 
@@ -172,28 +148,30 @@ void ofApp::checkPlayerEnemyCollisions() {
 
 //--------------------------------------------------------------
 void ofApp::drawStartMessage() {
-  // TODO replace bitmap string with truetype string
+  int verticalOffset = -100;
+  vector<string> startMessages = {
+      "Use WASD to move",
+      "Use space to shoot",
+      "Score resets upon player collision with enemy",
+      "",
+      "",
+      "Press space to start"};
 
-  string startMessage = "Press space to start...";
-  ofBitmapFont font;
-  ofRectangle boundingBox = font.getBoundingBox(startMessage, 0, 0);
-  ofSetColor(ofColor::white);
-  ofDrawBitmapString(startMessage,
-                     glm::vec3(ofGetWidth() / 2 - boundingBox.width / 2,
-                               ofGetHeight() / 2 - boundingBox.height / 2, 0));
+  for (auto& message : startMessages) {
+    ofRectangle boundingBox =
+        montserratSubrayada.getStringBoundingBox(message, 0, 0);
+    montserratSubrayada.drawString(
+        message, ofGetWidth() / 2 - boundingBox.width / 2,
+        ofGetHeight() / 2 - boundingBox.height / 2 + verticalOffset);
+    verticalOffset += 50;
+  }
 }
 
 //--------------------------------------------------------------
 void ofApp::drawScore() {
-  // TODO replace bitmap string with truetype string
-
   string scoreMessage = "score: " + to_string(score.getScore());
-  ofBitmapFont font;
-  ofRectangle boundingBox = font.getBoundingBox(scoreMessage, 0, 0);
   ofSetColor(ofColor::white);
-  ofDrawBitmapString(
-      scoreMessage,
-      glm::vec3(boundingBox.width / 2, 10.0f + boundingBox.height / 2, 0));
+  montserratSubrayada.drawString(scoreMessage, 25, 50);
 }
 
 //--------------------------------------------------------------

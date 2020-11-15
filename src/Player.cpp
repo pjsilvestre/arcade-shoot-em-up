@@ -63,6 +63,17 @@ void Player::moveDown() {
  */
 void Player::moveRight() { acceleration.x = initialAcceleration; }
 
+/**
+ * @brief Removes all missiles
+ * @param unusedArg Unused argument
+ */
+void Player::removeMissiles(const ofWindowPosEventArgs& unusedArg) {
+  turret.removeAll();
+}
+
+/**
+ * @brief Stops this Player
+ */
 void Player::stop() { acceleration = glm::vec3(0.0f); }
 
 /**
@@ -80,9 +91,7 @@ void Player::startTurret() {
 /**
  * @brief Stops the turret
  */
-void Player::stopTurret() {
-  turretEnabled = true;
-}
+void Player::stopTurret() { turretEnabled = true; }
 
 //-Private Methods----------------------------------------------
 

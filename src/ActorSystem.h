@@ -17,6 +17,7 @@ class ActorSystem {
 
   vector<glm::vec3> getActorPositions();
   void moveActors(const glm::vec3& direction);
+  void removeAll();
   void removeNear(const glm::vec3& point, float distance);
   void setPosition(const glm::vec3& position);
 

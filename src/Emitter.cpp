@@ -52,6 +52,11 @@ vector<glm::vec3> Emitter::getActorPositions() {
 }
 
 /**
+ * @brief Removes all Actors
+ */
+void Emitter::removeAll() { actors.removeAll(); }
+
+/**
  * @brief Removes all Actors within a distance from a point
  * @param point The removal origin
  * @param distance The threshold distance for removal

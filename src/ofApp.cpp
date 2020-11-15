@@ -24,6 +24,7 @@ void ofApp::addEventListeners() {
   ofAddListener(enemySystem.actorCollided, &score, &Score::incrementScore);
   ofAddListener(enemySystem.actorCollided, &explosionSystem,
                 &ExplosionSystem::explode);
+  ofAddListener(enemySystem.actorCollided, &player, &Player::removeMissiles);
 }
 
 //--------------------------------------------------------------
@@ -141,6 +142,7 @@ void ofApp::removeEventListeners() {
   ofRemoveListener(enemySystem.actorCollided, &score, &Score::incrementScore);
   ofRemoveListener(enemySystem.actorCollided, &explosionSystem,
                    &ExplosionSystem::explode);
+  ofRemoveListener(enemySystem.actorCollided, &player, &Player::removeMissiles);
 }
 
 //-Private Methods----------------------------------------------

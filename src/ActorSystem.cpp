@@ -34,6 +34,15 @@ vector<glm::vec3> ActorSystem::getActorPositions() {
 }
 
 /**
+ * @brief Removes all Actors
+ */
+void ActorSystem::removeAll() {
+  for (Actor& actor : actors) {
+    actor.setLifespan(0.0f);
+  }
+}
+
+/**
  * @brief Removes all Actors within a distance from a point
  * @param point The removal origin
  * @param distance The threshold distance for removal

@@ -22,6 +22,7 @@ class Player : public Actor {
   void moveLeft();
   void moveDown();
   void moveRight();
+  void removeMissiles(const ofWindowPosEventArgs& unusedArg);
   void startTurret();
   void stop();
   void stopTurret();

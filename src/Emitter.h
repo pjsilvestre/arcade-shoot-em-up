@@ -30,6 +30,7 @@ class Emitter {
   void setScale(const glm::vec3& scale) { this->scale = scale; }
 
   vector<glm::vec3> getActorPositions();
+  void removeAll();
   void removeNear(const glm::vec3& point, float distance);
   void start();
   void stop();

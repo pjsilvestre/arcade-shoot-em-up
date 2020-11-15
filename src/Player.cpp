@@ -62,10 +62,7 @@ void Player::moveDown() {
  */
 void Player::moveRight() { acceleration.x = initialAcceleration; }
 
-void Player::stop() {
-  velocity = glm::vec3(0.0f);
-  acceleration = glm::vec3(0.0f);
-}
+void Player::stop() { acceleration = glm::vec3(0.0f); }
 
 /**
  * @brief Starts the turret

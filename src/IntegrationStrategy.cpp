@@ -39,6 +39,9 @@ void PlayerIntegrationStrategy::integrate(glm::vec3& position,
   if (glm::length(velocity) < Constants::PLAYER_MAX_VELOCITY) {
     velocity += acceleration * timestep;
   }
+
+  velocity *= Constants::PLAYER_VELOCITY_DAMPING;
+  acceleration *= Constants::PLAYER_ACCELERATION_DAMPING;
 }
 
 /**

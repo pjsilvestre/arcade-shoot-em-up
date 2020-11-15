@@ -60,4 +60,10 @@ const float NEAR_STAR_SCALE{1.0f};
 const float MID_STAR_SCALE{0.5f};
 const float FAR_STAR_SCALE{0.25f};
 const std::string STAR_SPRITE();
+
+// ExplosionEmitter constants
+const float EXPLOSION_LIFESPAN{2.5f};
+const float EXPLOSION_MAGNITUDE{100.0f};
+const std::string EXPLOSION_SPRITE();
+
 }  // namespace Constants

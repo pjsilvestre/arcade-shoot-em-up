@@ -13,3 +13,7 @@ const std::string Constants::COLLISION_SOUND_EFFECT() {
 const std::string Constants::ENEMY_SPRITE() { return "enemy-saucer-red.png"; }
 
 const std::string Constants::STAR_SPRITE() { return "star.png"; }
+
+const std::string Constants::EXPLOSION_SPRITE() {
+  return "explosion-particle.png";
+}

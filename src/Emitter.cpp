@@ -107,6 +107,12 @@ void Emitter::emit() {
       actor.setIntegrationStrategy(new StarIntegrationStrategy);
       break;
     }
+    case (Integration_Strategy_Type::explosion): {
+      direction = glm::normalize(
+          glm::vec3(ofRandom(-1.0f, 1.0f), ofRandom(-1.0f, 1.0f), 0.0f));
+      actor.setIntegrationStrategy(new ExplosionIntegrationStrategy);
+      break;
+    }
     default:
       cerr << "Emitter missing integration strategy" << endl;
       break;

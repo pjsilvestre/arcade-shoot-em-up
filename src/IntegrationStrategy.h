@@ -15,7 +15,8 @@ enum class Integration_Strategy_Type {
   turret,
   enemy_linear,
   enemy_sine,
-  star
+  star,
+  explosion
 };
 
 class IntegrationStrategy {
@@ -67,6 +68,12 @@ class EnemySineIntegrationStrategy : public IntegrationStrategy {
 };
 
 class StarIntegrationStrategy : public IntegrationStrategy {
+ public:
+  void integrate(glm::vec3& position, glm::vec3& velocity,
+                 glm::vec3& acceleration) override;
+};
+
+class ExplosionIntegrationStrategy : public IntegrationStrategy {
  public:
   void integrate(glm::vec3& position, glm::vec3& velocity,
                  glm::vec3& acceleration) override;

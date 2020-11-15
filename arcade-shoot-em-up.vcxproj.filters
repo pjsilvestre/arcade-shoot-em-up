@@ -82,6 +82,7 @@
     <ClCompile Include="src\EnemyEmitter.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ExplosionEmitter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -182,6 +183,7 @@
     <ClInclude Include="src\EnemyEmitter.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\ExplosionEmitter.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

@@ -196,6 +196,7 @@
     <ClCompile Include="src\Emitter.cpp" />
     <ClCompile Include="src\EnemyEmitter.cpp" />
     <ClCompile Include="src\EnemySystem.cpp" />
+    <ClCompile Include="src\ExplosionEmitter.cpp" />
     <ClCompile Include="src\IntegrationStrategy.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="src\Emitter.h" />
     <ClInclude Include="src\EnemyEmitter.h" />
     <ClInclude Include="src\EnemySystem.h" />
+    <ClInclude Include="src\ExplosionEmitter.h" />
     <ClInclude Include="src\IntegrationStrategy.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Player.h" />

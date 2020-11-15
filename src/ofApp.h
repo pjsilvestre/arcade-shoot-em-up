@@ -1,6 +1,5 @@
 /*
- * TODO player health (1 life?)
- * TODO player explosions on death
+ * TODO player explosions on collision
  * TODO new sound effects
  */
 
@@ -44,7 +43,6 @@ class ofApp : public ofBaseApp {
   void checkPlayerEnemyCollisions();
   void drawStartMessage();
   void drawScore();
-  void preventResize();
 
   bool gameNotStarted{true};
   bool guiShown{false};

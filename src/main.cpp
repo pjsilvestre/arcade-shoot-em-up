@@ -2,6 +2,7 @@
 #include "ofMain.h"
 
 int main() {
-  ofSetupOpenGL(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT, OF_WINDOW);
+  ofSetupOpenGL(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN),
+                OF_GAME_MODE);
   ofRunApp(new ofApp());
 }

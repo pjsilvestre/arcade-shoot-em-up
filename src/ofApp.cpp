@@ -2,7 +2,9 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+  ofHideCursor();
   ofSetBackgroundColor(ofColor::black);
+  ofSetFrameRate(120);
   montserratSubrayada.load("MontserratSubrayada-Regular.ttf", 40, true, true);
 
   playerIntegrationStrategy = new PlayerIntegrationStrategy;
@@ -28,8 +30,6 @@ void ofApp::addEventListeners() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
-  preventResize();
-
   while (gameNotStarted) {
     return;
   }
@@ -172,12 +172,4 @@ void ofApp::drawScore() {
   string scoreMessage = "score: " + to_string(score.getScore());
   ofSetColor(ofColor::white);
   montserratSubrayada.drawString(scoreMessage, 25, 50);
-}
-
-//--------------------------------------------------------------
-void ofApp::preventResize() {
-  if (ofGetWidth() != Constants::SCREEN_WIDTH ||
-      ofGetHeight() != Constants::SCREEN_HEIGHT) {
-    ofSetWindowShape(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT);
-  }
 }

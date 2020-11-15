@@ -6,7 +6,7 @@
 Player::Player() : Actor() {
   initialAcceleration = Constants::PLAYER_INITIAL_ACCELERATION;
   position =
-      glm::vec3(Constants::SCREEN_WIDTH / 2, Constants::SCREEN_HEIGHT / 2, 0);
+      glm::vec3(ofGetWidth() / 2, ofGetHeight()/ 2, 0);
   sprite.loadImage(Constants::PLAYER_SPRITE());
   turret.enableOneShot();
 };
@@ -98,8 +98,8 @@ void Player::stopTurret() { turretEnabled = true; }
 void Player::clampPosition() {
   glm::vec3 newPosition = position;
 
-  newPosition.x = Utility::clamp(newPosition.x, 0, Constants::SCREEN_WIDTH);
-  newPosition.y = Utility::clamp(newPosition.y, 0, Constants::SCREEN_HEIGHT);
+  newPosition.x = Utility::clamp(newPosition.x, 0, ofGetWidth());
+  newPosition.y = Utility::clamp(newPosition.y, 0, ofGetHeight());
 
   position = newPosition;
 }

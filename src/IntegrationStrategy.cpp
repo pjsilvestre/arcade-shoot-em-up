@@ -109,8 +109,8 @@ glm::vec3 EnemySineIntegrationStrategy::SineWave::getEvaluation(float x) {
 
   return glm::vec3(
       x,
-      -amplitude * sin(dFrequency * x * PI / Constants::SCREEN_WIDTH) +
-          (Constants::SCREEN_HEIGHT / 2),
+      -amplitude * sin(dFrequency * x * PI / ofGetWidth()) +
+          (ofGetHeight() / 2),
       0);
 }
 

@@ -5,9 +5,7 @@
 
 #pragma once
 
-#include "Actor.h"
-#include "Constants.h"
-#include "Turret.h"
+#include "Emitter.h"
 #include "Utility.h"
 
 class Player : public Actor {
@@ -30,8 +28,13 @@ class Player : public Actor {
   ofEvent<const ofEventArgs> missileLaunched;
 
  private:
-  bool turretEnabled{true};
+  class Turret : public Emitter {
+   public:
+    Turret();
+  };
+
   void clampPosition();
 
+  bool turretEnabled{true};
   Turret turret;
 };

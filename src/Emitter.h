@@ -6,8 +6,6 @@
 #pragma once
 
 #include "ActorSystem.h"
-#include "Constants.h"
-#include "IntegrationStrategy.h"
 #include "ofEvent.h"
 
 class Emitter {

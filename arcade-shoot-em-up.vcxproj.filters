@@ -58,16 +58,10 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Turret.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Utility.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\SoundPlayer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StarEmitter.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\StarSystem.cpp">
@@ -77,12 +71,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\EnemySystem.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EnemyEmitter.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ExplosionEmitter.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ExplosionSystem.cpp">
@@ -164,16 +152,10 @@
     <ClInclude Include="src\Sprite.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Turret.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Utility.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\SoundPlayer.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\StarEmitter.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\StarSystem.h">
@@ -183,12 +165,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\EnemySystem.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EnemyEmitter.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ExplosionEmitter.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ExplosionSystem.h">

@@ -5,7 +5,6 @@
 
 #pragma once
 
-#include "Constants.h"
 #include "IntegrationStrategy.h"
 #include "Sprite.h"
 
@@ -25,7 +24,6 @@ class Actor {
   void setPosition(const glm::vec3& position) { this->position = position; }
   glm::vec3 getPosition() { return position; }
   void setScale(const glm::vec3& scale) { this->scale = scale; }
-  // TODO better solution than giving out raw pointers?
   IntegrationStrategy* getIntegrationStrategy() { return integrationStrategy; }
   void setIntegrationStrategy(IntegrationStrategy* strategy) {
     integrationStrategy = strategy;

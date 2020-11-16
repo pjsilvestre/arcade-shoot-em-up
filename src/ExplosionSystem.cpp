@@ -5,9 +5,9 @@
  */
 ExplosionSystem::ExplosionSystem() {
   // TODO refactor Emitter and all related classes to support Emitting > 1 Actor
-  // per emission? current implementation introduces hitching upon first couple
-  // of explosions due to memory allocation, which disappears upon subsequent
-  // explosions
+  // per emission? current implementation sometimes introduces hitching upon
+  // first couple of explosions due to maybe memory allocation, which disappears
+  // upon subsequent explosions
 
   for (int i = 0; i < Constants::EXPLOSION_GROUP_SIZE; i++) {
     ExplosionEmitter emitter;
@@ -55,3 +55,17 @@ void ExplosionSystem::explode(const ofWindowPosEventArgs& collisionPosition) {
     emitter.start();
   }
 };
+//-Private Methods----------------------------------------------
+
+/**
+ * @brief Creates a ExplosionEmitter with the default explosion sprite
+ */
+ExplosionSystem::ExplosionEmitter::ExplosionEmitter() : Emitter() {
+  actorLifespan = Constants::EXPLOSION_LIFESPAN;
+  magnitude = Constants::EXPLOSION_MAGNITUDE;
+  integrationStrategyType = Integration_Strategy_Type::explosion;
+
+  Sprite explosionSprite;
+  explosionSprite.loadImage(Constants::EXPLOSION_SPRITE());
+  sprite = explosionSprite;
+}

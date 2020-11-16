@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "ExplosionEmitter.h"
+#include "Emitter.h"
 
 class ExplosionSystem {
  public:
@@ -17,5 +17,10 @@ class ExplosionSystem {
   void explode(const ofWindowPosEventArgs& collisionPosition);
 
  private:
+  class ExplosionEmitter : public Emitter {
+   public:
+    ExplosionEmitter();
+  };
+
   vector<ExplosionEmitter> emitters;
 };

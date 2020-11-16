@@ -5,6 +5,7 @@
  */
 void ActorSystem::update() {
   deleteDeadActors();
+
   for (Actor& actor : actors) {
     actor.update();
   }
@@ -43,7 +44,8 @@ void ActorSystem::removeAll() {
 }
 
 /**
- * @brief Removes all Actors within a distance from a point
+ * @brief Removes all Actors within a distance from a point, notifying all
+ * listeners of the collision position
  * @param point The removal origin
  * @param distance The threshold distance for removal
  */

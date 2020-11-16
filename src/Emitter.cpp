@@ -21,9 +21,6 @@ void Emitter::update() {
   actors.update();
 
   if (started) {
-    // Arithmetic overflow: Using operator '-' on a 4 byte value and then
-    // casting the result to a 8 byte value.
-    // float currentTime = ofGetElapsedTimeMillis();
     double currentTime = ofGetElapsedTimeMillis();
 
     if (oneShotEnabled) {
@@ -91,7 +88,6 @@ void Emitter::emit() {
   actor.setPosition(position);
   actor.setScale(scale);
 
-  // TODO more elegant solution?
   switch (integrationStrategyType) {
     case (Integration_Strategy_Type::actor): {
       actor.setIntegrationStrategy(new ActorIntegrationStrategy);

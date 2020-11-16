@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include "ofMain.h"
 #include "Constants.h"
+#include "ofMain.h"
 
 class SoundPlayer {
  public:

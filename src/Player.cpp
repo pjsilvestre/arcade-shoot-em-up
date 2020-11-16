@@ -5,8 +5,7 @@
  */
 Player::Player() : Actor() {
   initialAcceleration = Constants::PLAYER_INITIAL_ACCELERATION;
-  position =
-      glm::vec3(ofGetWidth() / 2, ofGetHeight()/ 2, 0);
+  position = glm::vec3(ofGetWidth() / 2, ofGetHeight() / 2, 0);
   sprite.loadImage(Constants::PLAYER_SPRITE());
   turret.enableOneShot();
 };
@@ -94,6 +93,20 @@ void Player::startTurret() {
 void Player::stopTurret() { turretEnabled = true; }
 
 //-Private Methods----------------------------------------------
+
+/**
+ * @brief Creates a Turret with the default missile sprite
+ */
+Player::Turret::Turret() : Emitter() {
+  actorLifespan = Constants::MISSILE_LIFESPAN;
+  magnitude = Constants::MISSILE_MAGNITUDE;
+  integrationStrategyType = Integration_Strategy_Type::turret;
+  direction = glm::vec3(0.0f, -1.0f, 0.0f);
+
+  Sprite missileSprite;
+  missileSprite.loadImage(Constants::MISSILE_SPRITE());
+  sprite = missileSprite;
+}
 
 void Player::clampPosition() {
   glm::vec3 newPosition = position;

@@ -5,6 +5,8 @@
 namespace Constants {
 // General constants
 const int COLLISION_THRESHOLD{100};
+const int FONT_SIZE{40};
+const std::string FONT();
 
 // Sprite constants
 const float SPRITE_DIMENSIONS{128.0f};

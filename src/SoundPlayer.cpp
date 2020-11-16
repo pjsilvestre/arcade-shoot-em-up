@@ -33,7 +33,8 @@ void SoundPlayer::playMissileSoundEffect(const ofEventArgs& unusedArg) {
  * @brief Plays the sound effect associated with missiles colliding with enemies
  * @param unusedArg Unused argument
  */
-void SoundPlayer::playCollisionSoundEffect(const ofWindowPosEventArgs& unusedArg) {
+void SoundPlayer::playCollisionSoundEffect(
+    const ofWindowPosEventArgs& unusedArg) {
   if (collisionSoundLoaded) {
     collisionSound.play();
   }

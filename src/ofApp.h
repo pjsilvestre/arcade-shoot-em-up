@@ -1,27 +1,13 @@
-/*
- * TODO player explosions on collision
- * TODO new sound effects
- */
-
 #pragma once
 
-#include "Actor.h"
-#include "ActorSystem.h"
 #include "Constants.h"
-#include "Emitter.h"
-#include "EnemyEmitter.h"
 #include "EnemySystem.h"
-#include "ExplosionEmitter.h"
 #include "ExplosionSystem.h"
 #include "IntegrationStrategy.h"
 #include "Player.h"
 #include "Score.h"
 #include "SoundPlayer.h"
-#include "Sprite.h"
-#include "StarEmitter.h"
 #include "StarSystem.h"
-#include "Turret.h"
-#include "Utility.h"
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp {
@@ -47,7 +33,7 @@ class ofApp : public ofBaseApp {
   bool gameNotStarted{true};
   bool guiShown{false};
 
-  ofTrueTypeFont montserratSubrayada;
+  ofTrueTypeFont font;
 
   StarSystem starSystem;
   EnemySystem enemySystem;

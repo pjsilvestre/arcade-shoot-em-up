@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "EnemyEmitter.h"
+#include "Emitter.h"
 
 class EnemySystem {
  public:
@@ -23,6 +23,11 @@ class EnemySystem {
   ofEvent<const ofWindowPosEventArgs> actorCollided;
 
  private:
+  class EnemyEmitter : public Emitter {
+   public:
+    EnemyEmitter();
+  };
+
   void addListeners();
   void removeListeners();
 

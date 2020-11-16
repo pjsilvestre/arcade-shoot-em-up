@@ -5,12 +5,14 @@
 
 #pragma once
 
+#include "ofMain.h"
+
 class Score {
  public:
   int getScore() { return score; }
 
-  void incrementScore(const ofWindowPosEventArgs& unusedArg) { score++; }
-  void reset() { score = 0; }
+  void incrementScore(const ofWindowPosEventArgs& unusedArg);
+  void reset();
 
  private:
   int score{0};

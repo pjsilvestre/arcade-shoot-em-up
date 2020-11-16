@@ -5,7 +5,7 @@ void ofApp::setup() {
   ofHideCursor();
   ofSetBackgroundColor(ofColor::black);
   ofSetFrameRate(120);
-  montserratSubrayada.load("MontserratSubrayada-Regular.ttf", 40, true, true);
+  font.load(Constants::FONT(), Constants::FONT_SIZE);
 
   playerIntegrationStrategy = new PlayerIntegrationStrategy;
   player.setIntegrationStrategy(playerIntegrationStrategy);
@@ -126,7 +126,7 @@ void ofApp::removeEventListeners() {
 
 //--------------------------------------------------------------
 void ofApp::checkMissileEnemyCollisions() {
-  auto missilePositions = player.getMissilePositions();
+  vector<glm::vec3> missilePositions = player.getMissilePositions();
 
   for (auto& position : missilePositions) {
     enemySystem.removeNear(position, Constants::COLLISION_THRESHOLD);
@@ -135,7 +135,7 @@ void ofApp::checkMissileEnemyCollisions() {
 
 //--------------------------------------------------------------
 void ofApp::checkPlayerEnemyCollisions() {
-  auto position = player.getPosition();
+  glm::vec3 position = player.getPosition();
   vector<glm::vec3> enemyPositions = enemySystem.getEnemyPositions();
 
   for (auto& enemyPosition : enemyPositions) {
@@ -148,7 +148,7 @@ void ofApp::checkPlayerEnemyCollisions() {
 
 //--------------------------------------------------------------
 void ofApp::drawStartMessage() {
-  int verticalOffset = -100;
+  float verticalOffset = -100.0f;
   vector<string> startMessages = {
       "Use WASD to move",
       "Use space to shoot",
@@ -158,12 +158,11 @@ void ofApp::drawStartMessage() {
       "Press space to start"};
 
   for (auto& message : startMessages) {
-    ofRectangle boundingBox =
-        montserratSubrayada.getStringBoundingBox(message, 0, 0);
-    montserratSubrayada.drawString(
-        message, ofGetWidth() / 2 - boundingBox.width / 2,
-        ofGetHeight() / 2 - boundingBox.height / 2 + verticalOffset);
-    verticalOffset += 50;
+    ofRectangle boundingBox = font.getStringBoundingBox(message, 0, 0);
+    font.drawString(
+        message, ofGetWidth() / 2.0f - boundingBox.width / 2.0f,
+        ofGetHeight() / 2.0f - boundingBox.height / 2.0f + verticalOffset);
+    verticalOffset += 50.0f;
   }
 }
 
@@ -171,5 +170,5 @@ void ofApp::drawStartMessage() {
 void ofApp::drawScore() {
   string scoreMessage = "score: " + to_string(score.getScore());
   ofSetColor(ofColor::white);
-  montserratSubrayada.drawString(scoreMessage, 25, 50);
+  font.drawString(scoreMessage, 25.0f, 50.0f);
 }

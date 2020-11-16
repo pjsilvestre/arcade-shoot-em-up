@@ -5,8 +5,7 @@
 
 #pragma once
 
-#include "Constants.h"
-#include "StarEmitter.h"
+#include "Emitter.h"
 
 class StarSystem {
  public:
@@ -18,6 +17,11 @@ class StarSystem {
   void start();
 
  private:
+  class StarEmitter : public Emitter {
+   public:
+    StarEmitter();
+  };
+
   StarEmitter nearEmitter;
   StarEmitter midEmitter;
   StarEmitter farEmitter;

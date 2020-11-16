@@ -2,7 +2,7 @@
 
 /**
  * @brief Creates a StarSystem
-*/
+ */
 StarSystem::StarSystem() {
   nearEmitter.setRate(Constants::NEAR_STAR_RATE);
   midEmitter.setRate(Constants::MID_STAR_RATE);
@@ -23,7 +23,7 @@ StarSystem::StarSystem() {
 
 /**
  * @brief Updates this StarSystem
-*/
+ */
 void StarSystem::update() {
   for (auto& emitter : starEmitters) {
     emitter.setPosition(glm::vec3(ofRandomWidth(), -200.0f, 0.0f));
@@ -33,7 +33,7 @@ void StarSystem::update() {
 
 /**
  * @brief Draws this StarSystem
-*/
+ */
 void StarSystem::draw() {
   for (auto& emitter : starEmitters) {
     emitter.draw();
@@ -42,9 +42,25 @@ void StarSystem::draw() {
 
 /**
  * @brief Starts this StarSystem
-*/
+ */
 void StarSystem::start() {
   for (auto& emitter : starEmitters) {
     emitter.start();
   }
+}
+
+//-Private Methods----------------------------------------------
+
+/**
+ * @brief Creates a StarEmitter with the default star sprite
+ */
+StarSystem::StarEmitter::StarEmitter() : Emitter() {
+  actorLifespan = Constants::STAR_LIFESPAN;
+  magnitude = Constants::STAR_MAGNITUDE;
+  integrationStrategyType = Integration_Strategy_Type::star;
+  direction = glm::vec3(0.0f, 1.0f, 0.0f);
+
+  Sprite starSprite;
+  starSprite.loadImage(Constants::STAR_SPRITE());
+  sprite = starSprite;
 }
